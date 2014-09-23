@@ -63,7 +63,7 @@
     $.support.transition = transitionEnd()
   })
 
-}(jQuery);
+}(TYPO3.jQuery);
 
 /* ========================================================================
  * Bootstrap: tooltip.js v3.1.1
@@ -463,7 +463,7 @@
     return this
   }
 
-}(jQuery);
+}(TYPO3.jQuery);
 
 /* ========================================================================
  * Bootstrap: popover.js v3.1.1
@@ -574,7 +574,7 @@
     return this
   }
 
-}(jQuery);
+}(TYPO3.jQuery);
 
 (function($, window) {
   var Tour, document;
@@ -1284,4 +1284,4 @@
 
   })();
   return window.Tour = Tour;
-})(jQuery, window);
+})(TYPO3.jQuery, window);
