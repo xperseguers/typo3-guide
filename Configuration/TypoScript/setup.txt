@@ -1,0 +1,12 @@
+
+ # Module configuration
+module.tx_guide {
+	persistence {
+		storagePid = {$module.tx_guide.persistence.storagePid}
+	}
+	view {
+		templateRootPath = {$module.tx_guide.view.templateRootPath}
+		partialRootPath = {$module.tx_guide.view.partialRootPath}
+		layoutRootPath = {$module.tx_guide.view.layoutRootPath}
+	}
+}

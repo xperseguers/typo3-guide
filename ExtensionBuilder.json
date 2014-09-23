@@ -1,0 +1,109 @@
+{
+    "modules": [
+        {
+            "config": {
+                "position": [
+                    214,
+                    108
+                ]
+            },
+            "name": "New Model Object",
+            "value": {
+                "actionGroup": {
+                    "_default0_list": true,
+                    "_default1_show": false,
+                    "_default2_new_create": false,
+                    "_default3_edit_update": false,
+                    "_default4_delete": false,
+                    "customActions": []
+                },
+                "name": "Guide",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": true,
+                    "type": "Entity",
+                    "uid": "292904018595"
+                },
+                "propertyGroup": {
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "title",
+                            "propertyType": "String",
+                            "uid": "570494934724"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "text",
+                            "propertyType": "String",
+                            "uid": "978799110946"
+                        }
+                    ]
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        }
+    ],
+    "properties": {
+        "backendModules": [
+            {
+                "actions": {
+                    "controllerActionCombinations": "Guide => list"
+                },
+                "description": "Overview over all guides.",
+                "key": "guide",
+                "mainModule": "help",
+                "name": "Guides",
+                "tabLabel": "Tab label?"
+            }
+        ],
+        "description": "Guides new users through the system.",
+        "emConf": {
+            "category": "plugin",
+            "custom_category": "",
+            "dependsOn": "typo3 => 6.2\n",
+            "disableLocalization": false,
+            "disableVersioning": false,
+            "sourceLanguage": "en",
+            "state": "alpha",
+            "targetVersion": "6.2",
+            "version": ""
+        },
+        "extensionKey": "guide",
+        "name": "Guide",
+        "originalExtensionKey": "guide",
+        "persons": [
+            {
+                "company": "",
+                "email": "",
+                "name": "TYPO3 CMS Team",
+                "role": "Developer"
+            }
+        ],
+        "plugins": [],
+        "vendorName": "Tx"
+    },
+    "wires": [],
+    "log": {
+        "last_modified": "2014-09-23 03:21",
+        "extension_builder_version": "6.2.0",
+        "be_user": " (1)"
+    }
+}
