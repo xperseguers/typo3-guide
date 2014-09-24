@@ -1,6 +1,8 @@
 <?php
 namespace Tx\Guide\Domain\Repository;
 
+use Symfony\Component\Yaml\Yaml;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /***************************************************************
  *
@@ -32,5 +34,9 @@ namespace Tx\Guide\Domain\Repository;
  */
 class GuideRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
-	
+	public function findAll() {
+
+		$file = file_get_contents(GeneralUtility::getFileAbsFileName('EXT:guide/Documentation/Guide.yml'));
+		return Yaml::parse($file);
+	}
 }
