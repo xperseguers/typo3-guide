@@ -30,13 +30,59 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  ***************************************************************/
 
 /**
- * The repository for Guides
+ * The repository for guides
  */
 class GuideRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
+	/**
+	 * @var \TYPO3\CMS\Core\Cache\CacheManager
+	 * @inject
+	 */
+	protected $cacheManager = NULL;
+
+	/**
+	 * @var \TYPO3\CMS\Core\Package\PackageManager
+	 * @inject
+	 */
+	protected $packageManager = NULL;
+
+	/**
+	 * Returns a localised variant of all guides
+	 *
+	 * @return array
+	 */
 	public function findAll() {
 
-		$file = file_get_contents(GeneralUtility::getFileAbsFileName('EXT:guide/Documentation/Guide.yml'));
-		return Yaml::parse($file);
+		/** @var \TYPO3\CMS\core\Cache\Frontend\PhpFrontend $cache */
+		$cache = $this->cacheManager->getCache('tx_guide_guides');
+		$guides = $cache->requireOnce('all');
+		if ($guides === FALSE) {
+			$guides = $this->readAllGuides();
+			$cache->set('all', 'return $data = '. var_export($guides, TRUE) . ';');
+		}
+
+		return $guides;
+	}
+
+	/**
+	 * Goes through all extensions and returns a combined array of all yaml file contents.
+	 *
+	 * @return array
+	 */
+	protected function readAllGuides() {
+		$allGuides = array();
+
+		$packages = $this->packageManager->getActivePackages();
+
+		foreach ($packages as $package) {
+			$guideFile = $package->getDocumentationPath() . 'Guide.yml';
+			if (file_exists($guideFile)) {
+				$file = file_get_contents($guideFile);
+				$guides = Yaml::parse($file);
+				$allGuides = array_merge_recursive($allGuides, $guides);
+			}
+		}
+
+		return $allGuides;
 	}
 }
