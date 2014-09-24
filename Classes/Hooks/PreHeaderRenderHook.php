@@ -40,8 +40,9 @@ class PreHeaderRenderHook {
 			$pageRenderer->loadJquery();
 			$pageRenderer->addJsFile($javascriptPath . 'BootstrapTour/bootstrap-tour-standalone.js');
 			$pageRenderer->addJsFile($javascriptPath . 'guided-tour.js');
+		} else {
+			$pageRenderer->addJsFile($javascriptPath . 'releaseiframedom.js');
 		}
-		//$pageRenderer->addJsFile($javascriptPath . 'releaseiframedom.js');
 
 	}
 } 
