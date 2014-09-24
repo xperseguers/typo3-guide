@@ -50,8 +50,8 @@ overwriteSettings:
 
   Resources:
     Private:
-      #Language: merge
-      #Templates: keep
+      Language: merge
+      Templates: keep
 
   ext_icon.gif: keep
 
