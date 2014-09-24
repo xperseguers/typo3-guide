@@ -32,13 +32,13 @@ class PreHeaderRenderHook {
 		/** @var \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer*/
 		$pageRenderer = $arguments['pageRenderer'];
 
-		$css = $pageRenderer->backPath . ExtensionManagementUtility::extRelPath('guide') . 'Resources/Public/Stylesheets/BootstrapTour/bootstrap-tour-standalone.min.css';
+		$css = $pageRenderer->backPath . ExtensionManagementUtility::extRelPath('guide') . 'Resources/Public/Stylesheets/hopscotch.css';
 		$javascriptPath = $pageRenderer->backPath . ExtensionManagementUtility::extRelPath('guide') . 'Resources/Public/Javascripts/';
 
 		$pageRenderer->addCssFile($css);
 		if ($pageRenderer->backPath === '') {
 			$pageRenderer->loadJquery();
-			$pageRenderer->addJsFile($javascriptPath . 'BootstrapTour/bootstrap-tour-standalone.js');
+			$pageRenderer->addJsFile($javascriptPath . 'hopscotch.js');
 			$pageRenderer->addJsFile($javascriptPath . 'guided-tour.js');
 		} else {
 			$pageRenderer->addJsFile($javascriptPath . 'releaseiframedom.js');
