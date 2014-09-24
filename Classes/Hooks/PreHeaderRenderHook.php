@@ -21,25 +21,27 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * @package Tx\Guide\Hooks
  */
 class PreHeaderRenderHook {
-	function renderHeader($arguments) {
-		/** @var \t3lib_PageRenderer $pageRenderer*/
+
+	/**
+	 * Alter the pageRenderer before starting the rendering
+	 *
+	 * @param array $arguments The list of arguments, including the pageRenderer
+	 * @see \TYPO3\CMS\Core\Page\PageRenderer
+	 */
+	function renderHeader(array $arguments) {
+		/** @var \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer*/
 		$pageRenderer = $arguments['pageRenderer'];
 
 		$css = $pageRenderer->backPath . ExtensionManagementUtility::extRelPath('guide') . 'Resources/Public/Stylesheets/BootstrapTour/bootstrap-tour-standalone.min.css';
-		$javascript = $pageRenderer->backPath . ExtensionManagementUtility::extRelPath('guide') . 'Resources/Public/Javascripts/BootstrapTour/bootstrap-tour-standalone.js';
+		$javascriptPath = $pageRenderer->backPath . ExtensionManagementUtility::extRelPath('guide') . 'Resources/Public/Javascripts/';
 
-		$pageRenderer->loadJquery();
 		$pageRenderer->addCssFile($css);
-		$pageRenderer->addJsFile($javascript);
-
-		$paths = array ();
-
-		/*if(t3lib_div::getFileAbsFileName($extConfigs['cssFile'])) {
-			$paths['cssFile'] = t3lib_div::getFileAbsFileName($extConfigs['cssFile']);
-			$paths = t3lib_div::removePrefixPathFromList($paths,PATH_site);
-			$pagerenderer->addCssFile('../' . $paths['cssFile']);
-		}*/
-
+		if ($pageRenderer->backPath === '') {
+			$pageRenderer->loadJquery();
+			$pageRenderer->addJsFile($javascriptPath . 'BootstrapTour/bootstrap-tour-standalone.js');
+			$pageRenderer->addJsFile($javascriptPath . 'guided-tour.js');
+		}
+		//$pageRenderer->addJsFile($javascriptPath . 'releaseiframedom.js');
 
 	}
 } 
