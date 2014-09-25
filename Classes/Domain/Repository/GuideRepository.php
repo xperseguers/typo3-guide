@@ -2,7 +2,6 @@
 namespace Tx\Guide\Domain\Repository;
 
 use Symfony\Component\Yaml\Yaml;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /***************************************************************
  *
