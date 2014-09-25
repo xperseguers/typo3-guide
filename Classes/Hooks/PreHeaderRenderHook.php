@@ -36,12 +36,10 @@ class PreHeaderRenderHook {
 		$javascriptPath = $pageRenderer->backPath . ExtensionManagementUtility::extRelPath('guide') . 'Resources/Public/Javascripts/';
 
 		$pageRenderer->addCssFile($css);
+		$pageRenderer->loadJquery();
+		$pageRenderer->addJsFile($javascriptPath . 'hopscotch.js');
 		if ($pageRenderer->backPath === '') {
-			$pageRenderer->loadJquery();
-			$pageRenderer->addJsFile($javascriptPath . 'hopscotch.js');
-			$pageRenderer->addJsFile($javascriptPath . 'guided-tour.js');
-		} else {
-			$pageRenderer->addJsFile($javascriptPath . 'releaseiframedom.js');
+			$pageRenderer->addJsFile($javascriptPath . 'hopscotchadapter.js');
 		}
 
 	}
