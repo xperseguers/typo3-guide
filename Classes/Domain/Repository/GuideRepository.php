@@ -47,18 +47,75 @@ class GuideRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	protected $packageManager = NULL;
 
 	/**
+	 * @var \TYPO3\CMS\Lang\LanguageService
+	 * @inject
+	 */
+	protected $languageService = NULL;
+
+	/**
 	 * Returns a localised variant of all guides
 	 *
 	 * @return array
+	 * @throws \TYPO3\CMS\Core\Cache\Exception\InvalidDataException
+	 * @throws \TYPO3\CMS\Core\Cache\Exception\NoSuchCacheException
 	 */
 	public function findAll() {
-
 		/** @var \TYPO3\CMS\core\Cache\Frontend\PhpFrontend $cache */
 		$cache = $this->cacheManager->getCache('tx_guide_guides');
-		$guides = $cache->requireOnce('all');
+
+		if (!empty($GLOBALS['BE_USER']->uc['lang'])) {
+			$language = $GLOBALS['BE_USER']->uc['lang'];
+		} else {
+			$language = 'default';
+		}
+
+		$guides = $cache->requireOnce($language);
+		if ($guides === FALSE) {
+			$guides = $this->getDefaultLanguage();
+			if ($language !== 'default') {
+				$guides = $this->translate($guides);
+				$cache->set($language, 'return $data = '. var_export($guides, TRUE) . ';');
+			}
+		}
+
+		return $guides;
+	}
+
+	/**
+	 * Translate the guides array
+	 *
+	 * @param array $guides The array of guides
+	 * @return array
+	 */
+	protected function translate(array $guides) {
+
+		foreach ($guides as $guide) {
+			$guide['title'] = $this->languageService->sL($guide['title']);
+			$guide['description'] = $this->languageService->sL($guide['description']);
+			foreach ($guide['steps'] as $step) {
+				$step['title'] = $this->languageService->sL($step['title']);
+				$step['text'] = $this->languageService->sL($step['text']);
+			}
+		}
+
+		return $guides;
+	}
+
+	/**
+	 * Returns
+	 *
+	 * @return array
+	 * @throws \TYPO3\CMS\Core\Cache\Exception\InvalidDataException
+	 * @throws \TYPO3\CMS\Core\Cache\Exception\NoSuchCacheException
+	 */
+	protected function getDefaultLanguage() {
+		/** @var \TYPO3\CMS\core\Cache\Frontend\PhpFrontend $cache */
+		$cache = $this->cacheManager->getCache('tx_guide_guides');
+
+		$guides = $cache->requireOnce('default');
 		if ($guides === FALSE) {
 			$guides = $this->readAllGuides();
-			$cache->set('all', 'return $data = '. var_export($guides, TRUE) . ';');
+			$cache->set('default', 'return $data = '. var_export($guides, TRUE) . ';');
 		}
 
 		return $guides;
