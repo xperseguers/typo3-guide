@@ -16,3 +16,8 @@ if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations
 		'groups' => array('system')
 	);
 }
+
+TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerExtDirectComponent(
+    'TYPO3.Guide',
+    'Tx\Guide\ExtDirect\ExtDirectComponent'
+);

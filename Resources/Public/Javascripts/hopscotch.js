@@ -338,14 +338,15 @@
      * @private
      */
     getStepTargetHelper: function(target){
-      var result = document.getElementById(target);
 
+      if(target.jquery){
+        return target.length ? target[0] : null;
+      }
+      var result = document.getElementById(target);
+      console.log(target);
       //Backwards compatibility: assume the string is an id
       if (result) {
         return result;
-      }
-      if (document.querySelector) {
-        return document.querySelector(target);
       }
       if (hasJquery) {
         result = jQuery(target);
