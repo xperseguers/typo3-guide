@@ -29,4 +29,4 @@ class JsonEncodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractView
 		$content = $this->renderChildren();
 		return json_encode($content);
 	}
-} 
+}
