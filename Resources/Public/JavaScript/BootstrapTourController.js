@@ -3,6 +3,9 @@
  */
 define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Lang/Lang'], function (jQuery) {
 
+	// Init the Guide Container
+	top.TYPO3.Guide = top.TYPO3.Guide || {};
+
 	/**
 	 * Default template for each steps
 	 * @type {string}
@@ -20,7 +23,7 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Lang/Lang'], funct
 		+ '</div>'
 		+ '</div>';
 	};
-	
+
 
 	top.TYPO3.Guide.getAvailableTour = function () {
 		//return;
@@ -77,7 +80,6 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Lang/Lang'], funct
 		// Instance the tour
 		if(typeof(Tour) != 'undefined') {
 			// Init tours container
-			top.TYPO3.Guide = top.TYPO3.Guide || {};
 			top.TYPO3.Guide.Tours = top.TYPO3.Guide.Tours || {};
 
 			// The storage system you want to use. Could be the objects window.localStorage, window.sessionStorage or your own object.
