@@ -1,10 +1,12 @@
 /**
  * TYPO3 Guided tour controller
  */
-define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Lang/Lang'], function (jQuery) {
+define(['jquery', 'TYPO3/CMS/Guide/ExtendedBootstrapTour', 'TYPO3/CMS/Lang/Lang'], function (jQuery) {
 
 	// Init the Guide Container
 	top.TYPO3.Guide = top.TYPO3.Guide || {};
+
+
 
 	/**
 	 * Default template for each steps
@@ -20,6 +22,7 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Lang/Lang'], funct
 		+ '<span data-role=\'separator\' class=\'separator\'></span>'
 		+ '<button class=\'btn btn-default\' data-role=\'next\'>' + TYPO3.lang['tx_guide_tour.next'] + ' »</button>'
 		+ '<button class=\'btn btn-default\' data-role=\'end\'>' + TYPO3.lang['tx_guide_tour.end_tour'] + '</button>'
+		+ '<p class=\'dont-show-again\'><input type=\'checkbox\' data-role=\'show-again\'"> ' + TYPO3.lang['tx_guide_tour.show_again'] + '</p>'
 		+ '</div>'
 		+ '</div>';
 	};
@@ -135,7 +138,7 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Lang/Lang'], funct
 						// This option is used to build the name of the storage item where the tour state is stored. 
 						// // The name should contain only alphanumerics, underscores and hyphens. 
 						// // You can initialize several tours with different names in the same page and application.
-						name: 'main',
+						name: 'Main',
 						storage: top.TYPO3.Guide.storage,
 						debug: top.TYPO3.Guide.debug,
 						template: top.TYPO3.Guide.getTemplate(),
@@ -155,7 +158,7 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Lang/Lang'], funct
 								},
 
 								onShown: function() {
-									jQuery('.tour-main.tour-main-0').animate({ 'marginTop': '20px'}, 1000);
+
 								},
 								onNext: function() {
 									console.log('top.TYPO3.Guide.Tours.Main; step 0, onNext');
@@ -198,7 +201,7 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Lang/Lang'], funct
 					console.log('defining top.TYPO3.Guide.Tours.Menu');
 
 					top.TYPO3.Guide.Tours.Menu = new Tour({
-						name: 'menu',
+						name: 'Menu',
 						storage: top.TYPO3.Guide.storage,
 						debug: top.TYPO3.Guide.debug,
 						template: top.TYPO3.Guide.getTemplate(),

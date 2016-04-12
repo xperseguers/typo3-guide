@@ -18,3 +18,16 @@ body > .popover .separator {
 	width: 6px;
 }
 
+body > .popover .dont-show-again {
+	margin-top: 8px;
+}
+
+
+
+/**
+ * Helper classes
+ */
+
+.popover .right-align {
+	text-align: right;
+}

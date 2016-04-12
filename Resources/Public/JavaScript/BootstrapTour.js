@@ -178,6 +178,11 @@ define(['jquery'], function ($) {
 				return this._callOnPromiseDone(promise, this.showStep, i);
 			};
 
+
+			/**
+			 * Handles the stopping of an guided tour. This method clears all click and keyup handler, set states and
+			 * write to database if the user doesn't want that the guided tour will be shown again
+			 */
 			Tour.prototype.end = function() {
 				var endHelper, promise;
 				endHelper = (function(_this) {
