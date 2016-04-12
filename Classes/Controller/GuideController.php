@@ -36,12 +36,19 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class GuideController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
+	 * @var \Tx\Guide\Utility\GuideUtility
+	 * @inject
+	 */
+	protected $guideUtility;
+	
+	/**
 	 * action list
 	 *
 	 * @return void
 	 */
 	public function listAction() {
-		$this->view->assign('tours', GuideUtility::getRegisteredGuideTours());
+		$this->view->assign('userConfiguration', $this->guideUtility->getUserConfiguration());
+		$this->view->assign('tours', $this->guideUtility->getRegisteredGuideTours());
 	}
 	
 	/**
@@ -52,16 +59,27 @@ class GuideController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void
 	 */
 	public function ajaxRequest($params = array(), \TYPO3\CMS\Core\Http\AjaxRequestHandler &$ajaxObj = NULL) {
-
-		/**
-		 * @todo validation!!
-		 */
-		$cmd = GeneralUtility::_GP('cmd');
+		$stepNo = (int)GeneralUtility::_GP('stepNo');
 		$tour = GeneralUtility::_GP('tour');
-		$stepNo = GeneralUtility::_GP('stepNo');
-		
-		$result = array($cmd, $tour, $stepNo);
-		
+		$cmd = GeneralUtility::_GP('cmd');
+		// Be sure the utility is available
+		if(!($this->guideUtility instanceof \Tx\Guide\Utility\GuideUtility)) {
+			$this->guideUtility = GeneralUtility::makeInstance('Tx\Guide\Utility\GuideUtility');
+		}
+		// Process command
+		$result = array();
+		switch ($cmd) {
+			case 'disableTour':
+				if($this->guideUtility->tourExists($tour)) {
+					$result = $this->guideUtility->markGuideAsDisabled($tour);
+				}
+				break;
+			case 'setStepNo':
+				if($this->guideUtility->tourExists($tour)) {
+					$result = $this->guideUtility->setTourStepNo($tour, $stepNo);
+				}
+				break;
+		}
 		$ajaxObj->addContent('result', json_encode($result));
 	}
 	

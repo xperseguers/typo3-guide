@@ -46,7 +46,8 @@ class PageRenderer
      * @return void
      */
     public function addJSCSS($parameters, &$pageRenderer) {
-		if(GuideUtility::isGuidedTourActivated()) {
+		$guideUtility = GeneralUtility::makeInstance('Tx\Guide\Utility\GuideUtility');
+		if($guideUtility->isGuidedTourActivated()) {
 			$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTour');
 			$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourController');
 			$pageRenderer->addInlineLanguageLabelFile('EXT:guide/Resources/Private/Language/BootstrapTour.xlf');
@@ -54,7 +55,7 @@ class PageRenderer
 			$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourTree');
 			$pageRenderer->addInlineLanguageLabelFile('EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf');
 			// Add all available tours
-			$guidedTours = GuideUtility::getRegisteredGuideTours();
+			$guidedTours = $guideUtility->getRegisteredGuideTours();
 			if(!empty($guidedTours)) {
 				foreach ($guidedTours as $tour) {
 					$pageRenderer->loadRequireJsModule($tour['requireJsModule']);

@@ -1,12 +1,10 @@
 /**
  * TYPO3 Guided tour controller
  */
-define(['jquery', 'TYPO3/CMS/Guide/ExtendedBootstrapTour', 'TYPO3/CMS/Lang/Lang'], function (jQuery) {
+define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedBootstrapTour', 'TYPO3/CMS/Lang/Lang'], function (jQuery) {
 
 	// Init the Guide Container
 	top.TYPO3.Guide = top.TYPO3.Guide || {};
-
-
 
 	/**
 	 * Default template for each steps
@@ -26,7 +24,7 @@ define(['jquery', 'TYPO3/CMS/Guide/ExtendedBootstrapTour', 'TYPO3/CMS/Lang/Lang'
 		+ '</div>'
 		+ '</div>';
 	};
-
+	
 
 	top.TYPO3.Guide.getAvailableTour = function () {
 		//return;
@@ -158,7 +156,7 @@ define(['jquery', 'TYPO3/CMS/Guide/ExtendedBootstrapTour', 'TYPO3/CMS/Lang/Lang'
 								},
 
 								onShown: function() {
-
+									jQuery('.tour-main.tour-main-0').animate({ 'marginTop': '20px'}, 1000);
 								},
 								onNext: function() {
 									console.log('top.TYPO3.Guide.Tours.Main; step 0, onNext');

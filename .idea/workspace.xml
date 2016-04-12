@@ -2,53 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="286eb0bb-16fa-4e54-be34-0afc0d0e567c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/tdeuling.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/Hooks/PageRenderer.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Notices.rst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Private/Language/BootstrapTour.xlf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Private/Language/BootstrapTourTree.xlf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Private/Language/de.BootstrapTourTree.xlf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTour.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourFunctionModule.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourPageModule.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourTree.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourViewModule.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/bootstrap-tour-custom.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/bootstrap-tour.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/Hooks/PreHeaderRenderHook.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Configuration/ExtensionBuilder/settings.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Administrator/Index.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/ChangeLog/Index.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Configuration/Index.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Developer/Index.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Images/AdministratorManual/ExtensionManager.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Images/IntroductionPackage.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Images/UserManual/BackendView.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Includes.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Index.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Introduction/Index.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/KnownProblems/Index.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Localization.de_DE.tmpl/Index.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Localization.de_DE.tmpl/README" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Localization.de_DE.tmpl/Settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Localization.fr_FR.tmpl/Index.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Localization.fr_FR.tmpl/README" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Localization.fr_FR.tmpl/Settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Readme.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/Targets.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/ToDoList/Index.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation.tmpl/User/Index.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtensionBuilder.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Resources/Public/JavaScript/guided-tour.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Resources/Public/JavaScript/hopscotch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Resources/Public/JavaScript/hopscotchadapter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Resources/Public/Stylesheets/hopscotch.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Controller/GuideController.php" afterPath="$PROJECT_DIR$/Classes/Controller/GuideController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Configuration/TypoScript/setup.txt" afterPath="$PROJECT_DIR$/Configuration/TypoScript/setup.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Language/locallang_guide.xlf" afterPath="$PROJECT_DIR$/Resources/Private/Language/locallang_guide.xlf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ext_emconf.php" afterPath="$PROJECT_DIR$/ext_emconf.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Hooks/PageRenderer.php" afterPath="$PROJECT_DIR$/Classes/Hooks/PageRenderer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Utility/GuideUtility.php" afterPath="$PROJECT_DIR$/Classes/Utility/GuideUtility.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Guide/List.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Guide/List.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ext_localconf.php" afterPath="$PROJECT_DIR$/ext_localconf.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ext_tables.php" afterPath="$PROJECT_DIR$/ext_tables.php" />
     </list>
@@ -75,55 +32,69 @@
       <file leaf-file-name="PageRenderer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/Hooks/PageRenderer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+            <state relative-caret-position="221">
+              <caret line="57" column="42" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
               <folding>
-                <element signature="e#1001#1043#0#PHP" expanded="true" />
+                <element signature="e#1001#1035#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BootstrapTour.xlf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Private/Language/BootstrapTour.xlf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BootstrapTourTree.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourTree.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="54" column="77" selection-start-line="54" selection-start-column="77" selection-end-line="54" selection-end-column="77" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BootstrapTourController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BootstrapTourController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+            <state relative-caret-position="210">
+              <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
               <folding>
-                <marker date="1460391547319" expanded="true" signature="282:869" placeholder="..." />
-                <marker date="1460391547319" expanded="true" signature="441:856" placeholder="..." />
-                <marker date="1460391547319" expanded="true" signature="680:844" placeholder="..." />
+                <marker date="1460472430024" expanded="true" signature="363:950" placeholder="..." />
+                <marker date="1460472430024" expanded="true" signature="522:937" placeholder="..." />
+                <marker date="1460472430024" expanded="true" signature="761:925" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Notices.rst" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Documentation/Notices.rst">
+      <file leaf-file-name="ext_tables.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ext_tables.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+            <state relative-caret-position="188">
+              <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ext_localconf.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ext_localconf.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GuideController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/Controller/GuideController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="81">
+              <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+              <folding>
+                <element signature="e#980#1014#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GuideUtility.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/Utility/GuideUtility.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="57" column="43" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="43" />
+              <folding>
+                <element signature="e#977#1022#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,38 +102,18 @@
       <file leaf-file-name="bootstrap-tour-custom.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/bootstrap-tour-custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BootstrapTourViewModule.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourViewModule.js">
+      <file leaf-file-name="List.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Guide/List.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="62" column="72" selection-start-line="62" selection-start-column="72" selection-end-line="62" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BootstrapTourFunctionModule.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourFunctionModule.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="59" column="82" selection-start-line="59" selection-start-column="82" selection-end-line="59" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BootstrapTourPageModule.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourPageModule.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="52" column="75" selection-start-line="52" selection-start-column="75" selection-end-line="52" selection-end-column="75" />
+            <state relative-caret-position="236">
+              <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -182,24 +133,31 @@
         <option value="$PROJECT_DIR$/Resources/Public/Contrib/Hopscotch/hopscotch.js" />
         <option value="$PROJECT_DIR$/ext_emconf.php" />
         <option value="$PROJECT_DIR$/Classes/Hooks/PreHeaderRenderHook.php" />
-        <option value="$PROJECT_DIR$/ext_localconf.php" />
         <option value="$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTour.js" />
         <option value="$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourMain.js" />
-        <option value="$PROJECT_DIR$/Classes/Controller/GuideController.php" />
-        <option value="$PROJECT_DIR$/Configuration/TypoScript/setup.txt" />
         <option value="$PROJECT_DIR$/Resources/Private/Language/BootstrapTourTree.xlf" />
-        <option value="$PROJECT_DIR$/Resources/Private/Language/de.BootstrapTourTree.xlf" />
-        <option value="$PROJECT_DIR$/ext_tables.php" />
         <option value="$PROJECT_DIR$/Resources/Private/Language/locallang_guide.xlf" />
         <option value="$PROJECT_DIR$/Resources/Private/Language/BootstrapTour.xlf" />
-        <option value="$PROJECT_DIR$/Resources/Public/Stylesheets/bootstrap-tour-custom.css" />
-        <option value="$PROJECT_DIR$/Documentation/Notices.rst" />
-        <option value="$PROJECT_DIR$/Classes/Hooks/PageRenderer.php" />
         <option value="$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourFunctionModule.js" />
         <option value="$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourPageModule.js" />
         <option value="$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourTree.js" />
         <option value="$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourViewModule.js" />
+        <option value="$PROJECT_DIR$/Resources/Private/Language/de.BootstrapTourTree.xlf" />
+        <option value="$PROJECT_DIR$/Resources/Private/Language/BootstrapTourFunctionModule.xlf" />
+        <option value="$PROJECT_DIR$/Resources/Private/Language/BootstrapTourPageModule.xlf" />
+        <option value="$PROJECT_DIR$/Resources/Private/Language/BootstrapTourViewModule.xlf" />
+        <option value="$PROJECT_DIR$/Configuration/TypoScript/constants.txt" />
+        <option value="$PROJECT_DIR$/Configuration/TypoScript/setup.txt" />
+        <option value="$PROJECT_DIR$/Documentation/Notices.rst" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html" />
+        <option value="$PROJECT_DIR$/Resources/Public/Stylesheets/bootstrap-tour-custom.css" />
         <option value="$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourController.js" />
+        <option value="$PROJECT_DIR$/ext_tables.php" />
+        <option value="$PROJECT_DIR$/ext_localconf.php" />
+        <option value="$PROJECT_DIR$/Classes/Utility/GuideUtility.php" />
+        <option value="$PROJECT_DIR$/Classes/Hooks/PageRenderer.php" />
+        <option value="$PROJECT_DIR$/Classes/Controller/GuideController.php" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Guide/List.html" />
       </list>
     </option>
   </component>
@@ -245,6 +203,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -351,32 +310,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Contrib" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BootstrapTour" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="guide" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="guide" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Private" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -399,7 +332,37 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Language" />
+              <option name="myItemId" value="Backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Guide" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="guide" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="guide" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Private" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Backend" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -462,6 +425,28 @@
               <option name="myItemId" value="Classes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ViewHelpers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="guide" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="guide" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Utility" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -495,7 +480,21 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Domain" />
+              <option name="myItemId" value="ExtDirect" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="guide" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="guide" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -519,23 +518,22 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Vagrant.Themes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Resources/Public/Contrib/BootstrapTour" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Resources/Public/JavaScript" />
       <recent name="$PROJECT_DIR$/Resources/Private/Language" />
+      <recent name="$PROJECT_DIR$/Classes/Utility" />
+      <recent name="$PROJECT_DIR$/Resources/Public/JavaScript" />
       <recent name="$PROJECT_DIR$/Resources/Public/Stylesheets" />
       <recent name="$PROJECT_DIR$/Resources/Public/Javascripts" />
-      <recent name="$PROJECT_DIR$/Classes/Hooks" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Resources/Public/Contrib/BootstrapTour" />
     </key>
   </component>
   <component name="RunManager">
@@ -554,6 +552,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -580,24 +584,25 @@
       <workItem from="1460304877227" duration="1194000" />
       <workItem from="1460307247280" duration="6245000" />
       <workItem from="1460358483834" duration="29983000" />
+      <workItem from="1460448979003" duration="20014000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37422000" />
+    <option name="totallyTimeSpent" value="57436000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1679" y="282" width="1368" height="743" extended-state="7" />
+    <frame x="1679" y="282" width="1368" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25679758" sideWeight="0.66225165" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17522658" sideWeight="0.66225165" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2831126" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4370861" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21601209" sideWeight="0.33774835" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -617,193 +622,13 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Classes/Controller/GuideController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Configuration/TypoScript/constants.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Configuration/TypoScript/setup.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ext_localconf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="105" selection-start-line="7" selection-start-column="93" selection-end-line="7" selection-end-column="105" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Hooks/PreHeaderRenderHook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Domain/Repository/GuideRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="136" column="26" selection-start-line="136" selection-start-column="26" selection-end-line="136" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/guided-tour.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ext_typoscript_constants.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ext_typoscript_setup.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ext_tables.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Configuration/ExtensionBuilder/settings.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-495">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Guide/List.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Domain/Model/Guide.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Configuration/TypoScript/constants.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/BootstrapTour/bootstrap-tour.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/Joyride/jquery.joyride-2.1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="37" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/hopscotch/hopscotch.js" />
-    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/hopscotch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Domain/Repository/GuideRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="815">
-          <caret line="136" column="26" selection-start-line="136" selection-start-column="26" selection-end-line="136" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/Hopscotch/hopscotch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38715">
-          <caret line="2596" column="30" selection-start-line="2596" selection-start-column="30" selection-end-line="2596" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/BootstrapTour/bootstrap-tour.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/Hopscotch/dist/img/sprite-orange.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/Hopscotch/dist/img/sprite-green.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/Hopscotch/dist/css/hopscotch.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6165">
-          <caret line="411" column="24" selection-start-line="411" selection-start-column="24" selection-end-line="411" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/guided-tour.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/BootstrapTour/bootstrap-tour-0.10.2/build/css/bootstrap-tour.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-91">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/Hopscotch/hopscotch.js" />
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/BootstrapTour/bootstrap-tour.js" />
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/Hopscotch/dist/img/sprite-orange.png" />
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/Hopscotch/dist/img/sprite-green.png" />
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/Hopscotch/dist/css/hopscotch.css" />
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/guided-tour.js" />
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Contrib/BootstrapTour/bootstrap-tour-0.10.2/build/css/bootstrap-tour.css" />
     <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/bootstrap-tour.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -820,22 +645,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Hooks/PreHeaderRenderHook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="33" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ext_localconf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Hooks/PreHeaderRenderHook.php" />
     <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTour.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -846,19 +656,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Controller/GuideController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../Libraries/TYPO3/typo3_src-7.6.4/typo3/sysext/backend/Classes/Controller/BackendController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="554" column="44" selection-start-line="554" selection-start-column="44" selection-end-line="554" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -870,19 +671,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ext_tables.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../Libraries/TYPO3/typo3_src-7.6.4/typo3/sysext/backend/Resources/Private/Language/locallang.xlf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -902,14 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Language/de.BootstrapTourTree.xlf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../Libraries/TYPO3/typo3_src-7.6.4/typo3/sysext/core/Classes/Page/PageRenderer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
@@ -917,14 +701,6 @@
           <folding>
             <marker date="1456226251000" expanded="true" signature="9530:9543" placeholder="/*...*/" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Configuration/TypoScript/setup.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -944,73 +720,269 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/bootstrap-tour-custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Documentation/Notices.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Hooks/PageRenderer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
-          <folding>
-            <element signature="e#1001#1043#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourFunctionModule.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="59" column="82" selection-start-line="59" selection-start-column="82" selection-end-line="59" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourPageModule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="52" column="75" selection-start-line="52" selection-start-column="75" selection-end-line="52" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourTree.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="54" column="77" selection-start-line="54" selection-start-column="77" selection-end-line="54" selection-end-column="77" />
+        <state relative-caret-position="154">
+          <caret line="31" column="47" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourViewModule.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="17" column="52" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourTree.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
-          <caret line="62" column="72" selection-start-line="62" selection-start-column="72" selection-end-line="62" selection-end-column="72" />
+          <caret line="35" column="81" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourPageModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="31" column="49" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Language/de.BootstrapTourTree.xlf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="10" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Language/BootstrapTourFunctionModule.xlf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Language/BootstrapTourViewModule.xlf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Configuration/TypoScript/constants.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Configuration/TypoScript/setup.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Language/BootstrapTourPageModule.xlf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="53" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Documentation/Notices.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Libraries/TYPO3/typo3_src-7.6.4/typo3/sysext/core/Classes/Utility/ExtensionManagementUtility.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="980" column="36" selection-start-line="980" selection-start-column="36" selection-end-line="980" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/ViewHelpers/JsonEncodeViewHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/ExtDirect/ExtDirectComponent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Libraries/TYPO3/typo3_src-7.6.4/typo3/sysext/core/Resources/Public/JavaScript/Contrib/extjs/ext-all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="20" column="21414" selection-start-line="20" selection-start-column="21414" selection-end-line="20" selection-end-column="21414" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Libraries/TYPO3/typo3_src-7.6.4/typo3/sysext/form/Resources/Public/JavaScript/Wizard/Viewport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="158" column="12" selection-start-line="158" selection-start-column="12" selection-end-line="158" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Libraries/TYPO3/typo3_src-7.6.4/typo3/sysext/core/Classes/Authentication/BackendUserAuthentication.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="271" column="14" selection-start-line="271" selection-start-column="12" selection-end-line="271" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Guide/List.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="29" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/bootstrap-tour-custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Libraries/TYPO3/typo3_src-7.6.4/typo3/sysext/backend/Resources/Public/JavaScript/ExtDirect.StateProvider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-851">
+          <caret line="225" column="4" selection-start-line="225" selection-start-column="4" selection-end-line="225" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/BootstrapTourController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+        <state relative-caret-position="210">
+          <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
           <folding>
-            <marker date="1460391547319" expanded="true" signature="282:869" placeholder="..." />
-            <marker date="1460391547319" expanded="true" signature="441:856" placeholder="..." />
-            <marker date="1460391547319" expanded="true" signature="680:844" placeholder="..." />
+            <marker date="1460472430024" expanded="true" signature="363:950" placeholder="..." />
+            <marker date="1460472430024" expanded="true" signature="522:937" placeholder="..." />
+            <marker date="1460472430024" expanded="true" signature="761:925" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Libraries/TYPO3/typo3_src-7.6.4/typo3/sysext/func/ext_tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Libraries/TYPO3/typo3_src-7.6.4/typo3/sysext/viewpage/ext_tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ext_localconf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ext_tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Libraries/TYPO3/typo3_src-7.6.4/typo3/sysext/core/Classes/Imaging/Icon.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Libraries/TYPO3/typo3_src-7.6.4/typo3/sysext/core/Classes/ViewHelpers/IconViewHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="39" column="57" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Utility/GuideUtility.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="57" column="43" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="43" />
+          <folding>
+            <element signature="e#977#1022#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Controller/GuideController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+          <folding>
+            <element signature="e#980#1014#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Hooks/PageRenderer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="57" column="42" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
+          <folding>
+            <element signature="e#1001#1035#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Guide/List.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>

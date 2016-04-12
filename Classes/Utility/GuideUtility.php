@@ -43,26 +43,43 @@ class GuideUtility {
 	 * @param string $languageLabelFile
 	 * @return void
 	 */
-	public static function registerGuideTour($tourName, $moduleName, $requireJsModule, $languageLabelFile='')
+	public static function registerGuideTour($tourName, $moduleName, $requireJsModule, $languageLabelFile='', $iconIdentifier='')
 	{
 		$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'][$tourName] = array(
 			'name' => $tourName,
 			'requireJsModule' => $requireJsModule,
 			'moduleName' => $moduleName,
-			'languageLabelFile' => $languageLabelFile
+			'languageLabelFile' => $languageLabelFile,
+			'iconIdentifier' => $iconIdentifier
 		);
 
 	}
 
-	public static function getRegisteredGuideTours()
+	public function getRegisteredGuideTours()
 	{
+		$backendUser = $this->getBackendUserAuthentication();
 		/**
 		 * @todo: check authorization
 		 *      check activated
 		 */
+		$preparedTourData = array();
+		if(!empty($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'])) {
+			foreach($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'] as $tour) {
+				
+				if(isset($backendUser->uc['moduleData']['guide'][$tour['name']])) {
+					$preparedTourData[$tour['name']] = array_merge($tour, $backendUser->uc['moduleData']['guide'][$tour['name']]);
+				}
+				else {
+					$preparedTourData[$tour['name']] = $tour;
+				}
+				
+			}
+			
+			
+		}
 		
 		
-		return $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'];
+		return $preparedTourData;
 		
 		
 	}
@@ -79,12 +96,49 @@ class GuideUtility {
 		
 		return TRUE;
 	}
-	
+
+	/**
+	 * @param string $tourName Name of the guided tour
+	 * @param bool $disabled 
+	 */
 	public function markGuideAsDisabled($tourName, $disabled=TRUE) {
 		$backendUser = $this->getBackendUserAuthentication();
+		if(!isset($backendUser->uc['moduleData']['guide'][$tourName])) {
+			$backendUser->uc['moduleData']['guide'][$tourName] = array();
+		}
 		$backendUser->uc['moduleData']['guide'][$tourName]['disabled'] = $disabled;
 		$backendUser->writeUC($backendUser->uc);
+		return $backendUser->uc['moduleData']['guide']; //[$tourName];
 	}
+
+	/**
+	 * @param string $tourName Name of the guided tour
+	 * @param bool $disabled
+	 */
+	public function setTourStepNo($tourName, $stepNo) {
+		$backendUser = $this->getBackendUserAuthentication();
+		if(!isset($backendUser->uc['moduleData']['guide'][$tourName])) {
+			$backendUser->uc['moduleData']['guide'][$tourName] = array();
+		}
+		$backendUser->uc['moduleData']['guide'][$tourName]['currentStepNo'] = $stepNo;
+		$backendUser->writeUC($backendUser->uc);
+		return $backendUser->uc['moduleData']; //['guide']; //[$tourName];
+	}
+
+	/**
+	 * Check if a tour is registered
+	 * @param string $tour Name of the guided tour 
+	 * @return bool
+	 */
+	public function tourExists($tour) {
+		return isset($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'][$tour]);
+	}
+	
+	public function getUserConfiguration() {
+		$backendUser = $this->getBackendUserAuthentication();
+		return $backendUser->uc['moduleData']['guide'];
+	}
+	
 	/**
 	 * @return BackendUserAuthentication
 	 */
