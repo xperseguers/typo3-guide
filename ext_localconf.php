@@ -21,7 +21,10 @@ if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations
 	);
 }
 
+// TODO remove ExtDirect
+/*
 TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerExtDirectComponent(
     'TYPO3.Guide',
     'Tx\Guide\ExtDirect\ExtDirectComponent'
 );
+*/
