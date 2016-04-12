@@ -10,3 +10,5 @@ module.tx_guide {
 		layoutRootPath = {$module.tx_guide.view.layoutRootPath}
 	}
 }
+
+

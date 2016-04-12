@@ -37,8 +37,8 @@ class GuideController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 *
 	 * @var \Tx\Guide\Domain\Repository\GuideRepository
 	 * @inject
-	 */
 	protected $guideRepository = NULL;
+	 */
 
 	/**
 	 * action list
@@ -46,8 +46,8 @@ class GuideController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void
 	 */
 	public function listAction() {
-		$guides = $this->guideRepository->findAll();
-		$this->view->assign('guides', $guides);
+		//$guides = $this->guideRepository->findAll();
+		//$this->view->assign('guides', $guides);
 	}
 
 }
