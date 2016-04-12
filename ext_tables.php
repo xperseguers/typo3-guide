@@ -30,3 +30,24 @@ $iconRegistry->registerIcon(
 		'source' => 'EXT:guide/ext_icon.svg'
 	)
 );
+$iconRegistry->registerIcon(
+	'module-guide-tour-function-module',
+	\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+	array(
+		'source' => 'EXT:func/Resources/Public/Icons/module-func.svg'
+	)
+);
+$iconRegistry->registerIcon(
+	'module-guide-tour-view-module',
+	\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+	array(
+		'source' => 'EXT:viewpage/Resources/Public/Icons/module-viewpage.svg'
+	)
+);
+$iconRegistry->registerIcon(
+	'module-guide-tour-page-module',
+	\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+	array(
+		'source' => 'EXT:backend/Resources/Public/Icons/module-page.svg'
+	)
+);

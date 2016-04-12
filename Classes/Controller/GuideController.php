@@ -48,7 +48,7 @@ class GuideController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	public function listAction() {
 		$this->view->assign('userConfiguration', $this->guideUtility->getUserConfiguration());
-		$this->view->assign('tours', GuideUtility::getRegisteredGuideTours());
+		$this->view->assign('tours', $this->guideUtility->getRegisteredGuideTours());
 	}
 	
 	/**

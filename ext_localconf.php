@@ -9,19 +9,22 @@ if (TYPO3_MODE === 'BE') {
 		'PageModule',
 		'web_layout',
 		'TYPO3/CMS/Guide/BootstrapTourPageModule',
-		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourPageModule.xlf'
+		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourPageModule.xlf',
+		'module-guide-tour-page-module'
 	);
 	Tx\Guide\Utility\GuideUtility::registerGuideTour(
 		'ViewModule',
 		'web_ViewpageView',
 		'TYPO3/CMS/Guide/BootstrapTourViewModule',
-		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourViewModule.xlf'
+		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourViewModule.xlf',
+		'module-guide-tour-view-module'
 	);
 	Tx\Guide\Utility\GuideUtility::registerGuideTour(
 		'FunctionModule',
 		'web_func',
 		'TYPO3/CMS/Guide/BootstrapTourFunctionModule',
-		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourFunctionModule.xlf'
+		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourFunctionModule.xlf',
+		'module-guide-tour-function-module'
 	);
 	
 	// Add tour libraries
