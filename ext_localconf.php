@@ -23,7 +23,6 @@ if (TYPO3_MODE === 'BE') {
 		'TYPO3/CMS/Guide/BootstrapTourFunctionModule',
 		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourFunctionModule.xlf'
 	);
-
 	
 	// Add tour libraries
 	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][] = 
@@ -43,8 +42,3 @@ if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations
 		'groups' => array('system')
 	);
 }
-
-TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerExtDirectComponent(
-    'TYPO3.Guide',
-    'Tx\Guide\ExtDirect\ExtDirectComponent'
-);

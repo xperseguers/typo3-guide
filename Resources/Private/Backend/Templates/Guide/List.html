@@ -3,16 +3,18 @@
 	<h1>Guided tours trough TYPO3</h1>
 	<f:flashMessages />
 	<p class="lead">
-		Dies ist eine kurze Beschreibung der vorhandenen Guided tours:
+		Dies ist eine kurze Beschreibung der vorhandenen guided tours:
 	</p>
 	<h2>Available guided tours</h2>
 	<div class="container-fluid">
 		<div class="row">
 
-
+<f:debug>{_all}</f:debug>
+			
+			
 			<f:for each="{tours}" as="tour">
 				<div class="col-xs-12 col-sm-6">
-					<div class="submodule media clearfix">
+					<div class="tour-item media clearfix">
 						<a href="#" onclick="top.goToModule('web_layout'); return false;" title="Seiteninhalt" class="pull-left">
 					<span class="typo3-app-icon">
 						<span>

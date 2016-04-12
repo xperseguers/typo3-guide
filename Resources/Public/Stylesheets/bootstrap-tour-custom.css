@@ -18,3 +18,12 @@ body > .popover .separator {
 	width: 6px;
 }
 
+
+/* Backend module */
+.typo3-guide-module .container-fluid {
+	padding: 0;
+}
+.typo3-guide-module .container-fluid .tour-item {
+	margin-bottom: 20px;
+	min-height: 250px;
+}

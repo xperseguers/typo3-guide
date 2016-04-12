@@ -1,8 +1,10 @@
 /**
  * TYPO3 Guided tour controller
  */
-define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Lang/Lang'], function (jQuery) {
+define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Lang/Lang'], function (jQuery) {
 
+	top.TYPO3.Guide = top.TYPO3.Guide || {};
+	
 	/**
 	 * Default template for each steps
 	 * @type {string}
@@ -47,6 +49,22 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Lang/Lang'], funct
 
 			}
 		});
+
+		jQuery.ajax({
+			dataType: 'json',
+			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
+			data:  {
+				cmd: 'disableTour',
+				tour: 'ViewModule'
+			},
+			success: function (result) {
+				console.log(result);
+			},
+			error: function (result) {
+
+			}
+		});
+
 
 		jQuery.ajax({
 			dataType: 'json',
@@ -113,7 +131,6 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Lang/Lang'], funct
 		// Instance the tour
 		if(typeof(Tour) != 'undefined') {
 			// Init tours container
-			top.TYPO3.Guide = top.TYPO3.Guide || {};
 			top.TYPO3.Guide.Tours = top.TYPO3.Guide.Tours || {};
 
 			// The storage system you want to use. Could be the objects window.localStorage, window.sessionStorage or your own object.
