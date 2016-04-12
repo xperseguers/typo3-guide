@@ -1,14 +1,46 @@
-
 <f:layout name="Default" />
-
 <f:section name="content">
-<h1>Listing for Guide</h1>
+	<h1>Guided tours trough TYPO3</h1>
+	<f:flashMessages />
+	<p class="lead">
+		Dies ist eine kurze Beschreibung der vorhandenen Guided tours:
+	</p>
+	<h2>Available guided tours</h2>
+	<div class="container-fluid">
+		<div class="row">
 
-<f:for each="{guides}" as="guide">
-	<h2>{guide.title}</h2>
-	<p>{guide.description}</p>
-</f:for>
 
-<f:flashMessages />
+			<f:for each="{tours}" as="tour">
+				<div class="col-xs-12 col-sm-6">
+					<div class="submodule media clearfix">
+						<a href="#" onclick="top.goToModule('web_layout'); return false;" title="Seiteninhalt" class="pull-left">
+					<span class="typo3-app-icon">
+						<span>
+							<span>
+								<img src="../typo3/sysext/backend/Resources/Public/Icons/module-page.svg" alt="Seite" class="media-object">
+							</span>
+						</span>
+					</span>
+						</a>
 
+						<div class="media-body">
+							<strong>
+								<f:translate key="LLL:{tour.languageLabelFile}:tx_guide_tour.title" />
+							</strong><br />
+							<small class="text-muted">Bereits gesehen/noch nicht gesehen</small><br>
+							<p><f:translate key="LLL:{tour.languageLabelFile}:tx_guide_tour.description" /></p>
+							<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', 1); return false" class="btn btn-success">
+								Start tour
+							</a> 
+						</div>
+					</div>
+				</div>
+
+			</f:for>
+			
+		</div>
+	</div>
+	
+	
+	
 </f:section>

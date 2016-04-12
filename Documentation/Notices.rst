@@ -24,6 +24,6 @@ Nice-To-Have
 * Bilder im Content der Popovers?
 
 
-* User-Menü Item?!
+* Popover button -> Guide-Modul anzeigen
 
 * Was wenn im page tree keine seiten?

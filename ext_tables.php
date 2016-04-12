@@ -10,12 +10,11 @@ if (TYPO3_MODE === 'BE') {
 	 */
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
 		'Tx.' . $_EXTKEY,
-		'help',	 // Make module a submodule of 'help'
+		'help',		// Make module a submodule of 'help'
 		'guide',	// Submodule key
-		'',						// Position
+		'',			// Position
 		array(
-			'Guide' => 'list',
-			
+			'Guide' => 'list,ajaxRequest',
 		),
 		array(
 			'access' => 'user,group',

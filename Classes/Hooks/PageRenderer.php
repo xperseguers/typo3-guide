@@ -19,6 +19,7 @@ namespace Tx\Guide\Hooks;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Tx\Guide\Utility\GuideUtility;
 use TYPO3\CMS\Backend\Clipboard\Clipboard;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Imaging\Icon;
@@ -44,28 +45,27 @@ class PageRenderer
      *
      * @return void
      */
-    public function addJSCSS($parameters, &$pageRenderer)
-    {
-
-		/**
-		 * @todo: don't include anything, in case of the user confirmed that he won't restart the guide
-		 */
-		
-		$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTour');
-		$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourController');
-		$pageRenderer->addInlineLanguageLabelFile('EXT:guide/Resources/Private/Language/BootstrapTour.xlf');
-		$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourTree');
-		$pageRenderer->addInlineLanguageLabelFile('EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf');
-		$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourPageModule');
-		$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourViewModule');
-		$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourFunctionModule');
-
-
-		$css = $pageRenderer->backPath . ExtensionManagementUtility::extRelPath('guide') . 'Resources/Public/Stylesheets/bootstrap-tour.css';
-		$pageRenderer->addCssFile($css, 'stylesheet', 'screen');
-
-		$css = $pageRenderer->backPath . ExtensionManagementUtility::extRelPath('guide') . 'Resources/Public/Stylesheets/bootstrap-tour-custom.css';
-		$pageRenderer->addCssFile($css, 'stylesheet', 'screen');
+    public function addJSCSS($parameters, &$pageRenderer) {
+		if(GuideUtility::isGuidedTourActivated()) {
+			$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTour');
+			$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourController');
+			$pageRenderer->addInlineLanguageLabelFile('EXT:guide/Resources/Private/Language/BootstrapTour.xlf');
+			// Tree tour
+			$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourTree');
+			$pageRenderer->addInlineLanguageLabelFile('EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf');
+			// Add all available tours
+			$guidedTours = GuideUtility::getRegisteredGuideTours();
+			if(!empty($guidedTours)) {
+				foreach ($guidedTours as $tour) {
+					$pageRenderer->loadRequireJsModule($tour['requireJsModule']);
+					$pageRenderer->addInlineLanguageLabelFile($tour['languageLabelFile']);
+				}
+			}
+			// Add required styles
+			$cssPath = $pageRenderer->backPath . ExtensionManagementUtility::extRelPath('guide') . 'Resources/Public/Stylesheets/';
+			$pageRenderer->addCssFile($cssPath . 'bootstrap-tour.css', 'stylesheet', 'screen');
+			$pageRenderer->addCssFile($cssPath . 'bootstrap-tour-custom.css', 'stylesheet', 'screen');
+		}
     }
 
 }

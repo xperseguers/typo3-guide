@@ -29,6 +29,42 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Lang/Lang'], funct
 		});
 	};
 
+
+	top.TYPO3.Guide.ajaxTest = function () {
+
+		jQuery.ajax({
+			dataType: 'json',
+			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
+			data:  {
+				cmd: 'setCurrentStep',
+				stepNo: 123,
+				tour: 'PageModule'
+			},
+			success: function (result) {
+				console.log(result);
+			}, 
+			error: function (result) {
+
+			}
+		});
+
+		jQuery.ajax({
+			dataType: 'json',
+			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
+			data:  {
+				cmd: 'disableTour',
+				tour: 'PageModule'
+			},
+			success: function (result) {
+				console.log(result);
+			},
+			error: function (result) {
+
+			}
+		});
+		
+	};
+
 	/**
 	 * Starts the given tour
 	 * @param tourName

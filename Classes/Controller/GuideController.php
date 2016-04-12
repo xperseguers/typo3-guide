@@ -26,6 +26,9 @@ namespace Tx\Guide\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use Tx\Guide\Utility\GuideUtility;
+use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * GuideController
@@ -33,21 +36,33 @@ namespace Tx\Guide\Controller;
 class GuideController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
-	 * guideRepository
-	 *
-	 * @var \Tx\Guide\Domain\Repository\GuideRepository
-	 * @inject
-	protected $guideRepository = NULL;
-	 */
-
-	/**
 	 * action list
 	 *
 	 * @return void
 	 */
 	public function listAction() {
-		//$guides = $this->guideRepository->findAll();
-		//$this->view->assign('guides', $guides);
+		$this->view->assign('tours', GuideUtility::getRegisteredGuideTours());
 	}
+	
+	/**
+	 * Renders the menu so that it can be returned as response to an AJAX call
+	 *
+	 * @param array $params Array of parameters from the AJAX interface, currently unused
+	 * @param \TYPO3\CMS\Core\Http\AjaxRequestHandler $ajaxObj Object of type AjaxRequestHandler
+	 * @return void
+	 */
+	public function ajaxRequest($params = array(), \TYPO3\CMS\Core\Http\AjaxRequestHandler &$ajaxObj = NULL) {
 
+		/**
+		 * @todo validation!!
+		 */
+		$cmd = GeneralUtility::_GP('cmd');
+		$tour = GeneralUtility::_GP('tour');
+		$stepNo = GeneralUtility::_GP('stepNo');
+		
+		$result = array($cmd, $tour, $stepNo);
+		
+		$ajaxObj->addContent('result', json_encode($result));
+	}
+	
 }
