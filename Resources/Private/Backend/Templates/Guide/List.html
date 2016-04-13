@@ -26,15 +26,14 @@
 							<p><f:translate key="LLL:{tour.languageLabelFile}:tx_guide_tour.description" /></p>
 
 
+							<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', 0); return false" class="btn btn-success">
+								Start tour
+							</a>
 							<f:if condition="{tour.currentStepNo} == 0">
-								<f:then>
-									<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', 1); return false" class="btn btn-success">
-										Start tour ({tour.currentStepNo})
-									</a>
-								</f:then>
+								<f:then> </f:then>
 								<f:else>
-									<a href="#" onclick="top.TYPO3.Guide.enableTour('{tour.name}', 1); return false" class="btn btn-default">
-										Restart tour ({tour.currentStepNo})
+									<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', {tour.currentStepNo}); return false" class="btn btn-default">
+										Resume tour on step {tour.currentStepNo}
 									</a>
 								</f:else>
 							</f:if>

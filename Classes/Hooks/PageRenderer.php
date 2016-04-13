@@ -52,14 +52,17 @@ class PageRenderer
 			$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourController');
 			$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourParser');
 			$pageRenderer->addInlineLanguageLabelFile('EXT:guide/Resources/Private/Language/BootstrapTour.xlf');
+			
 			// Add all available tours
+			/*
 			$guidedTours = $guideUtility->getRegisteredGuideTours();
 			if(!empty($guidedTours)) {
 				foreach ($guidedTours as $tour) {
 					$pageRenderer->loadRequireJsModule($tour['requireJsModule']);
 					$pageRenderer->addInlineLanguageLabelFile($tour['languageLabelFile']);
 				}
-			}
+			}*/
+			
 			// Add required styles
 			$cssPath = $pageRenderer->backPath . ExtensionManagementUtility::extRelPath('guide') . 'Resources/Public/Stylesheets/';
 			$pageRenderer->addCssFile($cssPath . 'bootstrap-tour.css', 'stylesheet', 'screen');

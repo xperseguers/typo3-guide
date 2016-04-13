@@ -7,10 +7,12 @@ mod.guide.tours.AboutModule {
 			title = Welcome to TYPO3 backend
 			content (
 			 This tour will show you the first steps within TYPO3.<br />
-			 You're starting here in the <i>about</a> module, which shows you your available modules. 
+			 You're starting here in the <i>about</i> module, which shows you your available modules. 
 			 This modules are related on the giving user authorisation.<br />
 			 <br />
-			 Click 
+			 Click on <i>Next</i> for an introduction of the topbar of TYPO3.<br />
+			 <br />
+			 <i>(You can restart each tour by the guided tours module.)</i>
 			)
 			placement = top
 			showArrow = false
