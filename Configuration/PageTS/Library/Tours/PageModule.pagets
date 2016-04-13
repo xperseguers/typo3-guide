@@ -3,7 +3,7 @@ mod.guide.tours.PageModule {
     steps {
         0 {
             selector = #web_layout
-            title = Page module
+            title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourPageModule.xlf:tx_guide_tour.0.title
             content = This is the button which opens the page module.<br />You will use it for editing you content.<br />Click on <i>Next</i> for jumping into the page module.
             next {
                 guide = tx_guide.guides.pageModuleGuide

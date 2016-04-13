@@ -102,12 +102,23 @@ class GuideUtility {
 		$steps = $this->getBackendUserAuthentication()->getTSConfig(
 			'mod.guide.tours.' . $tour . '.steps', BackendUtility::getPagesTSconfig(0)
 		);
-		if(!empty($steps)) {
+		if(isset($steps['properties']) && !empty($steps['properties'])) {
 			// Be sure the TypoScript service is available
 			if(!($this->typoScriptService instanceof  \TYPO3\CMS\Extbase\Service\TypoScriptService)) {
 				$this->typoScriptService = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Service\\TypoScriptService');
 			}
 			$tours[$tour]['steps'] = $this->typoScriptService->convertTypoScriptArrayToPlainArray($steps['properties']);
+			// Translation handling
+			if(!empty($tours[$tour]['steps'])) {
+				foreach($tours[$tour]['steps'] as $stepKey=>$step) {
+					if(substr($tours[$tour]['steps'][$stepKey]['title'], 0, 4) == 'LLL:') {
+						$tours[$tour]['steps'][$stepKey]['title'] = $this->getLanguageService()->sL($tours[$tour]['steps'][$stepKey]['title']);
+					}
+					if(substr($tours[$tour]['steps'][$stepKey]['description'], 0, 4) == 'LLL:') {
+						$tours[$tour]['steps'][$stepKey]['description'] = $this->getLanguageService()->sL($tours[$tour]['steps'][$stepKey]['description']);
+					}
+				}
+			}
 		}
 		return $tours[$tour];
 	}
@@ -176,6 +187,13 @@ class GuideUtility {
 	 */
 	protected function getBackendUserAuthentication() {
 		return $GLOBALS['BE_USER'];
+	}
+
+	/**
+	 * @return \TYPO3\CMS\Lang\LanguageService
+	 */
+	protected function getLanguageService() {
+		return $GLOBALS['LANG'];
 	}
 	
 }
