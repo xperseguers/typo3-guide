@@ -1,0 +1,89 @@
+mod.guide.tours.Topbar {
+	name = Topbar
+	steps {
+		0 {
+			selector = #typo3-cms-backend-backend-toolbaritems-shortcuttoolbaritem
+			title = Shortcut menu
+			content = TYPO3.lang['tx_guide_tour_tree_general.description']
+			placement = right
+			show {
+				setClass {
+					selector = #typo3-cms-backend-backend-toolbaritems-shortcuttoolbaritem
+					class = open
+				}
+			}
+		}
+		1 {
+			selector = #typo3-cms-backend-backend-toolbaritems-clearcachetoolbaritem
+			title = Clear cache menu
+			content = TYPO3.lang['tx_guide_tour_tree_new_node.description']
+			placement = right
+			show {
+				setClass {
+					selector = #typo3-cms-backend-backend-toolbaritems-clearcachetoolbaritem
+					class = open
+				}
+			}
+		}
+		2 {
+			selector = #typo3-cms-backend-backend-toolbaritems-helptoolbaritem
+			title = Help menu
+			content = TYPO3.lang['tx_guide_tour_tree_filter.description']
+			placement = right
+			show {
+				setClass {
+					selector = #typo3-cms-backend-backend-toolbaritems-helptoolbaritem
+					class = open
+				}
+			}
+		}
+		3 {
+			selector = #typo3-cms-backend-backend-toolbaritems-systeminformationtoolbaritem
+			title = System information
+			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
+			placement = right
+			show {
+				setClass {
+					selector = #typo3-cms-backend-backend-toolbaritems-systeminformationtoolbaritem
+					class = open
+				}
+			}
+		}
+		4 {
+			selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem
+			title = User menu
+			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
+			placement = bottom
+			next {
+				setClass {
+					selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem
+					class = open
+				}
+			}
+		}
+		5 {
+			selector = #user_setup
+			title = User settings
+			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
+			placement = right
+		}
+		6 {
+			selector = .icon-actions-logout:first
+			title = Logout
+			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
+			placement = right
+		}
+
+		
+		7 {
+			selector = #typo3-cms-backend-backend-toolbaritems-livesearchtoolbaritem
+			title = Live search
+			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
+			placement = bottom
+		}
+		
+		
+		
+		
+	}
+}
