@@ -41,10 +41,30 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Guide/BootstrapTou
 							template: top.TYPO3.Guide.getTemplate(),
 							steps: [
 								{
-									element: '#width',
-									title: 'Responsive prefunction',
-									content: 'Select a device width for the prefunction area.',
+									element: '.module-docheader:first',
+									title: 'Function module',
+									content: 'The function module can be used for... Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
 									'placement': 'bottom'
+								},
+								{
+									element: 'select[name=\'WebFuncJumpMenu\']:first',
+									title: 'Module menu',
+									content: 'In this select box you \'re able to switch between the different avaiable functions. Depending on your system configuration there could be more or less functions.',
+									'placement': 'right',
+									'onShown': function () {
+										var selectBox = jQuery('select[name=\'WebFuncJumpMenu\']:first');
+										console.log('OPEN: ', selectBox);
+
+										if (document.createEvent) {
+											var event = document.createEvent("MouseEvents");
+											event.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+											selectBox[0].dispatchEvent(event);
+										} else if (element.fireEvent) {
+											selectBox[0].fireEvent("onmousedown");
+										}
+
+										//selectBox.trigger('mousedown');
+									}
 								},
 								{
 									element: "#resizeable",
@@ -55,12 +75,34 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Guide/BootstrapTou
 								{
 									element: '.icon-actions-document-view',
 									title: 'View webpage',
-									content: 'Click this button for displaying the webpage in a new tab.<br /><br /><span class="text-inf">Click on <i>End tour</i> in order to get back to the guides startpage.</span>',
-									onEnd: function() {
-										top.TYPO3.Guide.startTour('AboutModule', 0);
-									},
+									content: 'Click this button for displaying the webpage in a new tab.',
+									'placement': 'bottom'
+								},
+								{
+									element: '.typo3-docheader-pagePath',
+									title: 'Current path path',
+									content: 'Here you see on which page you\'re currently working on.',
+									'placement': 'bottom'
+								},
+								{
+									element: '.icon-actions-system-shortcut-new',
+									title: 'Create a shortcut',
+									content: 'Click this button for creating a shortcut to this page.',
+									'placement': 'bottom'
+								},
+								{
+									element: '.icon-actions-system-help-open',
+									title: 'Show help',
+									content: 'Click this button for showing the help for this page.',
+									//onEnd: function() {
+									//	top.TYPO3.Guide.openGuideModule();
+									//},
 									'placement': 'bottom'
 								}
+								
+
+								
+								
 							]
 
 						});
