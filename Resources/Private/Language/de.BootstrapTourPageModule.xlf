@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-09-23T15:21:54Z" product-name="guide">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-09-23T15:21:54Z" product-name="guide">
 		<header/>
 		<body>
 
@@ -14,6 +14,7 @@
 
 			<trans-unit id="tx_guide_tour.0.title">
 				<source>Title 0 en</source>
+				<target>Title 0 de </target>
 			</trans-unit>
 			
 		</body>
