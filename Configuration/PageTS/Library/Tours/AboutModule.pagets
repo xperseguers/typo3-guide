@@ -1,13 +1,17 @@
 mod.guide.tours.AboutModule {
-    module = Main
-    moduleId =
-    next = tx_guide.guides.menuGuide
-    steps {
-        0 {
-            selector = .typo3-aboutmodules-inner-docbody
-            title = Welcome to TYPO3 backend
-            content = This tour will show you how the guided tour could work.<br />This text of a step can also contain html markup, for <i>highlighting</i> <b>important</b> things.
-            placement = top
-        }
-    }
+	name = AboutModule
+	moduleId =
+	next = tx_guide.guides.menuGuide
+	steps {
+		0 {
+			selector = .typo3-aboutmodules-inner-docbody
+			title = Welcome to TYPO3 backend
+			content = This tour will show you how the guided tour could work.<br />This text of a step can also contain html markup, for <i>highlighting</i> <b>important</b> things.
+			placement = top
+			next {
+				tour = Menu
+				step = 0
+			}
+		}
+	}
 }

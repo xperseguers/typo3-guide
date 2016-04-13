@@ -1,0 +1,25 @@
+mod.guide.tours.Menu {
+	name = Menu
+	steps {
+		0 {
+			selector = #web_layout
+			title = Page module
+			content = This is the button which opens the page module.<br />You will use it for editing you content.<br />Click on <i>Next</i> for jumping into the page module.
+			placement = right
+			next {
+				tour = PageModule
+				step = 0
+			}
+		}
+		1 {
+			selector = #web_ViewpageView
+			title = View module
+			content = This is the view module.
+			placement = right
+			next {
+				tour = ViewModule
+				step = 0
+			}
+		}
+	}
+}
