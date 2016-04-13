@@ -68,6 +68,19 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 			}
 		});
 	};
+	top.TYPO3.Guide.getTour = function (tourName) {
+		jQuery.ajax({
+			dataType: 'json',
+			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
+			data:  {
+				cmd: 'getTour',
+				tour: tourName
+			},
+			success: function (result) {
+				console.log(result);
+			}
+		});
+	};
 
 	top.TYPO3.Guide.ajaxTest = function () {
 

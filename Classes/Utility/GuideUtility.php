@@ -29,12 +29,19 @@ namespace Tx\Guide\Utility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Service\TypoScriptService;
 
 /**
  * GuideUtility
  */
 class GuideUtility {
 
+	/**
+	 * @var \TYPO3\CMS\Extbase\Service\TypoScriptService
+	 * @inject
+	 */
+	protected $typoScriptService;
+	
 	/**
 	 * Registers an Ext.Direct component with access restrictions.
 	 *
@@ -88,6 +95,19 @@ class GuideUtility {
 	
 	public function getRegisteredGuideTour($tour) {
 		$tours = $this->getRegisteredGuideTours();
+		
+		// Get steps
+		$tours[$tour]['steps'] = array();
+		$steps = $this->getBackendUserAuthentication()->getTSConfig(
+			'mod.guide.tours.' . $tour . '.steps', BackendUtility::getPagesTSconfig(0)
+		);
+		if(!empty($steps)) {
+			// Be sure the TypoScript service is available
+			if(!($this->typoScriptService instanceof  \TYPO3\CMS\Extbase\Service\TypoScriptService)) {
+				$this->typoScriptService = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Service\\TypoScriptService');
+			}
+			$tours[$tour]['steps'] = $this->typoScriptService->convertTypoScriptArrayToPlainArray($steps['properties']);
+		}
 		return $tours[$tour];
 	}
 	
