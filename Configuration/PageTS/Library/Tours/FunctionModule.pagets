@@ -1,8 +1,8 @@
 mod.guide.tours.FunctionModule {
-    name = View
-    steps {
-        0 {
-            selector =
-        }
-    }
+	name = View
+	steps {
+		0 {
+			selector =
+		}
+	}
 }
