@@ -1,6 +1,5 @@
 mod.guide.tours.AboutModule {
 	name = AboutModule
-	moduleId =
 	next = tx_guide.guides.menuGuide
 	steps {
 		0 {

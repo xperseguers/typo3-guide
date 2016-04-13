@@ -6,12 +6,12 @@ if (!defined('TYPO3_MODE')) {
 if (TYPO3_MODE === 'BE') {
 	// Register guided tours
 	Tx\Guide\Utility\GuideUtility::registerGuideTour(
-		'About',
-		'about',
+		'AboutModule',
+		'help_AboutmodulesAboutmodules',
 		'TYPO3/CMS/Guide/BootstrapTourPageModule',
 		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourPageModule.xlf',
 		'module-guide-tour-page-module',
-		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/AboutModuleGuide.pagets'
+		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/Tours/AboutModule.pagets'
 	);
 	Tx\Guide\Utility\GuideUtility::registerGuideTour(
 		'PageModule',

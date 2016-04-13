@@ -50,10 +50,8 @@ class PageRenderer
 		if($guideUtility->isGuidedTourActivated()) {
 			$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTour');
 			$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourController');
+			$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourParser');
 			$pageRenderer->addInlineLanguageLabelFile('EXT:guide/Resources/Private/Language/BootstrapTour.xlf');
-			// Tree tour
-			$pageRenderer->loadRequireJsModule('TYPO3/CMS/Guide/BootstrapTourTree');
-			$pageRenderer->addInlineLanguageLabelFile('EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf');
 			// Add all available tours
 			$guidedTours = $guideUtility->getRegisteredGuideTours();
 			if(!empty($guidedTours)) {

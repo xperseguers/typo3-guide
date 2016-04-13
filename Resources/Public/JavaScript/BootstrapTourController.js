@@ -1,7 +1,7 @@
 /**
  * TYPO3 Guided tour controller
  */
-define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedBootstrapTour', 'TYPO3/CMS/Lang/Lang'], function (jQuery) {
+define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/ExtendedBootstrapTour',  'TYPO3/CMS/Lang/Lang'], function (jQuery, BootstrapTourParser) {
 
 	// Init the Guide Container
 	top.TYPO3.Guide = top.TYPO3.Guide || {};
@@ -90,34 +90,22 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 			dataType: 'json',
 			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
 			data:  {
-				cmd: 'setCurrentStep',
-				stepNo: 123,
-				tour: 'PageModule'
+				cmd: 'getTour',
+				tour: 'AboutModule'
 			},
 			success: function (result) {
 				console.log(result);
+				var tour = new BootstrapTourParser().parseTour(result.tour);
+				tour.init();
+				tour.start();
 			}, 
 			error: function (result) {
 
 			}
 		});
-
-		jQuery.ajax({
-			dataType: 'json',
-			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
-			data:  {
-				cmd: 'disableTour',
-				tour: 'PageModule'
-			},
-			success: function (result) {
-				console.log(result);
-			},
-			error: function (result) {
-
-			}
-		});
-		
 	};
+
+
 
 	/**
 	 * Starts the given tour
@@ -156,10 +144,14 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 	top.TYPO3.Guide.openGuideModule = function () {
 		top.jump('', 'help_GuideGuide', '', 0);
 	};
+
+	return function() {
+		top.TYPO3.Guide.ajaxTest();
+	}();
 	
 	/**
 	 * initialize function
-	 * */
+	 *
 	return function () {
 
 		console.log(TYPO3.lang['tx_guide_tour.previous']);
@@ -169,11 +161,6 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 			// Init tours container
 			top.TYPO3.Guide.Tours = top.TYPO3.Guide.Tours || {};
 
-			// The storage system you want to use. Could be the objects window.localStorage, window.sessionStorage or your own object.
-			// You can set this option as false to disable storage persistence (the tour starts from beginning every time the page is loaded).
-			top.TYPO3.Guide.storage = false;
-			// Set this option to true to have some useful information printed in the console.
-			top.TYPO3.Guide.debug = true;
 			
 			if(window.top !== window.self) {
 				console.log('frame');
@@ -322,7 +309,7 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 			console.log('Tour is undefined');
 		}
 		
-		
+
 	}();
-	
+	 */
 });

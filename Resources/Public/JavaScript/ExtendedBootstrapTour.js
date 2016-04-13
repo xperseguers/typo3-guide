@@ -77,5 +77,31 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour'], function ($) {
         Tour.prototype._isDontShowSelected = function ($popover) {
             return $popover.find('[data-role=show-again]').is(':checked');
         };
+
+        Tour.prototype._findStepById = function(id) {
+            var index = -1;
+
+            var current;
+            for(var i = 0; i < this._options.steps.length; i++) {
+                current = this.getStep(i);
+
+                if(current.id = id) {
+                    index = i;
+                    break;
+                }
+            }
+
+            return index;
+        };
+
+        Tour.prototype.startWithStep = function(id) {
+            var index = this._findStepById(id);
+
+            if(index > -1) {
+                this.setCurrentStep(index);
+            }
+
+            this.start();
+        }
     })();
 });
