@@ -112,22 +112,42 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 	 * @param tourName
 	 * @param jumpToPage
 	 */
-	top.TYPO3.Guide.startTour = function (tourName, jumpToPage) {
-		console.log('startTour: ', tourName, ', on page: ', jumpToPage);
+	top.TYPO3.Guide.startTour = function (tourName) {
+		jQuery.ajax({
+			dataType: 'json',
+			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
+			data:  {
+				cmd: 'getTour',
+				tour: tourName
+			},
+			success: function (result) {
+				var tour = new BootstrapTourParser().parseTour(result.tour);
+				tour.init();
+				tour.start();
+			},
+			error: function (result) {
 
-		if(typeof(top.TYPO3.Guide.Tours[tourName]) != 'undefined') {
-			
-			console.log('Tour found: ', top.TYPO3.Guide.Tours[tourName], ', you\'re currently in module: ', top.TYPO3ModuleMenu.loadedModule);
-			
-			if(top.TYPO3.Guide.Tours[tourName].moduleId == 'core') {
-				top.TYPO3.Guide.Tours[tourName].start();
 			}
-			// Jump to module, in case of it isn't already loaded
-			else if(top.TYPO3ModuleMenu.loadedModule != top.TYPO3.Guide.Tours[tourName].moduleId) {
-				console.log('jump to: ', top.TYPO3.Guide.Tours[tourName].moduleId);
-				top.jump('', top.TYPO3.Guide.Tours[tourName].moduleId, '', jumpToPage);
+		});
+	};
+
+	top.TYPO3.Guide.startTourWithStep = function(tourName, stepId) {
+		jQuery.ajax({
+			dataType: 'json',
+			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
+			data:  {
+				cmd: 'getTour',
+				tour: tourName
+			},
+			success: function (result) {
+				var tour = new BootstrapTourParser().parseTour(result.tour);
+				tour.init();
+				tour.startWithStep(stepId);
+			},
+			error: function (result) {
+
 			}
-		}
+		});
 	};
 
 
@@ -146,7 +166,7 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 	};
 
 	return function() {
-		top.TYPO3.Guide.ajaxTest();
+		top.TYPO3.Guide.startTour('AboutModule');
 	}();
 	
 	/**
