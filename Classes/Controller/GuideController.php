@@ -1,7 +1,6 @@
 <?php
 namespace Tx\Guide\Controller;
 
-
 /***************************************************************
  *
  *  Copyright notice
@@ -26,8 +25,6 @@ namespace Tx\Guide\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use Tx\Guide\Utility\GuideUtility;
-use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -42,7 +39,7 @@ class GuideController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	protected $guideUtility;
 	
 	/**
-	 * action list
+	 * List available tours in backend module
 	 *
 	 * @return void
 	 */
@@ -88,6 +85,12 @@ class GuideController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 					$result['uc'] = $this->guideUtility->setTourStepNo($tour, $stepNo);
 					$result['cmd'][$cmd]['tour'] = $tour;
 					$result['cmd'][$cmd]['stepNo'] = $stepNo;
+					$result['tour'] = $this->guideUtility->getRegisteredGuideTour($tour);
+				}
+				break;
+			case 'getTour':
+				if($this->guideUtility->tourExists($tour)) {
+					$result['cmd'][$cmd]['tour'] = $tour;
 					$result['tour'] = $this->guideUtility->getRegisteredGuideTour($tour);
 				}
 				break;

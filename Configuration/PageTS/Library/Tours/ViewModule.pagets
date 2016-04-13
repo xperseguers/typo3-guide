@@ -1,4 +1,4 @@
-tx_guide.guides.functionModuleGuide {
+mod.guide.tours.ViewModule {
     name = View
     steps {
         0 {

@@ -1,4 +1,4 @@
-tx_guide.guides.pageModuleGuide {
+mod.guide.tours.PageModule {
     module = Menu
     steps {
         0 {

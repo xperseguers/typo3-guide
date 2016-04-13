@@ -16,10 +16,12 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 			+ '<h3 class="popover-title"></h3>'
 			+ '<div class="popover-content"></div>'
 			+ '<div class="popover-navigation">'
-			+ '<button class="btn btn-default" data-role="prev">« ' + TYPO3.lang['tx_guide_tour.previous'] + '</button>'
+			+ '<button class="btn btn-default btn-sm" data-role="prev" id="popover-button-prev">« ' + TYPO3.lang['tx_guide_tour.previous'] + '</button>'
 			+ '<span data-role="separator" class="separator"></span>'
-			+ '<button class="btn btn-default" data-role="next">' + TYPO3.lang['tx_guide_tour.next'] + ' »</button>'
-			+ '<button class="btn btn-default" data-role="end">' + TYPO3.lang['tx_guide_tour.end_tour'] + '</button>'
+			+ '<button class="btn btn-default btn-sm" data-role="next" id="popover-button-next">' + TYPO3.lang['tx_guide_tour.next'] + ' »</button>'
+			+ '<button class="btn btn-default btn-sm" data-role="end" id="popover-button-end-tour">' + TYPO3.lang['tx_guide_tour.end_tour'] + '</button>'
+			+ '<span data-role="separator" class="separator separator-right"></span>'
+			+ '<button class="btn btn-default btn-sm" data-role="tour-overview" id="popover-button-tour-overview" onclick="top.TYPO3.Guide.openGuideModule();return false">' + TYPO3.lang['tx_guide_tour.tour_overview'] + '</button>'
 			+ '<p class="dont-show-again"><label for="popover-dont-show-again"><input type="checkbox" data-role="show-again" id="popover-dont-show-again"> ' + TYPO3.lang['tx_guide_tour.show_again'] + '</label></p>'
 			+ '</div>'
 			+ '</div>';
@@ -65,6 +67,19 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 					jQuery('.guide-tour-disable', guideTourItem).addClass('hidden');
 					
 				}
+			}
+		});
+	};
+	top.TYPO3.Guide.getTour = function (tourName) {
+		jQuery.ajax({
+			dataType: 'json',
+			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
+			data:  {
+				cmd: 'getTour',
+				tour: tourName
+			},
+			success: function (result) {
+				console.log(result);
 			}
 		});
 	};
@@ -138,6 +153,9 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 		return decodeURIComponent(results[2].replace(/\+/g, " "));
 	};
 	
+	top.TYPO3.Guide.openGuideModule = function () {
+		top.jump('', 'help_GuideGuide', '', 0);
+	};
 	
 	/**
 	 * initialize function

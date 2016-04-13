@@ -19,7 +19,7 @@ if (TYPO3_MODE === 'BE') {
 		'TYPO3/CMS/Guide/BootstrapTourPageModule',
 		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourPageModule.xlf',
 		'module-guide-tour-page-module',
-		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/PageModuleGuide.pagets'
+		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/Tours/PageModule.pagets'
 	);
 	Tx\Guide\Utility\GuideUtility::registerGuideTour(
 		'ViewModule',
@@ -27,7 +27,7 @@ if (TYPO3_MODE === 'BE') {
 		'TYPO3/CMS/Guide/BootstrapTourViewModule',
 		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourViewModule.xlf',
 		'module-guide-tour-view-module',
-		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/ViewModuleGuide.pagets'
+		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/Tours/ViewModule.pagets'
 	);
 	
 	Tx\Guide\Utility\GuideUtility::registerGuideTour(
@@ -36,7 +36,7 @@ if (TYPO3_MODE === 'BE') {
 		'TYPO3/CMS/Guide/BootstrapTourFunctionModule',
 		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourFunctionModule.xlf',
 		'module-guide-tour-function-module',
-		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/FunctionModuleGuide.pagets'
+		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/Tours/FunctionModule.pagets'
 	);
 	
 

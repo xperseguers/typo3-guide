@@ -1,4 +1,4 @@
-tx_guide.guides.mainGuide {
+mod.guide.tours.AboutModule {
     module = Main
     moduleId =
     next = tx_guide.guides.menuGuide
