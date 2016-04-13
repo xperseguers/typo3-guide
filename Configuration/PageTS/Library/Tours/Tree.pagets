@@ -1,5 +1,5 @@
 mod.guide.tours.Tree {
-	name = View
+	name = Tree
 	steps {
 		0 {
 			selector = div.x-tree-root-node:first

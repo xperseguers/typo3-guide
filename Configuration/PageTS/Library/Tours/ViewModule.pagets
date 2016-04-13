@@ -1,5 +1,5 @@
 mod.guide.tours.ViewModule {
-    name = View
+    name = ViewModule
     steps {
 		0 {
 			selector = .module-docheader:first
@@ -10,33 +10,23 @@ mod.guide.tours.ViewModule {
 		}
 		1 {
 			selector = #width
-			title = View module
-			content = The view module can be used for... Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-			placement = bottom
-		}
-		2 {
-			selector = #width
 			title = Responsive preview
 			content = Select a device width for the preview area.
 			placement = bottom
 		}
-		3 {
+		2 {
 			selector = #resizeable
 			title = Webpage preview
 			content = This is the preview of you webpage.
 			placement = top
-			next {
-				guide = tx_guide.guides.pageModuleGuide
-				step = 0
-			}
 		}
-		4 {
-			selector = #resizeable
-			title = Webpage preview
-			content = This is the preview of you webpage.
-			placement = top
+		3 {
+			selector = .icon-actions-document-view
+			title = View webpage
+			content = Click this button for displaying the webpage in a new tab.<br /><br /><span class="text-inf">Click on <i>End tour</i> in order to get back to the guides startpage.</span>
+			placement = bottom
 			next {
-				guide = tx_guide.guides.pageModuleGuide
+				tour = FunctionModule
 				step = 0
 			}
 		}
