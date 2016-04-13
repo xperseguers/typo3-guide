@@ -94,6 +94,10 @@ class GuideController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 					$result['tour'] = $this->guideUtility->getRegisteredGuideTour($tour);
 				}
 				break;
+			case 'getTours':
+				$result['cmd'][$cmd] = array();
+				$result['tours'] = $this->guideUtility->getRegisteredGuideTours();
+				break;
 		}
 		$ajaxObj->addContent('result', json_encode($result));
 	}

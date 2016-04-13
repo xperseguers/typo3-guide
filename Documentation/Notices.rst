@@ -15,7 +15,11 @@ Nice-To-Have
 
 
 
+Possible tours
+==============
 
+* How to use shortcuts
+* 
 
 
 ==============
@@ -24,6 +28,6 @@ Nice-To-Have
 * Bilder im Content der Popovers?
 
 
-* Popover button -> Guide-Modul anzeigen
+* Popover: Don't show ###tourname### again
 
 * Was wenn im page tree keine seiten?

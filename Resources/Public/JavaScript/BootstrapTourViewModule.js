@@ -41,6 +41,12 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour', 'TYPO3/CMS/Guide/BootstrapTou
 							template: top.TYPO3.Guide.getTemplate(),
 							steps: [
 								{
+									element: '.module-docheader:first',
+									title: 'View module',
+									content: 'The view module can be used for... Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+									'placement': 'bottom'
+								},
+								{
 									element: '#width',
 									title: 'Responsive preview',
 									content: 'Select a device width for the preview area.',
