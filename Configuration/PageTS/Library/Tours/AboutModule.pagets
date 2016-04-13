@@ -10,16 +10,12 @@ mod.guide.tours.AboutModule {
 			 You're starting here in the <i>about</a> module, which shows you your available modules. 
 			 This modules are related on the giving user authorisation.<br />
 			 <br />
-			 Start other tours:
-			 <ul>
-				 <li>Show me how the topbar works</li>
-				 <li>Show me how the topbar works</li>
-			 </ul>
+			 Click 
 			)
 			placement = top
 			showArrow = false
 			next {
-				tour = Menu
+				tour = Topbar
 				step = 0
 			}
 		}

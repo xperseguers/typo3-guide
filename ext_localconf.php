@@ -6,6 +6,30 @@ if (!defined('TYPO3_MODE')) {
 if (TYPO3_MODE === 'BE') {
 	// Register guided tours
 	Tx\Guide\Utility\GuideUtility::registerGuideTour(
+		'Topbar',
+		'core',
+		'TYPO3/CMS/Guide/BootstrapTourPageModule',
+		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourPageModule.xlf',
+		'module-guide-tour-topbar',
+		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/Tours/Topbar.pagets'
+	);
+	Tx\Guide\Utility\GuideUtility::registerGuideTour(
+		'Tree',
+		'core',
+		'TYPO3/CMS/Guide/BootstrapTourPageModule',
+		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourPageModule.xlf',
+		'module-guide-tour-tree',
+		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/Tours/Tree.pagets'
+	);
+	Tx\Guide\Utility\GuideUtility::registerGuideTour(
+		'Menu',
+		'core',
+		'TYPO3/CMS/Guide/BootstrapTourPageModule',
+		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourPageModule.xlf',
+		'module-guide-tour-menu',
+		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/Tours/Menu.pagets'
+	);
+	Tx\Guide\Utility\GuideUtility::registerGuideTour(
 		'AboutModule',
 		'help_AboutmodulesAboutmodules',
 		'TYPO3/CMS/Guide/BootstrapTourPageModule',
