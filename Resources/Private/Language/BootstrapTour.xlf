@@ -12,6 +12,9 @@
 			<trans-unit id="tx_guide_tour.end_tour">
 				<source>End tour</source>
 			</trans-unit>
+			<trans-unit id="tx_guide_tour.tour_overview">
+				<source>Tour overview</source>
+			</trans-unit>
 			<trans-unit id="tx_guide_tour.show_again">
 				<source>Don't show again</source>
 			</trans-unit>

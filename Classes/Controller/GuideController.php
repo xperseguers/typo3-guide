@@ -1,7 +1,6 @@
 <?php
 namespace Tx\Guide\Controller;
 
-
 /***************************************************************
  *
  *  Copyright notice
@@ -26,8 +25,6 @@ namespace Tx\Guide\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use Tx\Guide\Utility\GuideUtility;
-use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -42,14 +39,11 @@ class GuideController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	protected $guideUtility;
 	
 	/**
-	 * action list
+	 * List available tours in backend module
 	 *
 	 * @return void
 	 */
 	public function listAction() {
-		
-		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->guideUtility->getRegisteredGuideTour('PageModule'));
-		
 		$this->view->assign('userConfiguration', $this->guideUtility->getUserConfiguration());
 		$this->view->assign('tours', $this->guideUtility->getRegisteredGuideTours());
 	}

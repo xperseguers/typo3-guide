@@ -1,7 +1,6 @@
 <?php
 namespace Tx\Guide\Utility;
 
-
 /***************************************************************
  *
  *  Copyright notice
@@ -29,7 +28,6 @@ namespace Tx\Guide\Utility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Service\TypoScriptService;
 
 /**
  * GuideUtility
@@ -51,8 +49,7 @@ class GuideUtility {
 	 * @param string $languageLabelFile
 	 * @return void
 	 */
-	public static function registerGuideTour($tourName, $moduleName, $requireJsModule, $languageLabelFile='', $iconIdentifier='', $pageTsFile='')
-	{
+	public static function registerGuideTour($tourName, $moduleName, $requireJsModule, $languageLabelFile='', $iconIdentifier='', $pageTsFile='') {
 		$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'][$tourName] = array(
 			'name' => $tourName,
 			'requireJsModule' => $requireJsModule,
@@ -68,8 +65,7 @@ class GuideUtility {
 
 	}
 
-	public function getRegisteredGuideTours()
-	{
+	public function getRegisteredGuideTours() {
 		$backendUser = $this->getBackendUserAuthentication();
 		/**
 		 * @todo: check authorization
@@ -78,7 +74,7 @@ class GuideUtility {
 		$preparedTourData = array();
 		if(!empty($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'])) {
 			foreach($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'] as $tour) {
-				
+				// Merge user configuration
 				if(isset($backendUser->uc['moduleData']['guide'][$tour['name']])) {
 					$preparedTourData[$tour['name']] = array_merge($tour, $backendUser->uc['moduleData']['guide'][$tour['name']]);
 				}
@@ -92,10 +88,15 @@ class GuideUtility {
 		}
 		return $preparedTourData;
 	}
-	
+
+	/**
+	 * Get a tour by name
+	 * @param $tour
+	 * @return array
+	 */
 	public function getRegisteredGuideTour($tour) {
+		// Get all tours
 		$tours = $this->getRegisteredGuideTours();
-		
 		// Get steps
 		$tours[$tour]['steps'] = array();
 		$steps = $this->getBackendUserAuthentication()->getTSConfig(
@@ -160,7 +161,11 @@ class GuideUtility {
 	public function tourExists($tour) {
 		return isset($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'][$tour]);
 	}
-	
+
+	/**
+	 * Get user configuration for guides
+	 * @return array
+	 */
 	public function getUserConfiguration() {
 		$backendUser = $this->getBackendUserAuthentication();
 		return $backendUser->uc['moduleData']['guide'];
