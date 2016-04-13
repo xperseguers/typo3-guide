@@ -28,6 +28,7 @@ namespace Tx\Guide\Utility;
  ***************************************************************/
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * GuideUtility
@@ -43,7 +44,7 @@ class GuideUtility {
 	 * @param string $languageLabelFile
 	 * @return void
 	 */
-	public static function registerGuideTour($tourName, $moduleName, $requireJsModule, $languageLabelFile='', $iconIdentifier='')
+	public static function registerGuideTour($tourName, $moduleName, $requireJsModule, $languageLabelFile='', $iconIdentifier='', $pageTsFile='')
 	{
 		$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'][$tourName] = array(
 			'name' => $tourName,
@@ -52,6 +53,11 @@ class GuideUtility {
 			'languageLabelFile' => $languageLabelFile,
 			'iconIdentifier' => $iconIdentifier
 		);
+
+		if(trim($pageTsFile) != '') {
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:' . $pageTsFile . '">');
+		}
+		
 
 	}
 
@@ -72,16 +78,17 @@ class GuideUtility {
 				else {
 					$preparedTourData[$tour['name']] = $tour;
 				}
-				
+				// Generate an id
+				$preparedTourData[$tour['name']]['id'] = GeneralUtility::camelCaseToLowerCaseUnderscored($tour['name']);
+				$preparedTourData[$tour['name']]['id'] = 'guide-tour-' . str_replace('_', '-', $preparedTourData[$tour['name']]['id']);
 			}
-			
-			
 		}
-		
-		
 		return $preparedTourData;
-		
-		
+	}
+	
+	public function getRegisteredGuideTour($tour) {
+		$tours = $this->getRegisteredGuideTours();
+		return $tours[$tour];
 	}
 	
 	public function isGuidedTourActivated() {
@@ -101,14 +108,14 @@ class GuideUtility {
 	 * @param string $tourName Name of the guided tour
 	 * @param bool $disabled 
 	 */
-	public function markGuideAsDisabled($tourName, $disabled=TRUE) {
+	public function setTourDisabled($tourName, $disabled=TRUE) {
 		$backendUser = $this->getBackendUserAuthentication();
 		if(!isset($backendUser->uc['moduleData']['guide'][$tourName])) {
 			$backendUser->uc['moduleData']['guide'][$tourName] = array();
 		}
 		$backendUser->uc['moduleData']['guide'][$tourName]['disabled'] = $disabled;
 		$backendUser->writeUC($backendUser->uc);
-		return $backendUser->uc['moduleData']['guide']; //[$tourName];
+		return $backendUser->uc['moduleData']['guide'][$tourName];
 	}
 
 	/**
@@ -122,7 +129,7 @@ class GuideUtility {
 		}
 		$backendUser->uc['moduleData']['guide'][$tourName]['currentStepNo'] = $stepNo;
 		$backendUser->writeUC($backendUser->uc);
-		return $backendUser->uc['moduleData']; //['guide']; //[$tourName];
+		return $backendUser->uc['moduleData']['guide'][$tourName];
 	}
 
 	/**

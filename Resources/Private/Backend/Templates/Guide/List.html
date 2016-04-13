@@ -12,7 +12,7 @@
 	
 			<f:for each="{tours}" as="tour">
 				<div class="col-xs-12 col-sm-6">
-					<div class="tour-item media clearfix">
+					<div class="tour-item media clearfix" id="{tour.id}">
 						
 						<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', 1); return false;" title="Seiteninhalt" class="pull-left">
 							<core:icon identifier="{tour.iconIdentifier}" size="default" />
@@ -41,12 +41,18 @@
 									
 							<f:if condition="{tour.disabled}">
 								<f:then>
-									<a href="#" onclick="top.TYPO3.Guide.diableTour('{tour.name}', 1); return false" class="btn btn-default">
+									<a href="#" onclick="top.TYPO3.Guide.enableTour('{tour.name}'); return false" class="guide-tour-enable btn btn-default">
 										Enable
+									</a>
+									<a href="#" onclick="top.TYPO3.Guide.disableTour('{tour.name}'); return false" class="guide-tour-disable btn btn-default hidden">
+										Disable
 									</a>
 								</f:then>
 								<f:else>
-									<a href="#" onclick="top.TYPO3.Guide.enableTour('{tour.name}', 1); return false" class="btn btn-default">
+									<a href="#" onclick="top.TYPO3.Guide.enableTour('{tour.name}'); return false" class="guide-tour-enable btn btn-default hidden">
+										Enable
+									</a>
+									<a href="#" onclick="top.TYPO3.Guide.disableTour('{tour.name}'); return false" class="guide-tour-disable btn btn-default">
 										Disable
 									</a>
 								</f:else>

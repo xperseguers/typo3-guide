@@ -21,6 +21,10 @@ body > .popover .separator {
 body > .popover .dont-show-again {
 	margin-top: 8px;
 }
+body > .popover .dont-show-again label {
+	cursor: pointer;
+	font-weight: normal;
+}
 
 
 

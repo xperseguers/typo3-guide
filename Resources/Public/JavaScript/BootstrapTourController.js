@@ -11,18 +11,18 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 	 * @type {string}
 	 */
 	top.TYPO3.Guide.getTemplate = function() {
-		return '<div class=\'popover tour\'>'
-		+ '<div class=\'arrow\'></div>'
-		+ '<h3 class=\'popover-title\'></h3>'
-		+ '<div class=\'popover-content\'></div>'
-		+ '<div class=\'popover-navigation\'>'
-		+ '<button class=\'btn btn-default\' data-role=\'prev\'>« ' + TYPO3.lang['tx_guide_tour.previous'] + '</button>'
-		+ '<span data-role=\'separator\' class=\'separator\'></span>'
-		+ '<button class=\'btn btn-default\' data-role=\'next\'>' + TYPO3.lang['tx_guide_tour.next'] + ' »</button>'
-		+ '<button class=\'btn btn-default\' data-role=\'end\'>' + TYPO3.lang['tx_guide_tour.end_tour'] + '</button>'
-		+ '<p class=\'dont-show-again\'><input type=\'checkbox\' data-role=\'show-again\'"> ' + TYPO3.lang['tx_guide_tour.show_again'] + '</p>'
-		+ '</div>'
-		+ '</div>';
+		return '<div class="popover tour">'
+			+ '<div class="arrow"></div>'
+			+ '<h3 class="popover-title"></h3>'
+			+ '<div class="popover-content"></div>'
+			+ '<div class="popover-navigation">'
+			+ '<button class="btn btn-default" data-role="prev">« ' + TYPO3.lang['tx_guide_tour.previous'] + '</button>'
+			+ '<span data-role="separator" class="separator"></span>'
+			+ '<button class="btn btn-default" data-role="next">' + TYPO3.lang['tx_guide_tour.next'] + ' »</button>'
+			+ '<button class="btn btn-default" data-role="end">' + TYPO3.lang['tx_guide_tour.end_tour'] + '</button>'
+			+ '<p class="dont-show-again"><label for="popover-dont-show-again"><input type="checkbox" data-role="show-again" id="popover-dont-show-again"> ' + TYPO3.lang['tx_guide_tour.show_again'] + '</label></p>'
+			+ '</div>'
+			+ '</div>';
 	};
 	
 
@@ -33,6 +33,41 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 		});
 	};
 
+	top.TYPO3.Guide.enableTour = function (tourName) {
+		jQuery.ajax({
+			dataType: 'json',
+			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
+			data:  {
+				cmd: 'enableTour',
+				tour: tourName
+			},
+			success: function (result) {
+				if(typeof(result.cmd.enableTour) != 'undefined') {
+					var guideTourItem = jQuery('#' + result.tour.id);
+					jQuery('.guide-tour-enable', guideTourItem).addClass('hidden');
+					jQuery('.guide-tour-disable', guideTourItem).removeClass('hidden');
+				}
+			}
+		});
+	};
+	top.TYPO3.Guide.disableTour = function (tourName) {
+		jQuery.ajax({
+			dataType: 'json',
+			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
+			data:  {
+				cmd: 'disableTour',
+				tour: tourName
+			},
+			success: function (result) {
+				if(typeof(result.cmd.disableTour) != 'undefined') {
+					var guideTourItem = jQuery('#' + result.tour.id);
+					jQuery('.guide-tour-enable', guideTourItem).removeClass('hidden');
+					jQuery('.guide-tour-disable', guideTourItem).addClass('hidden');
+					
+				}
+			}
+		});
+	};
 
 	top.TYPO3.Guide.ajaxTest = function () {
 
@@ -90,9 +125,6 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 				top.jump('', top.TYPO3.Guide.Tours[tourName].moduleId, '', jumpToPage);
 			}
 		}
-
-		
-		
 	};
 
 
@@ -136,7 +168,7 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 						// This option is used to build the name of the storage item where the tour state is stored. 
 						// // The name should contain only alphanumerics, underscores and hyphens. 
 						// // You can initialize several tours with different names in the same page and application.
-						name: 'Main',
+						name: 'main',
 						storage: top.TYPO3.Guide.storage,
 						debug: top.TYPO3.Guide.debug,
 						template: top.TYPO3.Guide.getTemplate(),
@@ -146,7 +178,8 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 								title: 'Welcome to TYPO3 backend',
 								content: 'This tour will show you how the guided tour could work.<br />'
 								+'This text of a step can also contain html markup, for <i>highlighting</i> <b>important</b> things.'
-								+' ' + top.TYPO3.Guide.getAvailableTour(),
+								//+' ' + top.TYPO3.Guide.getAvailableTour()
+								,
 								placement: 'top',
 								// Function to execute right after the step is shown. It overrides the global onShown option.
 
@@ -199,7 +232,7 @@ define(['jquery', 'TYPO3/CMS/Backend/AjaxDataHandler','TYPO3/CMS/Guide/ExtendedB
 					console.log('defining top.TYPO3.Guide.Tours.Menu');
 
 					top.TYPO3.Guide.Tours.Menu = new Tour({
-						name: 'Menu',
+						name: 'menu',
 						storage: top.TYPO3.Guide.storage,
 						debug: top.TYPO3.Guide.debug,
 						template: top.TYPO3.Guide.getTemplate(),

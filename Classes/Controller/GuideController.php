@@ -71,12 +71,24 @@ class GuideController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		switch ($cmd) {
 			case 'disableTour':
 				if($this->guideUtility->tourExists($tour)) {
-					$result = $this->guideUtility->markGuideAsDisabled($tour);
+					$result['uc'] = $this->guideUtility->setTourDisabled($tour);
+					$result['cmd'][$cmd]['tour'] = $tour;
+					$result['tour'] = $this->guideUtility->getRegisteredGuideTour($tour);
+				}
+				break;
+			case 'enableTour':
+				if($this->guideUtility->tourExists($tour)) {
+					$result['uc'] = $this->guideUtility->setTourDisabled($tour, FALSE);
+					$result['cmd'][$cmd]['tour'] = $tour;
+					$result['tour'] = $this->guideUtility->getRegisteredGuideTour($tour);
 				}
 				break;
 			case 'setStepNo':
 				if($this->guideUtility->tourExists($tour)) {
-					$result = $this->guideUtility->setTourStepNo($tour, $stepNo);
+					$result['uc'] = $this->guideUtility->setTourStepNo($tour, $stepNo);
+					$result['cmd'][$cmd]['tour'] = $tour;
+					$result['cmd'][$cmd]['stepNo'] = $stepNo;
+					$result['tour'] = $this->guideUtility->getRegisteredGuideTour($tour);
 				}
 				break;
 		}

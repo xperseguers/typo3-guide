@@ -10,23 +10,28 @@ if (TYPO3_MODE === 'BE') {
 		'web_layout',
 		'TYPO3/CMS/Guide/BootstrapTourPageModule',
 		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourPageModule.xlf',
-		'module-guide-tour-page-module'
+		'module-guide-tour-page-module',
+		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/PageModuleGuide.pagets'
 	);
 	Tx\Guide\Utility\GuideUtility::registerGuideTour(
 		'ViewModule',
 		'web_ViewpageView',
 		'TYPO3/CMS/Guide/BootstrapTourViewModule',
 		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourViewModule.xlf',
-		'module-guide-tour-view-module'
+		'module-guide-tour-view-module',
+		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/ViewModuleGuide.pagets'
 	);
+	
 	Tx\Guide\Utility\GuideUtility::registerGuideTour(
 		'FunctionModule',
 		'web_func',
 		'TYPO3/CMS/Guide/BootstrapTourFunctionModule',
 		'EXT:' . $_EXTKEY . '/Resources/Private/Language/BootstrapTourFunctionModule.xlf',
-		'module-guide-tour-function-module'
+		'module-guide-tour-function-module',
+		'EXT:' . $_EXTKEY . '/Configuration/PageTS/Library/FunctionModuleGuide.pagets'
 	);
 	
+
 	// Add tour libraries
 	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][] = 
 		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Classes/Hooks/PageRenderer.php:Tx\\Guide\\Hooks\\PageRenderer->addJSCSS';
