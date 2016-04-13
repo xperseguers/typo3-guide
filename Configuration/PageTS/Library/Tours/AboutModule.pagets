@@ -6,8 +6,19 @@ mod.guide.tours.AboutModule {
 		0 {
 			selector = .typo3-aboutmodules-inner-docbody
 			title = Welcome to TYPO3 backend
-			content = This tour will show you how the guided tour could work.<br />This text of a step can also contain html markup, for <i>highlighting</i> <b>important</b> things.
+			content (
+			 This tour will show you the first steps within TYPO3.<br />
+			 You're starting here in the <i>about</a> module, which shows you your available modules. 
+			 This modules are related on the giving user authorisation.<br />
+			 <br />
+			 Start other tours:
+			 <ul>
+				 <li>Show me how the topbar works</li>
+				 <li>Show me how the topbar works</li>
+			 </ul>
+			)
 			placement = top
+			showArrow = false
 			next {
 				tour = Menu
 				step = 0
