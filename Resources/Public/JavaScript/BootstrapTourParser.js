@@ -165,7 +165,7 @@ define(['jquery'], function (jQuery) {
                         var tour = step.nextStep.tour;
                         var stepId = step.nextStep.step;
 
-                        //top.TYPO3.Guide.startTourAndStep(tour, stepId);
+                        top.TYPO3.Guide.startTourWithStep(tour, stepId);
                     }
                 },
 
