@@ -1,0 +1,8 @@
+tx_guide.guides.viewModuleGuide {
+    name = View
+    steps {
+        0 {
+            selector =
+        }
+    }
+}
