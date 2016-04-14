@@ -40,6 +40,7 @@ Possible tours
 [ ] Tour-Registrierung aufräumen
 [ ] tsconfig.showArrow muss implentiert werden
 [ ] Storage für browser deaktivieren
+[ ] Wenn Schritt nicht vorhanden, dann überspringen
 
 
 Extension-Configuration

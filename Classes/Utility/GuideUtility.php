@@ -71,9 +71,10 @@ class GuideUtility {
 			// Translation handling
 			if(!empty($tours)) {
 				foreach($tours as $tourKey=>$tour) {
-					
-					//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($tours[$tourKey]['title']);
-					
+					if($tourKey=='ConfigurationExample') {
+						unset($tours[$tourKey]);
+						continue;
+					}
 					$tour['name'] = $tourKey;
 					// Merge user configuration
 					if(isset($backendUser->uc['moduleData']['guide'][$tour['name']])) {
@@ -95,6 +96,10 @@ class GuideUtility {
 					// Tour is enabled for current user
 					$tours[$tourKey]['enabled'] = $this->moduleEnabled($tour['moduleName']);
 					// Remove steps
+					if(!isset($tours[$tourKey]['currentStepNo'])) {
+						$tours[$tourKey]['currentStepNo'] = 0;
+					}
+					$tours[$tourKey]['stepsCount'] = count($tours[$tourKey]['steps']);
 					unset($tours[$tourKey]['steps']);
 				}
 			}
@@ -214,6 +219,14 @@ class GuideUtility {
 			$backendUser->uc['moduleData']['guide'][$tourName] = array();
 		}
 		$backendUser->uc['moduleData']['guide'][$tourName]['currentStepNo'] = $stepNo;
+		// Set already viewed
+		$backendUser->uc['moduleData']['guide'][$tourName]['alreadyViewed'] = FALSE;
+		$tour = $this->getRegisteredGuideTour($tourName);
+		
+		if($tour['stepsCount'] == ($stepNo+1)) {
+			$backendUser->uc['moduleData']['guide'][$tourName]['alreadyViewed'] = TRUE;
+		}
+		
 		$backendUser->writeUC($backendUser->uc);
 		return $backendUser->uc['moduleData']['guide'][$tourName];
 	}

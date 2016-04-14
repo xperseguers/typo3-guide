@@ -7,22 +7,28 @@
 	<h2><f:translate key="tx_guide_label.available_guided_tours" /></h2>
 	<div class="container-fluid">
 		<div class="row">
-	
 			<f:for each="{tours}" as="tour">
 				<f:if condition="{tour.enabled}">
 					<div class="col-xs-12 col-sm-6">
 						<div class="tour-item media clearfix" id="{tour.id}">
-
 							<a href="#" data-onclick="startTour" data-tour="{tour.name}" data-step-no="0"
 							   title="{tour.title}" class="pull-left">
 								<core:icon identifier="{tour.iconIdentifier}" size="default" />
 							</a>
-
 							<div class="media-body">
 								<strong>{tour.title}</strong><br />
-								<small class="text-muted">Bereits gesehen/noch nicht gesehen</small><br>
+								<small class="text-muted">
+									<f:if condition="{tour.alreadyViewed}">
+										<f:then>
+											<f:if condition="{tour.currentStepNo} == 0">
+												<f:then>Sie haben diess Tour bereits gesehen.</f:then>
+												<f:else>Sie haben diese Tour noch nicht komplett gesehen.</f:else>
+											</f:if>
+										</f:then>
+										<f:else>Sie haben diese Tour noch nicht gesehen.</f:else>
+									</f:if>
+								</small><br>
 								<p>{tour.description}</p>
-
 								<a href="#" data-onclick="startTour" data-tour="{tour.name}" data-step-no="0" class="btn btn-success">
 									<f:translate key="tx_guide_label.start_tour"/>
 								</a>
@@ -34,7 +40,6 @@
 										</a>
 									</f:else>
 								</f:if>
-
 								<f:if condition="{tour.disabled}">
 									<f:then>
 										<a href="#" data-onclick="enableTour" data-tour="{tour.name}" class="guide-tour-enable btn btn-default">
@@ -53,13 +58,11 @@
 										</a>
 									</f:else>
 								</f:if>
-
 							</div>
 						</div>
 					</div>
 				</f:if>
 			</f:for>
-			
 		</div>
 	</div>
 </f:section>
