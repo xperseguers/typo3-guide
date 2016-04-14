@@ -158,6 +158,32 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 	};
 
 	return function() {
+		
+		
+		var onclickEnableTour = jQuery('a[data-onclick=\'enableTour\']');
+		if(onclickEnableTour.length>0) {
+			onclickEnableTour.on('click', function() {
+				top.TYPO3.Guide.enableTour(jQuery(this).data('tour'));
+				return false;
+			});
+		}
+		var onclickDisableTour = jQuery('a[data-onclick=\'disableTour\']');
+		if(onclickDisableTour.length>0) {
+			onclickDisableTour.on('click', function() {
+				top.TYPO3.Guide.disableTour(jQuery(this).data('tour'));
+				return false;
+			});
+		}
+		var onclickStartTour = jQuery('a[data-onclick=\'startTour\']');
+		if(onclickStartTour.length>0) {
+			onclickStartTour.on('click', function() {
+				top.TYPO3.Guide.startTour(jQuery(this).data('tour'), jQuery(this).data('step-no'));
+				return false;
+			});
+		}
+
+		
+		
 		var currentModuleId = top.TYPO3.Guide.getUrlParameterByName('M', window.location.href);
 		top.TYPO3.Guide.Tours = top.TYPO3.Guide.Tours || {};
 
