@@ -64,6 +64,7 @@ class GuideController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$stepNo = (int)GeneralUtility::_GP('stepNo');
 		$tour = GeneralUtility::_GP('tour');
 		$cmd = GeneralUtility::_GP('cmd');
+		$startTourAfterLoading = (GeneralUtility::_GP('startTourAfterLoading')=='true') ? 'true' : 'false';
 		// Be sure the utility is available
 		if(!($this->guideUtility instanceof \Tx\Guide\Utility\GuideUtility)) {
 			$this->guideUtility = GeneralUtility::makeInstance('Tx\Guide\Utility\GuideUtility');
@@ -96,6 +97,7 @@ class GuideController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 			case 'getTour':
 				if($this->guideUtility->tourExists($tour)) {
 					$result['cmd'][$cmd]['tour'] = $tour;
+					$result['cmd'][$cmd]['startTourAfterLoading'] = $startTourAfterLoading;
 					$result['tour'] = $this->guideUtility->getRegisteredGuideTour($tour);
 				}
 				break;
