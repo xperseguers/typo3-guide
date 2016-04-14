@@ -45,6 +45,7 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 			},
 			success: function (result) {
 				if(typeof(result.cmd.enableTour) != 'undefined') {
+					// Switch buttons in backend module
 					var guideTourItem = jQuery('#' + result.tour.id);
 					jQuery('.guide-tour-enable', guideTourItem).addClass('hidden');
 					jQuery('.guide-tour-disable', guideTourItem).removeClass('hidden');
@@ -62,6 +63,7 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 			},
 			success: function (result) {
 				if(typeof(result.cmd.disableTour) != 'undefined') {
+					// Switch buttons in backend module
 					var guideTourItem = jQuery('#' + result.tour.id);
 					jQuery('.guide-tour-enable', guideTourItem).removeClass('hidden');
 					jQuery('.guide-tour-disable', guideTourItem).addClass('hidden');
@@ -83,29 +85,6 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 			}
 		});
 	};
-
-	top.TYPO3.Guide.ajaxTest = function () {
-
-		jQuery.ajax({
-			dataType: 'json',
-			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
-			data:  {
-				cmd: 'getTour',
-				tour: 'AboutModule'
-			},
-			success: function (result) {
-				console.log(result);
-				var tour = new BootstrapTourParser().parseTour(result.tour);
-				tour.init();
-				tour.start();
-			},
-			error: function (result) {
-
-			}
-		});
-	};
-
-
 
 	/**
 	 * Starts the given tour
@@ -234,7 +213,14 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 		var onclickStartTour = jQuery('a[data-onclick=\'startTour\']');
 		if(onclickStartTour.length>0) {
 			onclickStartTour.on('click', function() {
-				top.TYPO3.Guide.startTour(jQuery(this).data('tour'), jQuery(this).data('step-no'));
+				var stepNo = parseInt(jQuery(this).data('step-no'), 10);
+				var tour = jQuery(this).data('tour');
+				if(stepNo>0) {
+					top.TYPO3.Guide.startTourWithStep(tour, stepNo);
+				}
+				else {
+					top.TYPO3.Guide.startTour(tour);
+				}
 				return false;
 			});
 		}
