@@ -14,16 +14,14 @@
 						<div class="tour-item media clearfix" id="{tour.id}">
 
 							<a href="#" data-onclick="startTour" data-tour="{tour.name}" data-step-no="0"
-							   title="{f:translate(key: 'LLL:{tour.languageLabelFile}:tx_guide_tour.title')}" class="pull-left">
+							   title="{tour.title}" class="pull-left">
 								<core:icon identifier="{tour.iconIdentifier}" size="default" />
 							</a>
 
 							<div class="media-body">
-								<strong>
-									<f:translate key="LLL:{tour.languageLabelFile}:tx_guide_tour.title" />
-								</strong><br />
+								<strong>{tour.title}</strong><br />
 								<small class="text-muted">Bereits gesehen/noch nicht gesehen</small><br>
-								<p><f:translate key="LLL:{tour.languageLabelFile}:tx_guide_tour.description" /></p>
+								<p>{tour.description}</p>
 
 								<a href="#" data-onclick="startTour" data-tour="{tour.name}" data-step-no="0" class="btn btn-success">
 									<f:translate key="tx_guide_label.start_tour"/>

@@ -28,6 +28,8 @@ namespace Tx\Guide\Utility;
 
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
+use TYPO3\CMS\Backend\Domain\Repository\Module\BackendModuleRepository;
+use TYPO3\CMS\Extbase\Service\TypoScriptService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -50,55 +52,64 @@ class GuideUtility {
 	 * @inject
 	 */
 	protected $backendModuleRepository;
-	
+
 	/**
-	 * Registers an Ext.Direct component with access restrictions.
-	 *
-	 * @param string $tourName Name of the tour
-	 * @param string $moduleName Optional: must be <mainmodule> or <mainmodule>_<submodule>
-	 * @param string $requireJsModule RequireJs module
-	 * @param string $languageLabelFile
-	 * @return void
+	 * Get a list with available tours
+	 * @return array
 	 */
-	public static function registerGuideTour($tourName, $moduleName, $requireJsModule, $languageLabelFile='', $iconIdentifier='', $pageTsFile='') {
-		$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'][$tourName] = array(
-			'name' => $tourName,
-			'requireJsModule' => $requireJsModule,
-			'moduleName' => $moduleName,
-			'languageLabelFile' => $languageLabelFile,
-			'iconIdentifier' => $iconIdentifier
-		);
-
-		if(trim($pageTsFile) != '') {
-			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:' . $pageTsFile . '">');
-		}
-	}
-
 	public function getRegisteredGuideTours() {
 		$backendUser = $this->getBackendUserAuthentication();
-		/**
-		 * @todo: check authorization
-		 *      check activated
-		 */
-		$preparedTourData = array();
-		if(!empty($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'])) {
-			foreach($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'] as $tour) {
-				// Merge user configuration
-				if(isset($backendUser->uc['moduleData']['guide'][$tour['name']])) {
-					$preparedTourData[$tour['name']] = array_merge($tour, $backendUser->uc['moduleData']['guide'][$tour['name']]);
+		$tours = $this->getBackendUserAuthentication()->getTSConfig(
+			'mod.guide.tours', BackendUtility::getPagesTSconfig(0)
+		);
+		if(isset($tours['properties']) && !empty($tours['properties'])) {
+			// Be sure the TypoScript service is available
+			if (!($this->typoScriptService instanceof TypoScriptService)) {
+				$this->typoScriptService = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Service\\TypoScriptService');
+			}
+			$tours = $this->typoScriptService->convertTypoScriptArrayToPlainArray($tours['properties']);
+			// Translation handling
+			if(!empty($tours)) {
+				foreach($tours as $tourKey=>$tour) {
+					
+					//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($tours[$tourKey]['title']);
+					
+					$tour['name'] = $tourKey;
+					// Merge user configuration
+					if(isset($backendUser->uc['moduleData']['guide'][$tour['name']])) {
+						$tours[$tour['name']] = array_merge($tour, $backendUser->uc['moduleData']['guide'][$tour['name']]);
+					}
+					else {
+						$tours[$tour['name']] = $tour;
+					}
+					// Translate title and description
+					if(substr($tours[$tourKey]['title'], 0, 4) == 'LLL:') {
+						$tours[$tourKey]['title'] = $this->getLanguageService()->sL($tours[$tourKey]['title']);
+					}
+					if(substr($tours[$tourKey]['description'], 0, 4) == 'LLL:') {
+						$tours[$tourKey]['description'] = $this->getLanguageService()->sL($tours[$tourKey]['description']);
+					}
+					// Generate an id
+					$tours[$tourKey]['id'] = GeneralUtility::camelCaseToLowerCaseUnderscored($tour['name']);
+					$tours[$tourKey]['id'] = 'guide-tour-' . str_replace('_', '-', $tours[$tourKey]['id']);
+					// Tour is enabled for current user
+					$tours[$tourKey]['enabled'] = $this->moduleEnabled($tour['moduleName']);
+					// Remove steps
+					unset($tours[$tourKey]['steps']);
 				}
-				else {
-					$preparedTourData[$tour['name']] = $tour;
-				}
-				// Generate an id
-				$preparedTourData[$tour['name']]['id'] = GeneralUtility::camelCaseToLowerCaseUnderscored($tour['name']);
-				$preparedTourData[$tour['name']]['id'] = 'guide-tour-' . str_replace('_', '-', $preparedTourData[$tour['name']]['id']);
-				$preparedTourData[$tour['name']]['enabled'] = $this->moduleEnabled($tour['moduleName']);
 			}
 		}
-		return $preparedTourData;
+		else {
+			$tours = array();
+		}
+		return $tours;
 	}
 
+	/**
+	 * Passed module is enabled for current backend user?
+	 * @param $moduleName
+	 * @return bool
+	 */
 	public function moduleEnabled($moduleName) {
 		$enabled = FALSE;
 		$backendUser = $this->getBackendUserAuthentication();
@@ -109,7 +120,7 @@ class GuideUtility {
 			$enabled = TRUE;
 		}
 		else {
-			if(!($this->backendModuleRepository instanceof \TYPO3\CMS\Backend\Domain\Repository\Module\BackendModuleRepository)) {
+			if(!($this->backendModuleRepository instanceof BackendModuleRepository)) {
 				$this->backendModuleRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Domain\\Repository\\Module\\BackendModuleRepository');
 			}
 			$modules = $this->backendModuleRepository->loadAllowedModules();
@@ -145,7 +156,7 @@ class GuideUtility {
 		);
 		if(isset($steps['properties']) && !empty($steps['properties'])) {
 			// Be sure the TypoScript service is available
-			if(!($this->typoScriptService instanceof  \TYPO3\CMS\Extbase\Service\TypoScriptService)) {
+			if(!($this->typoScriptService instanceof TypoScriptService)) {
 				$this->typoScriptService = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Service\\TypoScriptService');
 			}
 			$tours[$tour]['steps'] = $this->typoScriptService->convertTypoScriptArrayToPlainArray($steps['properties']);
@@ -155,9 +166,13 @@ class GuideUtility {
 					if(substr($tours[$tour]['steps'][$stepKey]['title'], 0, 4) == 'LLL:') {
 						$tours[$tour]['steps'][$stepKey]['title'] = $this->getLanguageService()->sL($tours[$tour]['steps'][$stepKey]['title']);
 					}
-					if(substr($tours[$tour]['steps'][$stepKey]['description'], 0, 4) == 'LLL:') {
-						$tours[$tour]['steps'][$stepKey]['description'] = $this->getLanguageService()->sL($tours[$tour]['steps'][$stepKey]['description']);
+					if(substr($tours[$tour]['steps'][$stepKey]['content'], 0, 4) == 'LLL:') {
+						$tours[$tour]['steps'][$stepKey]['content'] = $this->getLanguageService()->sL($tours[$tour]['steps'][$stepKey]['content']);
 					}
+					// Strip disallowed tags
+					$allowedTags = '<p><i><u><b><br>';
+					$tours[$tour]['steps'][$stepKey]['title'] = strip_tags($tours[$tour]['steps'][$stepKey]['title']);
+					$tours[$tour]['steps'][$stepKey]['content'] = strip_tags($tours[$tour]['steps'][$stepKey]['content'], $allowedTags);
 				}
 			}
 		}
@@ -174,7 +189,8 @@ class GuideUtility {
 	/**
 	 * Set a tour as disabled
 	 * @param string $tourName Name of the guided tour
-	 * @param bool $disabled 
+	 * @param bool $disabled Disabled true/false
+	 * @return array
 	 */
 	public function setTourDisabled($tourName, $disabled=TRUE) {
 		$backendUser = $this->getBackendUserAuthentication();
@@ -189,7 +205,8 @@ class GuideUtility {
 	/**
 	 * Write current step no of a tour
 	 * @param string $tourName Name of the guided tour
-	 * @param bool $disabled
+	 * @param int $stepNo Number of the current step
+	 * @return array
 	 */
 	public function setTourStepNo($tourName, $stepNo) {
 		$backendUser = $this->getBackendUserAuthentication();
@@ -203,11 +220,12 @@ class GuideUtility {
 
 	/**
 	 * Check if a tour is registered
-	 * @param string $tour Name of the guided tour 
+	 * @param string $tour Name of the guided tour
 	 * @return bool
 	 */
 	public function tourExists($tour) {
-		return isset($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Guide']['Tours'][$tour]);
+		$tours = $this->getRegisteredGuideTours();
+		return isset($tours[$tour]);
 	}
 
 	/**

@@ -1,5 +1,8 @@
 mod.guide.tours.ViewModule {
-    name = ViewModule
+	title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourViewModule.xlf:tx_guide_tour.title
+	description = LLL:EXT:guide/Resources/Private/Language/BootstrapTourViewModule.xlf:tx_guide_tour.description
+	moduleName = web_ViewpageView
+	iconIdentifier = module-guide-tour-view-module
     steps {
 		0 {
 			selector = .module-docheader:first

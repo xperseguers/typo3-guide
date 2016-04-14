@@ -39,3 +39,10 @@ Possible tours
 [ ] Tour nur starten wenn nicht disabled
 [ ] Tour-Registrierung aufräumen
 [ ] tsconfig.showArrow muss implentiert werden
+[ ] Storage für browser deaktivieren
+
+
+Extension-Configuration
+=======================
+[ ] Page uid wo zusätzliches pagets abgelegt werden kann
+[ ] Erlaubte Tags für den Contentbereich der popover

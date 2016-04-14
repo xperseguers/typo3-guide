@@ -1,6 +1,9 @@
 mod.guide.tours.AboutModule {
-	name = AboutModule
-	next = tx_guide.guides.menuGuide
+	title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourAboutModule.xlf:tx_guide_tour.title
+	description = LLL:EXT:guide/Resources/Private/Language/BootstrapTourAboutModule.xlf:tx_guide_tour.description
+	moduleName = help_AboutmodulesAboutmodules
+	iconIdentifier = module-guide-tour-core
+	
 	steps {
 		0 {
 			selector = .typo3-aboutmodules-inner-docbody
@@ -8,7 +11,7 @@ mod.guide.tours.AboutModule {
 			content (
 			 This tour will show you the first steps within TYPO3.<br />
 			 You're starting here in the <i>about</i> module, which shows you your available modules. 
-			 This modules are related on the giving user authorisation.<br />
+			 This modules are related <span style="color:red">on</span> the giving user authorisation.<br />
 			 <br />
 			 Click on <i>Next</i> for an introduction of the topbar of TYPO3.<br />
 			 <br />
