@@ -1,7 +1,7 @@
 
 
 
-mod.guide.tours.ConfigrationExample {
+mod.guide.tours.ConfigurationExample {
 	# The name of the tour. This name should be upper
 	name = AboutModule
 	# The title of the tour. This title is displayed in the backend module
