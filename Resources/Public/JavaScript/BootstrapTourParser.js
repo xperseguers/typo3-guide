@@ -51,7 +51,7 @@ define(['jquery'], function (jQuery) {
                     /**
                      * function that will be executed before the current step will be shown
                      */
-                    before      :   current.before,
+                    before      :   current.show,
 
 
                     /**
@@ -111,17 +111,8 @@ define(['jquery'], function (jQuery) {
                  */
                 onShow:     function(tour) {
 
-                    var stepIndex = tour.getCurrentStep();
-                    if(stepIndex != null) {
-                        var step = tour.getStep(stepIndex);
 
 
-                        if(typeof step.requirements !== "undefined") {
-                            tour.handleRequirements(tour, step);
-                        }
-
-                        tour._options.sendStatus(tour);
-                    }
                 },
 
                 /**
@@ -131,6 +122,19 @@ define(['jquery'], function (jQuery) {
                 onShown:    function(tour) {
                     jQuery('.tour-' + tour.getName() + '.tour-' + tour.getName() + '-' + tour.getCurrentStep() )
                         .animate({ 'marginTop': '20px'}, 1000);
+
+                    var stepIndex = tour.getCurrentStep();
+
+                    if(stepIndex != null) {
+                        var step = tour.getStep(stepIndex);
+
+
+                        if(typeof step.before !== "undefined") {
+                            tour._options.handleRequirements(tour, step);
+                        }
+
+                        tour._options.sendStatus(tour);
+                    }
                 },
 
                 /**
@@ -179,7 +183,17 @@ define(['jquery'], function (jQuery) {
                 steps : this.parseSteps(current.steps),
 
                 handleRequirements: function(tour, step) {
+                    console.log(step.before);
+                    if(typeof step.before !== "undefined" ) {
+                        jQuery.each(step.before, function(key, data) {
+                            switch(key) {
+                                case 'addClass':
+                                    jQuery(data.selector).addClass(data.class);
+                                    break;
+                            }
+                        });
 
+                    }
                 },
 
                 sendStatus: function(tour) {
