@@ -103,19 +103,18 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 
 				if(typeof result.tour !== "undefined" && typeof top.TYPO3.Guide.Tours[tourName] === "undefined") {
 
-					if(result.tour.moduleName == 'core' ) {
-						parent.top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
-						parent.top.TYPO3.Guide.Tours[tourName].init();
-						parent.top.TYPO3.Guide.Tours[tourName].start();
-					} else if(result.tour.moduleName != 'core' ) {
-						parent.top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
-						parent.top.TYPO3.Guide.Tours[tourName].init();
-						parent.top.TYPO3.Guide.Tours[tourName].start();
+					if(result.tour.moduleName == 'core' && window.top === window.self) {
+						top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
+						top.TYPO3.Guide.Tours[tourName].init();
+						top.TYPO3.Guide.Tours[tourName].start();
+					} else if(result.tour.moduleName != 'core' && window.top !== window.self) {
+						top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
+						top.TYPO3.Guide.Tours[tourName].init();
+						top.TYPO3.Guide.Tours[tourName].start();
 					}
 
 
 				}
-				console.log(parent.top.TYPO3.Guide.Tours);
 			},
 			error: function (result) {
 
@@ -135,16 +134,15 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 
 				if(typeof result.tour !== "undefined" && typeof top.TYPO3.Guide.Tours[tourName] === "undefined") {
 
-					if(result.tour.moduleName == 'core' ) {
-						parent.top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
-						parent.top.TYPO3.Guide.Tours[tourName].init();
-						parent.top.TYPO3.Guide.Tours[tourName].start();
-					} else if(result.tour.moduleName != 'core' ) {
-						parent.top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
-						parent.top.TYPO3.Guide.Tours[tourName].init();
-						parent.top.TYPO3.Guide.Tours[tourName].start();
+					if(result.tour.moduleName == 'core' && window.top === window.self) {
+						top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
+						top.TYPO3.Guide.Tours[tourName].init();
+						top.TYPO3.Guide.Tours[tourName].start();
+					} else if(result.tour.moduleName != 'core' && window.top !== window.self) {
+						top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
+						top.TYPO3.Guide.Tours[tourName].init();
+						top.TYPO3.Guide.Tours[tourName].start();
 					}
-					console.log(parent.top.TYPO3.Guide.Tours);
 				}
 			},
 			error: function (result) {

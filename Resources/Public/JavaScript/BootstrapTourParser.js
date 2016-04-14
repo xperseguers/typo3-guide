@@ -14,11 +14,11 @@ define(['jquery'], function (jQuery) {
          */
         TourParser.prototype.parseSteps = function(unprocessedSteps) {
             var steps = [];
-
+console.log(unprocessedSteps);
             if(typeof unprocessedSteps === "undefined") return steps;
 
-            for( var i = 0; i < unprocessedSteps.length; i++ ) {
-                var current = unprocessedSteps[i];
+            jQuery.each( unprocessedSteps, function(key, current) {
+
                 steps.push({
 
                     /**
@@ -59,7 +59,7 @@ define(['jquery'], function (jQuery) {
                      */
                     nextStep    :   current.next
                 })
-            }
+            });
 
             return steps;
         };
@@ -98,7 +98,6 @@ define(['jquery'], function (jQuery) {
                 onStart:    function(tour) {
                     console.log(tour);
                     if (tour._options.moduleId != 'core') {
-                        console.log(top.TYPO3.ModuleMenu.loadedModule);
                         if(top.TYPO3.ModuleMenu.App.loadedModule != tour._options.moduleId) {
                             console.log('jump to: ', tour._options.moduleId);
                             top.jump('', tour._options.moduleId, '', 0);
@@ -112,11 +111,10 @@ define(['jquery'], function (jQuery) {
                  */
                 onShow:     function(tour) {
 
-
                     var stepIndex = tour.getCurrentStep();
                     if(stepIndex != null) {
                         var step = tour.getStep(stepIndex);
-
+                        console.log(jQuery(step.element));
 
                         if(typeof step.before !== "undefined") {
                             tour._options.handleRequirements(tour, step);
@@ -135,6 +133,18 @@ define(['jquery'], function (jQuery) {
                 onShown:    function(tour) {
                     jQuery('.tour-' + tour.getName() + '.tour-' + tour.getName() + '-' + tour.getCurrentStep() )
                         .animate({ 'marginTop': '20px'}, 1000);
+
+                    var stepIndex = tour.getCurrentStep();
+                    if(stepIndex != null) {
+                        var step = tour.getStep(stepIndex);
+                        console.log(jQuery(step.element));
+
+                        if(typeof step.before !== "undefined") {
+                            tour._options.handleRequirements(tour, step);
+                        }
+
+                        tour._options.sendStatus(tour);
+                    }
                 },
 
                 /**
@@ -177,6 +187,8 @@ define(['jquery'], function (jQuery) {
                     if(typeof step.nextStep !== "undefined") {
                         var tour = step.nextStep.tour;
                         var stepId = step.nextStep.step;
+
+                        console.log(tour);
 
                         top.TYPO3.Guide.startTourWithStep(tour, stepId);
                     }
