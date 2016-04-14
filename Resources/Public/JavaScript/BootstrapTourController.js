@@ -121,9 +121,11 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 				tour: tourName
 			},
 			success: function (result) {
-				var tour = new BootstrapTourParser().parseTour(result.tour);
-				tour.init();
-				tour.start();
+				if(typeof result.tour !== "undefined") {
+					var tour = new BootstrapTourParser().parseTour(result.tour);
+					tour.init();
+					tour.start();
+				}
 			},
 			error: function (result) {
 
@@ -140,9 +142,13 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 				tour: tourName
 			},
 			success: function (result) {
-				var tour = new BootstrapTourParser().parseTour(result.tour);
-				tour.init();
-				tour.startWithStep(stepId);
+
+
+				if(typeof result.tour !== "undefined") {
+					var tour = new BootstrapTourParser().parseTour(result.tour);
+					tour.init();
+					tour.startWithStep(stepId);
+				}
 			},
 			error: function (result) {
 
@@ -167,9 +173,30 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 
 	return function() {
 		var currentModuleId = top.TYPO3.Guide.getUrlParameterByName('M', window.location.href);
-		if(currentModuleId === 'help_AboutmodulesAboutmodules') {
-			top.TYPO3.Guide.startTour('AboutModule');
-		}
+
+		jQuery.ajax({
+			dataType: 'json',
+			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
+			data:  {
+				cmd: 'getTours'
+			},
+			success: function (result) {
+				var moduleName;
+				var availableTours = result.tours;
+
+
+				jQuery.each(availableTours, function(key, data) {
+					if(currentModuleId == data.moduleName) {
+						moduleName = data.name;
+					}
+				});
+
+				console.log(moduleName);
+				if( typeof moduleName !== "undefined" ) {
+					top.TYPO3.Guide.startTour(moduleName);
+				}
+			}
+		});
 	}();
 	
 	/**

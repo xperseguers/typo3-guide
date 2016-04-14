@@ -65,7 +65,7 @@ define(['jquery'], function (jQuery) {
         };
 
         TourParser.prototype.parseTour = function(current) {
-            console.log(current.steps);
+
             return new Tour({
                 /**
                  * the module name which is used for requirement checks
@@ -81,6 +81,11 @@ define(['jquery'], function (jQuery) {
                  *
                  */
                 template: top.TYPO3.Guide.getTemplate(),
+
+                /**
+                 *
+                 */
+                storage: false,
 
                 /**
                  * Function to execute when the tour starts.
