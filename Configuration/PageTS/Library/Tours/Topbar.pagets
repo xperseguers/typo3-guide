@@ -6,8 +6,8 @@ mod.guide.tours.Topbar {
 	steps {
 		10 {
 			selector = #typo3-cms-backend-backend-toolbaritems-shortcuttoolbaritem
-			title = Shortcut menu
-			content = TYPO3.lang['tx_guide_tour_tree_general.description']
+			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.10.title
+			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.10.content
 			placement = right
 			show {
 				addClass {
@@ -18,8 +18,8 @@ mod.guide.tours.Topbar {
 		}
 		20 {
 			selector = #typo3-cms-backend-backend-toolbaritems-clearcachetoolbaritem
-			title = Clear cache menu
-			content = TYPO3.lang['tx_guide_tour_tree_new_node.description']
+			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.20.title
+			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.20.content
 			placement = right
 			show {
 				addClass {
@@ -30,8 +30,8 @@ mod.guide.tours.Topbar {
 		}
 		30 {
 			selector = #typo3-cms-backend-backend-toolbaritems-helptoolbaritem
-			title = Help menu
-			content = TYPO3.lang['tx_guide_tour_tree_filter.description']
+			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.30.title
+			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.30.content
 			placement = right
 			show {
 				addClass {
@@ -42,8 +42,8 @@ mod.guide.tours.Topbar {
 		}
 		40 {
 			selector = #typo3-cms-backend-backend-toolbaritems-systeminformationtoolbaritem
-			title = System information
-			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
+			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.40.title
+			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.40.content
 			placement = right
 			show {
 				addClass {
@@ -54,8 +54,8 @@ mod.guide.tours.Topbar {
 		}
 		50 {
 			selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem
-			title = User menu
-			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
+			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.50.title
+			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.50.content
 			placement = bottom
 			next {
 				addClass {
@@ -82,17 +82,11 @@ mod.guide.tours.Topbar {
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
 			placement = right
 		}
-
-		
 		80 {
 			selector = #typo3-cms-backend-backend-toolbaritems-livesearchtoolbaritem
 			title = Live search
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
 			placement = bottom
 		}
-		
-		
-		
-		
 	}
 }
