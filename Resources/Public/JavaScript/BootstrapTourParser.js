@@ -98,7 +98,7 @@ define(['jquery'], function (jQuery) {
                 onStart:    function(tour) {
                     console.log(tour);
                     if (tour._options.moduleId != 'core') {
-                        if(top.TYPO3ModuleMenu.loadedModule != tour._options.moduleId) {
+                        if(top.TYPO3.ModuleMenu.loadedModule != tour._options.moduleId) {
                             console.log('jump to: ', tour._options.moduleId);
                             top.jump('', tour._options.moduleId, '', 0);
                         }
