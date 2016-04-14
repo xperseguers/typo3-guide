@@ -10,7 +10,7 @@ mod.guide.tours.Topbar {
 			content = TYPO3.lang['tx_guide_tour_tree_general.description']
 			placement = right
 			show {
-				setClass {
+				addClass {
 					selector = #typo3-cms-backend-backend-toolbaritems-shortcuttoolbaritem
 					class = open
 				}
@@ -22,7 +22,7 @@ mod.guide.tours.Topbar {
 			content = TYPO3.lang['tx_guide_tour_tree_new_node.description']
 			placement = right
 			show {
-				setClass {
+				addClass {
 					selector = #typo3-cms-backend-backend-toolbaritems-clearcachetoolbaritem
 					class = open
 				}
@@ -34,7 +34,7 @@ mod.guide.tours.Topbar {
 			content = TYPO3.lang['tx_guide_tour_tree_filter.description']
 			placement = right
 			show {
-				setClass {
+				addClass {
 					selector = #typo3-cms-backend-backend-toolbaritems-helptoolbaritem
 					class = open
 				}
@@ -46,7 +46,7 @@ mod.guide.tours.Topbar {
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
 			placement = right
 			show {
-				setClass {
+				addClass {
 					selector = #typo3-cms-backend-backend-toolbaritems-systeminformationtoolbaritem
 					class = open
 				}
@@ -58,7 +58,7 @@ mod.guide.tours.Topbar {
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
 			placement = bottom
 			next {
-				setClass {
+				addClass {
 					selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem
 					class = open
 				}
