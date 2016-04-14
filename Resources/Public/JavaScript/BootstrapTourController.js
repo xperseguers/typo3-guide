@@ -113,13 +113,65 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 	 * @param jumpToPage
 	 */
 	top.TYPO3.Guide.startTour = function (tourName) {
-		top.TYPO3.Guide.Tours[tourName].init();
-		top.TYPO3.Guide.Tours[tourName].start();
+		jQuery.ajax({
+			dataType: 'json',
+			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
+			data:  {
+				cmd: 'getTour',
+				tour: tourName
+			},
+			success: function (result) {
+
+				if(typeof result.tour !== "undefined" && typeof top.TYPO3.Guide.Tours[tourName] === "undefined") {
+
+					if(result.tour.moduleName == 'core' ) {
+						parent.top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
+						parent.top.TYPO3.Guide.Tours[tourName].init();
+						parent.top.TYPO3.Guide.Tours[tourName].start();
+					} else if(result.tour.moduleName != 'core' ) {
+						parent.top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
+						parent.top.TYPO3.Guide.Tours[tourName].init();
+						parent.top.TYPO3.Guide.Tours[tourName].start();
+					}
+
+
+				}
+				console.log(parent.top.TYPO3.Guide.Tours);
+			},
+			error: function (result) {
+
+			}
+		});
 	};
 
 	top.TYPO3.Guide.startTourWithStep = function(tourName, stepId) {
-		top.TYPO3.Guide.Tours[tourName].init();
-		top.TYPO3.Guide.Tours[tourName].start();
+		jQuery.ajax({
+			dataType: 'json',
+			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
+			data:  {
+				cmd: 'getTour',
+				tour: tourName
+			},
+			success: function (result) {
+
+				if(typeof result.tour !== "undefined" && typeof top.TYPO3.Guide.Tours[tourName] === "undefined") {
+
+					if(result.tour.moduleName == 'core' ) {
+						parent.top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
+						parent.top.TYPO3.Guide.Tours[tourName].init();
+						parent.top.TYPO3.Guide.Tours[tourName].start();
+					} else if(result.tour.moduleName != 'core' ) {
+						parent.top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
+						parent.top.TYPO3.Guide.Tours[tourName].init();
+						parent.top.TYPO3.Guide.Tours[tourName].start();
+					}
+					console.log(parent.top.TYPO3.Guide.Tours);
+				}
+			},
+			error: function (result) {
+
+			}
+		});
 	};
 
 
@@ -148,7 +200,12 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 			success: function (result) {
 
 				if(typeof result.tour !== "undefined" && typeof top.TYPO3.Guide.Tours[tourName] === "undefined") {
-					top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
+
+					if(result.tour.moduleName == 'core' && window.top === window.self) {
+						top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
+					} else if(result.tour.moduleName != 'core' && window.top !== window.self) {
+						parent.top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
+					}
 				}
 			},
 			error: function (result) {
@@ -201,28 +258,14 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 					var moduleName;
 					var availableTours = result.tours;
 
-					var deferreds = [];
-
-
 					jQuery.each(availableTours, function(key, data) {
-
-						if(data.moduleName == 'core' && window.top === window.self) {
-							deferreds.push(top.TYPO3.Guide.loadTour(data.name));
-						} else if(data.moduleName != 'core' && window.top !== window.self) {
-							deferreds.push(top.TYPO3.Guide.loadTour(data.name));
-						}
-
 						if(currentModuleId == data.moduleName) {
 							moduleName = data.name;
 						}
 					});
 
 					if( typeof moduleName !== "undefined" ) {
-
-						jQuery.when.apply(jQuery, deferreds).done(function() {
-							top.TYPO3.Guide.startTour(moduleName);
-						});
-
+						top.TYPO3.Guide.startTour(moduleName);
 					}
 				}
 			});
