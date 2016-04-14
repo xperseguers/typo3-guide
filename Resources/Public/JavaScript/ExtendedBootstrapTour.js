@@ -102,6 +102,29 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTour'], function ($) {
             }
 
             this.start();
-        }
+        };
+
+        Tour.prototype._template = function(step, i) {
+            var $navigation, $next, $prev, $resume, $template;
+            $template = $.isFunction(step.template) ? $(step.template(i, step)) : $(step.template);
+            $navigation = $template.find('.popover-navigation');
+            $prev = $navigation.find('[data-role="prev"]');
+            $next = $navigation.find('[data-role="next"]');
+            $resume = $navigation.find('[data-role="pause-resume"]');
+            if (this._isOrphan(step)) {
+                $template.addClass('orphan');
+            }
+            $template.addClass("tour-" + this._options.name + " tour-" + this._options.name + "-" + i);
+            if (step.prev < 0) {
+                $prev.addClass('disabled');
+            }
+            if (step.next < 0 && typeof step.nextStep === "undefined") {
+                $next.addClass('disabled');
+            }
+            if (!step.duration) {
+                $resume.remove();
+            }
+            return $template.clone().wrap('<div>').parent().html();
+        };
     })();
 });

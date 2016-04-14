@@ -87,6 +87,8 @@ define(['jquery'], function (jQuery) {
                  */
                 storage: false,
 
+                orphan: true,
+
                 /**
                  * Function to execute when the tour starts.
                  *
@@ -94,7 +96,7 @@ define(['jquery'], function (jQuery) {
                  * @param tour
                  */
                 onStart:    function(tour) {
-
+                    console.log(tour);
                     if (tour._options.moduleId != 'core') {
                         if(top.TYPO3ModuleMenu.loadedModule != tour._options.moduleId) {
                             console.log('jump to: ', tour._options.moduleId);
@@ -190,7 +192,7 @@ define(['jquery'], function (jQuery) {
                             stepNo: tour.getCurrentStep()
                         },
                         success: function (result) {
-                            console.log(result);
+                           // console.log(result);
                         },
                         error: function (result) {
                             console.error('Upps, an error occured. Message was: ' + result);
