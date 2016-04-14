@@ -4,7 +4,7 @@ mod.guide.tours.Topbar {
 	moduleName = core
 	iconIdentifier = module-guide-tour-core
 	steps {
-		0 {
+		10 {
 			selector = #typo3-cms-backend-backend-toolbaritems-shortcuttoolbaritem
 			title = Shortcut menu
 			content = TYPO3.lang['tx_guide_tour_tree_general.description']
@@ -16,7 +16,7 @@ mod.guide.tours.Topbar {
 				}
 			}
 		}
-		1 {
+		20 {
 			selector = #typo3-cms-backend-backend-toolbaritems-clearcachetoolbaritem
 			title = Clear cache menu
 			content = TYPO3.lang['tx_guide_tour_tree_new_node.description']
@@ -28,7 +28,7 @@ mod.guide.tours.Topbar {
 				}
 			}
 		}
-		2 {
+		30 {
 			selector = #typo3-cms-backend-backend-toolbaritems-helptoolbaritem
 			title = Help menu
 			content = TYPO3.lang['tx_guide_tour_tree_filter.description']
@@ -40,7 +40,7 @@ mod.guide.tours.Topbar {
 				}
 			}
 		}
-		3 {
+		40 {
 			selector = #typo3-cms-backend-backend-toolbaritems-systeminformationtoolbaritem
 			title = System information
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
@@ -52,19 +52,19 @@ mod.guide.tours.Topbar {
 				}
 			}
 		}
-		4 {
+		50 {
 			selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem
 			title = User menu
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
 			placement = bottom
-			show {
+			next {
 				addClass {
 					selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem
 					class = open
 				}
 			}
 		}
-		5 {
+		60 {
 			selector = #user_setup
 			title = User settings
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
@@ -76,7 +76,7 @@ mod.guide.tours.Topbar {
 				}
 			}
 		}
-		6 {
+		70 {
 			selector = .icon-actions-logout:first
 			title = Logout
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
@@ -84,7 +84,7 @@ mod.guide.tours.Topbar {
 		}
 
 		
-		7 {
+		80 {
 			selector = #typo3-cms-backend-backend-toolbaritems-livesearchtoolbaritem
 			title = Live search
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
