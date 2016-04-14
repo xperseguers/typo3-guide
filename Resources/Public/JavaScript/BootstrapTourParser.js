@@ -112,6 +112,20 @@ define(['jquery'], function (jQuery) {
                 onShow:     function(tour) {
 
 
+                    var stepIndex = tour.getCurrentStep();
+
+
+                    if(stepIndex != null) {
+                        var step = tour.getStep(stepIndex);
+
+
+                        if(typeof step.before !== "undefined") {
+                            tour._options.handleRequirements(tour, step);
+                        }
+
+                        tour._options.sendStatus(tour);
+                    }
+
 
                 },
 
@@ -125,6 +139,7 @@ define(['jquery'], function (jQuery) {
 
                     var stepIndex = tour.getCurrentStep();
 
+
                     if(stepIndex != null) {
                         var step = tour.getStep(stepIndex);
 
@@ -135,6 +150,8 @@ define(['jquery'], function (jQuery) {
 
                         tour._options.sendStatus(tour);
                     }
+
+
                 },
 
                 /**
@@ -142,7 +159,7 @@ define(['jquery'], function (jQuery) {
                  * @param tour
                  */
                 onEnd:      function(tour) {
-                    var $popover = $('.popover.tour');
+                    var $popover = jQuery('.popover.tour');
 
                     if ($popover.find('[data-role=show-again]').is(':checked')) {
 
@@ -171,6 +188,8 @@ define(['jquery'], function (jQuery) {
                 onNext:     function(tour) {
                     var stepIndex = tour.getCurrentStep();
                     var step = tour.getStep(stepIndex);
+
+                    console.log(typeof step.nextStep !== "undefined", tour);
 
                     if(typeof step.nextStep !== "undefined") {
                         var tour = step.nextStep.tour;
