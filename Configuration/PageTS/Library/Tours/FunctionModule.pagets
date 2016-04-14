@@ -5,12 +5,13 @@ mod.guide.tours.FunctionModule {
 			selector = .module-docheader:first
 			title = Function module
 			content = The function module can be used for... Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-			placement = bottom'
+			placement = bottom
+			showArrow = false
 		}
 		1 {
 			selector = select[name=\'WebFuncJumpMenu\']:first
 			title = Module menu
-			content = In this select box you \'re able to switch between the different avaiable functions. Depending on your system configuration there could be more or less functions.
+			content = In this select box you're able to switch between the different avaiable functions. Depending on your system configuration there could be more or less functions.
 			placement = right
 			shown {
 				openSelectBox = select[name=\'WebFuncJumpMenu\']:first

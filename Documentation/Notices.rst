@@ -31,10 +31,11 @@ Possible tours
 
 
 
-
-* Richtige Touren (inkl. Translations)
-* PageTS -> JavaScript 
-* Aus Module raus -> restart
-* JS-Aufrufe nicht in HTML/Template sondern via data-attr/id binden
-* Tour nur starten wenn nicht disabled
-* Tour-Registrierung aufräumen
+[x] Modul-Authorisation prüfen/in Tour schreiben
+[ ] Richtige Touren (inkl. Translations)
+[ ] PageTS -> JavaScript 
+[ ] Aus Module raus -> restart
+[ ] JS-Aufrufe nicht in HTML/Template sondern via data-attr/id binden
+[ ] Tour nur starten wenn nicht disabled
+[ ] Tour-Registrierung aufräumen
+[ ] tsconfig.showArrow muss implentiert werden
