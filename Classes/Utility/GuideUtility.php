@@ -39,6 +39,12 @@ class GuideUtility {
 	 * @inject
 	 */
 	protected $typoScriptService;
+
+	/**
+	 * @var \TYPO3\CMS\Backend\Domain\Repository\Module\BackendModuleRepository
+	 * @inject
+	 */
+	protected $backendModuleRepository;
 	
 	/**
 	 * Registers an Ext.Direct component with access restrictions.
@@ -84,11 +90,43 @@ class GuideUtility {
 				// Generate an id
 				$preparedTourData[$tour['name']]['id'] = GeneralUtility::camelCaseToLowerCaseUnderscored($tour['name']);
 				$preparedTourData[$tour['name']]['id'] = 'guide-tour-' . str_replace('_', '-', $preparedTourData[$tour['name']]['id']);
+				$preparedTourData[$tour['name']]['enabled'] = $this->moduleEnabled($tour['moduleName']);
 			}
 		}
 		return $preparedTourData;
 	}
 
+	public function moduleEnabled($moduleName) {
+		$enabled = FALSE;
+		$backendUser = $this->getBackendUserAuthentication();
+		if($backendUser->isAdmin()) {
+			$enabled = TRUE;
+		}
+		else if ($moduleName === 'core') {
+			$enabled = TRUE;
+		}
+		else {
+			if(!($this->backendModuleRepository instanceof \TYPO3\CMS\Backend\Domain\Repository\Module\BackendModuleRepository)) {
+				$this->backendModuleRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Domain\\Repository\\Module\\BackendModuleRepository');
+			}
+			$modules = $this->backendModuleRepository->loadAllowedModules();
+			/** @var \TYPO3\CMS\Backend\Domain\Model\Module\BackendModule $module */
+			foreach($modules as $module) {
+				$children = $module->getChildren();
+				if(!empty($children)) {
+					/** @var \TYPO3\CMS\Backend\Domain\Model\Module\BackendModule $child */
+					foreach($children as $child) {
+						if($moduleName === $child->getName()) {
+							$enabled = TRUE;
+							break(2);
+						}
+					}
+				}
+			}
+		}
+		return $enabled;
+	}
+	
 	/**
 	 * Get a tour by name
 	 * @param $tour

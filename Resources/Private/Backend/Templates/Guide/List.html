@@ -9,61 +9,62 @@
 		<div class="row">
 	
 			<f:for each="{tours}" as="tour">
-				<div class="col-xs-12 col-sm-6">
-					<div class="tour-item media clearfix" id="{tour.id}">
-						
-						<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', 1); return false;" 
-						   title="{f:translate(key: 'LLL:{tour.languageLabelFile}:tx_guide_tour.title')}" class="pull-left">
-							<core:icon identifier="{tour.iconIdentifier}" size="default" />
-						</a>
+				<f:if condition="{tour.enabled}">
+					<div class="col-xs-12 col-sm-6">
+						<div class="tour-item media clearfix" id="{tour.id}">
 
-						<div class="media-body">
-							<strong>
-								<f:translate key="LLL:{tour.languageLabelFile}:tx_guide_tour.title" />
-							</strong><br />
-							<small class="text-muted">Bereits gesehen/noch nicht gesehen</small><br>
-							<p><f:translate key="LLL:{tour.languageLabelFile}:tx_guide_tour.description" /></p>
-
-
-							<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', 0); return false" class="btn btn-success">
-								<f:translate key="tx_guide_label.start_tour"/>
+							<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', 1); return false;"
+							   title="{f:translate(key: 'LLL:{tour.languageLabelFile}:tx_guide_tour.title')}" class="pull-left">
+								<core:icon identifier="{tour.iconIdentifier}" size="default" />
 							</a>
-							<f:if condition="{tour.currentStepNo} == 0">
-								<f:then> </f:then>
-								<f:else>
-									<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', {tour.currentStepNo}); return false" class="btn btn-default">
-										<f:translate key="tx_guide_label.resume_tour_on_step" arguments="{0: tour.currentStepNo}"/>
-									</a>
-								</f:else>
-							</f:if>
-									
-							<f:if condition="{tour.disabled}">
-								<f:then>
-									<a href="#" onclick="top.TYPO3.Guide.enableTour('{tour.name}'); return false" 
-									   class="guide-tour-enable btn btn-default">
-										<f:translate key="tx_guide_label.enable_tour"/>
-									</a>
-									<a href="#" onclick="top.TYPO3.Guide.disableTour('{tour.name}'); return false" 
-									   class="guide-tour-disable btn btn-default hidden">
-										<f:translate key="tx_guide_label.disable_tour"/>
-									</a>
-								</f:then>
-								<f:else>
-									<a href="#" onclick="top.TYPO3.Guide.enableTour('{tour.name}'); return false" 
-									   class="guide-tour-enable btn btn-default hidden">
-										<f:translate key="tx_guide_label.enable_tour"/>
-									</a>
-									<a href="#" onclick="top.TYPO3.Guide.disableTour('{tour.name}'); return false" 
-									   class="guide-tour-disable btn btn-default">
-										<f:translate key="tx_guide_label.disable_tour"/>
-									</a>
-								</f:else>
-							</f:if>
-							
+
+							<div class="media-body">
+								<strong>
+									<f:translate key="LLL:{tour.languageLabelFile}:tx_guide_tour.title" />
+								</strong><br />
+								<small class="text-muted">Bereits gesehen/noch nicht gesehen</small><br>
+								<p><f:translate key="LLL:{tour.languageLabelFile}:tx_guide_tour.description" /></p>
+
+
+								<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', 0); return false" class="btn btn-success">
+									<f:translate key="tx_guide_label.start_tour"/>
+								</a>
+								<f:if condition="{tour.currentStepNo} == 0">
+									<f:then> </f:then>
+									<f:else>
+										<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', {tour.currentStepNo}); return false" class="btn btn-default">
+											<f:translate key="tx_guide_label.resume_tour_on_step" arguments="{0: tour.currentStepNo}"/>
+										</a>
+									</f:else>
+								</f:if>
+
+								<f:if condition="{tour.disabled}">
+									<f:then>
+										<a href="#" onclick="top.TYPO3.Guide.enableTour('{tour.name}'); return false"
+										   class="guide-tour-enable btn btn-default">
+											<f:translate key="tx_guide_label.enable_tour"/>
+										</a>
+										<a href="#" onclick="top.TYPO3.Guide.disableTour('{tour.name}'); return false"
+										   class="guide-tour-disable btn btn-default hidden">
+											<f:translate key="tx_guide_label.disable_tour"/>
+										</a>
+									</f:then>
+									<f:else>
+										<a href="#" onclick="top.TYPO3.Guide.enableTour('{tour.name}'); return false"
+										   class="guide-tour-enable btn btn-default hidden">
+											<f:translate key="tx_guide_label.enable_tour"/>
+										</a>
+										<a href="#" onclick="top.TYPO3.Guide.disableTour('{tour.name}'); return false"
+										   class="guide-tour-disable btn btn-default">
+											<f:translate key="tx_guide_label.disable_tour"/>
+										</a>
+									</f:else>
+								</f:if>
+
+							</div>
 						</div>
 					</div>
-				</div>
-
+				</f:if>
 			</f:for>
 			
 		</div>
