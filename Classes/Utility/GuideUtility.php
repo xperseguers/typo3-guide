@@ -25,12 +25,17 @@ namespace Tx\Guide\Utility;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * GuideUtility
+ *
+ * @author Thomas Deuling <typo3@coding.ms>
+ * @package TYPO3
+ * @subpackage tx_guide
  */
 class GuideUtility {
 
@@ -67,8 +72,6 @@ class GuideUtility {
 		if(trim($pageTsFile) != '') {
 			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:' . $pageTsFile . '">');
 		}
-		
-
 	}
 
 	public function getRegisteredGuideTours() {
@@ -160,21 +163,16 @@ class GuideUtility {
 		}
 		return $tours[$tour];
 	}
-	
+
+	/**
+	 * @todo: don't include anything, in case of the user confirmed that he won't restart the guide
+	 */
 	public function isGuidedTourActivated() {
-		return TRUE;
-		$backendUser = $this->getBackendUserAuthentication();
-		return $backendUser->uc['moduleData']['guide'][$tourName]['disabled'];
-
-
-		/**
-		 * @todo: don't include anything, in case of the user confirmed that he won't restart the guide
-		 */
-		
 		return TRUE;
 	}
 
 	/**
+	 * Set a tour as disabled
 	 * @param string $tourName Name of the guided tour
 	 * @param bool $disabled 
 	 */
@@ -189,6 +187,7 @@ class GuideUtility {
 	}
 
 	/**
+	 * Write current step no of a tour
 	 * @param string $tourName Name of the guided tour
 	 * @param bool $disabled
 	 */
