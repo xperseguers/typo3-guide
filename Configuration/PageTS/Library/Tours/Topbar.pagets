@@ -57,7 +57,7 @@ mod.guide.tours.Topbar {
 			title = User menu
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
 			placement = bottom
-			next {
+			show {
 				addClass {
 					selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem
 					class = open
@@ -69,6 +69,12 @@ mod.guide.tours.Topbar {
 			title = User settings
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
 			placement = right
+			show {
+				addClass {
+					selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem
+					class = open
+				}
+			}
 		}
 		6 {
 			selector = .icon-actions-logout:first
