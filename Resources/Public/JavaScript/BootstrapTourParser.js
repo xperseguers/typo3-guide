@@ -98,7 +98,8 @@ define(['jquery'], function (jQuery) {
                 onStart:    function(tour) {
                     console.log(tour);
                     if (tour._options.moduleId != 'core') {
-                        if(top.TYPO3.ModuleMenu.loadedModule != tour._options.moduleId) {
+                        console.log(top.TYPO3.ModuleMenu.loadedModule);
+                        if(top.TYPO3.ModuleMenu.App.loadedModule != tour._options.moduleId) {
                             console.log('jump to: ', tour._options.moduleId);
                             top.jump('', tour._options.moduleId, '', 0);
                         }
@@ -113,8 +114,6 @@ define(['jquery'], function (jQuery) {
 
 
                     var stepIndex = tour.getCurrentStep();
-
-
                     if(stepIndex != null) {
                         var step = tour.getStep(stepIndex);
 
@@ -136,22 +135,6 @@ define(['jquery'], function (jQuery) {
                 onShown:    function(tour) {
                     jQuery('.tour-' + tour.getName() + '.tour-' + tour.getName() + '-' + tour.getCurrentStep() )
                         .animate({ 'marginTop': '20px'}, 1000);
-
-                    var stepIndex = tour.getCurrentStep();
-
-
-                    if(stepIndex != null) {
-                        var step = tour.getStep(stepIndex);
-
-
-                        if(typeof step.before !== "undefined") {
-                            tour._options.handleRequirements(tour, step);
-                        }
-
-                        tour._options.sendStatus(tour);
-                    }
-
-
                 },
 
                 /**
@@ -207,7 +190,9 @@ define(['jquery'], function (jQuery) {
                         jQuery.each(step.before, function(key, data) {
                             switch(key) {
                                 case 'addClass':
+
                                     jQuery(data.selector).addClass(data.class);
+                                    console.log(jQuery(data.selector));
                                     break;
                             }
                         });
