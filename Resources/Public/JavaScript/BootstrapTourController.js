@@ -166,7 +166,10 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 	};
 
 	return function() {
-		top.TYPO3.Guide.startTour('AboutModule');
+		var currentModuleId = top.TYPO3.Guide.getUrlParameterByName('M', window.location.href);
+		if(currentModuleId === 'help_AboutmodulesAboutmodules') {
+			top.TYPO3.Guide.startTour('AboutModule');
+		}
 	}();
 	
 	/**

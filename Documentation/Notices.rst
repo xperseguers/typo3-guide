@@ -26,8 +26,15 @@ Possible tours
 
 * Tour Keys (top.TYPO3.Guide.Tours.PageModule) genauso benennen wie module keys
 * Bilder im Content der Popovers?
-
-
 * Popover: Don't show ###tourname### again
-
 * Was wenn im page tree keine seiten?
+
+
+
+
+* Richtige Touren (inkl. Translations)
+* PageTS -> JavaScript 
+* Aus Module raus -> restart
+* JS-Aufrufe nicht in HTML/Template sondern via data-attr/id binden
+* Tour nur starten wenn nicht disabled
+* Tour-Registrierung aufräumen

@@ -3,15 +3,34 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2014-09-23T15:21:54Z" product-name="guide">
 		<header/>
 		<body>
-			<trans-unit id="tx_guide_domain_model_guide">
-				<source>Guide</source>
+
+			<trans-unit id="tx_guide_label.module_menu_overview">
+				<source>Overview</source>
 			</trans-unit>
-			<trans-unit id="tx_guide_domain_model_guide.title">
-				<source>Title</source>
+			
+			<trans-unit id="tx_guide_label.headline">
+				<source>Guided tours trough TYPO3</source>
 			</trans-unit>
-			<trans-unit id="tx_guide_domain_model_guide.text">
-				<source>Text</source>
+			<trans-unit id="tx_guide_label.description">
+				<source>Dies ist eine kurze Beschreibung der vorhandenen guided tours</source>
 			</trans-unit>
+
+			<trans-unit id="tx_guide_label.available_guided_tours">
+				<source>Available guided tours</source>
+			</trans-unit>
+			<trans-unit id="tx_guide_label.enable_tour">
+				<source>Enable</source>
+			</trans-unit>
+			<trans-unit id="tx_guide_label.disable_tour">
+				<source>Disable</source>
+			</trans-unit>
+			<trans-unit id="tx_guide_label.start_tour">
+				<source>Start tour</source>
+			</trans-unit>
+			<trans-unit id="tx_guide_label.resume_tour_on_step">
+				<source>Resume tour on step %1$s</source>
+			</trans-unit>
+			
 		</body>
 	</file>
 </xliff>

@@ -1,12 +1,10 @@
 {namespace core = TYPO3\CMS\Core\ViewHelpers}
 <f:layout name="Default" />
 <f:section name="content">
-	<h1>Guided tours trough TYPO3</h1>
-	<f:flashMessages />
-	<p class="lead">
-		Dies ist eine kurze Beschreibung der vorhandenen guided tours:
-	</p>
-	<h2>Available guided tours</h2>
+	<h1><f:translate key="tx_guide_label.headline"/></h1>
+	<f:flashMessages renderMode="div" />
+	<p class="lead"><f:translate key="tx_guide_label.description" /></p>
+	<h2><f:translate key="tx_guide_label.available_guided_tours" /></h2>
 	<div class="container-fluid">
 		<div class="row">
 	
@@ -14,7 +12,8 @@
 				<div class="col-xs-12 col-sm-6">
 					<div class="tour-item media clearfix" id="{tour.id}">
 						
-						<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', 1); return false;" title="Seiteninhalt" class="pull-left">
+						<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', 1); return false;" 
+						   title="{f:translate(key: 'LLL:{tour.languageLabelFile}:tx_guide_tour.title')}" class="pull-left">
 							<core:icon identifier="{tour.iconIdentifier}" size="default" />
 						</a>
 
@@ -27,32 +26,36 @@
 
 
 							<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', 0); return false" class="btn btn-success">
-								Start tour
+								<f:translate key="tx_guide_label.start_tour"/>
 							</a>
 							<f:if condition="{tour.currentStepNo} == 0">
 								<f:then> </f:then>
 								<f:else>
 									<a href="#" onclick="top.TYPO3.Guide.startTour('{tour.name}', {tour.currentStepNo}); return false" class="btn btn-default">
-										Resume tour on step {tour.currentStepNo}
+										<f:translate key="tx_guide_label.resume_tour_on_step" arguments="{0: tour.currentStepNo}"/>
 									</a>
 								</f:else>
 							</f:if>
 									
 							<f:if condition="{tour.disabled}">
 								<f:then>
-									<a href="#" onclick="top.TYPO3.Guide.enableTour('{tour.name}'); return false" class="guide-tour-enable btn btn-default">
-										Enable
+									<a href="#" onclick="top.TYPO3.Guide.enableTour('{tour.name}'); return false" 
+									   class="guide-tour-enable btn btn-default">
+										<f:translate key="tx_guide_label.enable_tour"/>
 									</a>
-									<a href="#" onclick="top.TYPO3.Guide.disableTour('{tour.name}'); return false" class="guide-tour-disable btn btn-default hidden">
-										Disable
+									<a href="#" onclick="top.TYPO3.Guide.disableTour('{tour.name}'); return false" 
+									   class="guide-tour-disable btn btn-default hidden">
+										<f:translate key="tx_guide_label.disable_tour"/>
 									</a>
 								</f:then>
 								<f:else>
-									<a href="#" onclick="top.TYPO3.Guide.enableTour('{tour.name}'); return false" class="guide-tour-enable btn btn-default hidden">
-										Enable
+									<a href="#" onclick="top.TYPO3.Guide.enableTour('{tour.name}'); return false" 
+									   class="guide-tour-enable btn btn-default hidden">
+										<f:translate key="tx_guide_label.enable_tour"/>
 									</a>
-									<a href="#" onclick="top.TYPO3.Guide.disableTour('{tour.name}'); return false" class="guide-tour-disable btn btn-default">
-										Disable
+									<a href="#" onclick="top.TYPO3.Guide.disableTour('{tour.name}'); return false" 
+									   class="guide-tour-disable btn btn-default">
+										<f:translate key="tx_guide_label.disable_tour"/>
 									</a>
 								</f:else>
 							</f:if>
@@ -65,7 +68,4 @@
 			
 		</div>
 	</div>
-	
-	
-	
 </f:section>

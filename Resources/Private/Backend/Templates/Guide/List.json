@@ -1,1 +1,0 @@
-{namespace g=Tx\Guide\ViewHelpers}<g:jsonEncode>{guides}</g:jsonEncode>

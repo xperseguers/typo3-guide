@@ -24,6 +24,13 @@ if (TYPO3_MODE === 'BE') {
 // Register module icon
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 $iconRegistry->registerIcon(
+	'module-guide-tour-core',
+	\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+	array(
+		'source' => 'EXT:guide/Resources/Public/Icons/core_tours.svg'
+	)
+);
+$iconRegistry->registerIcon(
 	'module-guide',
 	\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
 	array(
