@@ -210,6 +210,7 @@ class GuideUtility {
 			$backendUser->uc['moduleData']['guide'][$tourName] = array();
 		}
 		$backendUser->uc['moduleData']['guide'][$tourName]['disabled'] = $disabled;
+		// Write back into user configuration
 		$backendUser->writeUC($backendUser->uc);
 		return $backendUser->uc['moduleData']['guide'][$tourName];
 	}
@@ -229,11 +230,11 @@ class GuideUtility {
 		// Set already viewed
 		$backendUser->uc['moduleData']['guide'][$tourName]['alreadyViewed'] = FALSE;
 		$tour = $this->getRegisteredGuideTour($tourName);
-		
+		// Set step count
 		if($tour['stepsCount'] == ($stepNo+1)) {
 			$backendUser->uc['moduleData']['guide'][$tourName]['alreadyViewed'] = TRUE;
 		}
-		
+		// Write back into user configuration
 		$backendUser->writeUC($backendUser->uc);
 		return $backendUser->uc['moduleData']['guide'][$tourName];
 	}
