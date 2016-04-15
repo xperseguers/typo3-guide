@@ -28,14 +28,14 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 			+ '</div>';
 	};
 
-
+/*
 	top.TYPO3.Guide.getAvailableTour = function () {
 		//return;
 		jQuery.each(top.TYPO3.Guide.Tours, function(key, value) {
 			console.log(key, value);
 		});
 	};
-
+*/
 	top.TYPO3.Guide.enableTour = function (tourName) {
 		jQuery.ajax({
 			dataType: 'json',
@@ -93,29 +93,57 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 	 * @param jumpToPage
 	 */
 	top.TYPO3.Guide.startTour = function (tourName) {
-		console.log('startTour: ', tourName);
-		if(typeof(top.TYPO3.Guide.Tours[tourName]) !== 'undefined' && !top.TYPO3.Guide.TourData[tourName].disabled) {
-			top.TYPO3.Guide.Tours[tourName].start();
-			if(top.TYPO3.Guide.Tours[tourName].getCurrentStep()>0) {
-				top.TYPO3.Guide.Tours[tourName].goTo(0);
+		if(!top.TYPO3.Guide.TourData[tourName].disabled) {
+			top.TYPO3.Guide.jumpToModuleIfRequired(top.TYPO3.Guide.TourData[tourName].moduleName);
+			console.log('startTour: ', tourName);
+			if(typeof(top.TYPO3.Guide.Tours[tourName]) !== 'undefined') {
+				top.TYPO3.Guide.Tours[tourName].start();
+				if(top.TYPO3.Guide.Tours[tourName].getCurrentStep()>0) {
+					top.TYPO3.Guide.Tours[tourName].goTo(0);
+				}
 			}
+			//else {
+			//	console.error('startTour: ', tourName, ' tour not found');
+			//}
 		}
-		else {
-			console.log('startTour: ', tourName, ' tour not found');
-		}
+		//else {
+		//	console.error('cant startTour ', tourName, ' because it may be disabled');
+		//}
 	};
 
 	top.TYPO3.Guide.startTourWithStep = function(tourName, stepId) {
-		console.log('startTour: ', tourName, ' at step ', stepId);
-		if(typeof(top.TYPO3.Guide.Tours[tourName]) !== 'undefined' && !top.TYPO3.Guide.TourData[tourName].disabled) {
-			top.TYPO3.Guide.Tours[tourName].start();
-			top.TYPO3.Guide.Tours[tourName].goTo(stepId);
+		if(!top.TYPO3.Guide.TourData[tourName].disabled) {
+			top.TYPO3.Guide.jumpToModuleIfRequired(top.TYPO3.Guide.TourData[tourName].moduleName);
+			console.log('startTourWithStep: ', tourName, 'at step ', stepId);
+			if(typeof(top.TYPO3.Guide.Tours[tourName]) !== 'undefined') {
+				top.TYPO3.Guide.Tours[tourName].start();
+				if(top.TYPO3.Guide.Tours[tourName].getCurrentStep()>0) {
+					top.TYPO3.Guide.Tours[tourName].goTo(stepId);
+				}
+			}
+			//else {
+			//	console.error('startTourWithStep: ', tourName, ' tour not found');
+			//}
 		}
-		else {
-			console.log('startTour: ', tourName, ' tour not found');
-		}
+		//else {
+		//	console.error('cant startTourWithStep ', tourName, ' because it may be disabled');
+		//}
 	};
 
+	/**
+	 * Loads a module in content frame if required
+	 * @param moduleName
+	 */
+	top.TYPO3.Guide.jumpToModuleIfRequired = function (moduleName) {
+		// Executed within a frame?
+		if(window.top !== window.self) {
+			var currentModuleId = top.TYPO3.Guide.getUrlParameterByName('M', window.location.href);
+			if(moduleName !== currentModuleId) {
+				top.goToModule(moduleName);
+			}
+		}
+	};
+	
 
 	top.TYPO3.Guide.getUrlParameterByName = function(name, url) {
 		if (!url) url = window.location.href;
