@@ -136,15 +136,20 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Logger
 	 */
 	top.TYPO3.Guide.jumpToModuleIfRequired = function (moduleName) {
 		// Executed within a frame?
-		if(window.top !== window.self) {
+		if(window.top !== window.self && moduleName !== 'core') {
 			var currentModuleId = top.TYPO3.Guide.getUrlParameterByName('M', window.location.href);
 			if(moduleName !== currentModuleId) {
 				top.goToModule(moduleName);
 			}
 		}
 	};
-	
 
+	/**
+	 * Get an url parameter by name
+	 * @param name
+	 * @param url
+	 * @returns {*}
+	 */
 	top.TYPO3.Guide.getUrlParameterByName = function(name, url) {
 		if (!url) url = window.location.href;
 		name = name.replace(/[\[\]]/g, "\\$&");

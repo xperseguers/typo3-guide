@@ -31,7 +31,7 @@
 				<source>Start tour</source>
 			</trans-unit>
 			<trans-unit id="tx_guide_label.resume_tour_on_step">
-				<source>Resume tour on step %1$s</source>
+				<source>Resume tour</source>
 			</trans-unit>
 			
 		</body>

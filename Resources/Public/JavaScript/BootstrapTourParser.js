@@ -132,7 +132,6 @@ console.log(unprocessedSteps);
                             tour._options.handleEvents(step.show, 'onShow', tour, step);
                         }
 
-                        tour._options.sendStatus(tour);
                     }
 
 
@@ -149,6 +148,7 @@ console.log(unprocessedSteps);
                     var $popover = jQuery('.popover.tour');
                     var $next = $popover.find('[data-role="next"]');
 
+	                tour._options.sendStatus(tour);
 
                     var stepIndex = tour.getCurrentStep();
                     if(stepIndex != null) {
