@@ -83,6 +83,10 @@ class GuideUtility {
 					else {
 						$tours[$tour['name']] = $tour;
 					}
+					// Be sure disabled is available
+					if(!isset($tours[$tourKey]['disabled'])) {
+						$tours[$tourKey]['disabled'] = FALSE;
+					}
 					// Translate title and description
 					if(substr($tours[$tourKey]['title'], 0, 4) == 'LLL:') {
 						$tours[$tourKey]['title'] = $this->getLanguageService()->sL($tours[$tourKey]['title']);
@@ -93,14 +97,17 @@ class GuideUtility {
 					// Generate an id
 					$tours[$tourKey]['id'] = GeneralUtility::camelCaseToLowerCaseUnderscored($tour['name']);
 					$tours[$tourKey]['id'] = 'guide-tour-' . str_replace('_', '-', $tours[$tourKey]['id']);
-					// Tour is enabled for current user
-					$tours[$tourKey]['enabled'] = $this->moduleEnabled($tour['moduleName']);
 					// Remove steps
 					if(!isset($tours[$tourKey]['currentStepNo'])) {
 						$tours[$tourKey]['currentStepNo'] = 0;
 					}
 					$tours[$tourKey]['stepsCount'] = count($tours[$tourKey]['steps']);
 					unset($tours[$tourKey]['steps']);
+					// Tour is enabled for current user
+					$tours[$tourKey]['enabled'] = $this->moduleEnabled($tour['moduleName']);
+					if(!$tours[$tourKey]['enabled']) {
+						unset($tours[$tourKey]);
+					}
 				}
 			}
 		}

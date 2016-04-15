@@ -37,7 +37,7 @@ mod.guide.tours.FunctionModule {
 		50 {
 			selector = .typo3-docheader-pagePath
 			title = Current path path
-			content = Here you see on which page you\'re currently working on.
+			content = Here you see on which page you're currently working on.
 			placement = bottom
 		}
 		60 {
