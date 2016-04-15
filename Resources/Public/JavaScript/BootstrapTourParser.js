@@ -284,16 +284,11 @@ console.log(unprocessedSteps);
         };
 
         TourParser.prototype.parse = function(unprocessedTours) {
-
             var processedTours = [];
-
             for (var i = 0; i < unprocessedTours.length; i++) {
                 var current = unprocessedTours[i];
-                processedTours.push( this.parseTour(current) );
+                processedTours.push(this.parseTour(current));
             }
-
         };
-
         return TourParser;
-
 });

@@ -4,31 +4,31 @@ mod.guide.tours.Tree {
 	moduleName = core
 	iconIdentifier = module-guide-tour-core
 	steps {
-		0 {
+		10 {
 			selector = div.x-tree-root-node:first
 			title = TYPO3.lang['tx_guide_tour_tree_general.title']
 			content = TYPO3.lang['tx_guide_tour_tree_general.description']
 			placement = bottom
 		}
-		1 {
+		20 {
 			selector = #typo3-pagetree-topPanel-button-newNode
 			title = TYPO3.lang['tx_guide_tour_tree_new_node.title']
 			content = TYPO3.lang['tx_guide_tour_tree_new_node.description']
 			placement = bottom
 		}
-		2 {
+		30 {
 			selector = #typo3-pagetree-topPanel-button-filter
 			title = TYPO3.lang['tx_guide_tour_tree_filter.title']
 			content = TYPO3.lang['tx_guide_tour_tree_filter.description']
 			placement = bottom
 		}
-		3 {
+		40 {
 			selector = #typo3-pagetree-topPanel-button-refresh
 			title = TYPO3.lang['tx_guide_tour_tree_refresh.title']
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
 			placement = bottom
 		}
-		4 {
+		50 {
 			selector = .icon-actions-document-view
 			title = View webpage
 			content = Click this button for displaying the webpage in a new tab.<br /><br /><span class="text-inf">Click on <i>End tour</i> in order to get back to the guides startpage.</span>

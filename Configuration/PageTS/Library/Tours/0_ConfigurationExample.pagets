@@ -1,22 +1,28 @@
-
-
-
+# Definition of guided tours setup
+# 
+# All tours must defined in mod.guide.tours.
+# The main node of a tour is the internal name as well.
+# This name should be a simple upper-camel-cased string.
+#
 mod.guide.tours.ConfigurationExample {
-	# The name of the tour. This name should be upper
-	name = AboutModule
-	# The title of the tour. This title is displayed in the backend module
+	# The title of the tour. This title will be displayed in the backend module.
 	# Enter simply some text or a LLL identifier like:
 	# title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourPageModule.xlf:tx_guide_tour.title
 	title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf:tx_guide_tour.title
-	
+	# Description of the tour. This description will be displayed in the backend module.
+	# Enter simply some text or a LLL identifier like:
+	# description = LLL:EXT:guide/Resources/Private/Language/BootstrapTourPageModule.xlf:tx_guide_tour.description
 	description = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf:tx_guide_tour.description
 	# Internal name of the module
+	# This the same identifier like the module kex (M parameter in backend links)
+	# The moduleName core is used for tours, which are execute in top frame.
+	# Examples:
+	# - Page module: web_layout
+	# - View module: web_ViewpageView
 	moduleName = core
 	# Icon identifier for the icon in backend module.
 	# The icon identifier has to be registered in the icon registry.
 	iconIdentifier = module-guide-tour-core
-	
-	next = tx_guide.guides.menuGuide
 	steps {
 		0 {
 			# The selector is passed to jQuery and must be unique

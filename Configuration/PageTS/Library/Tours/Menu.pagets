@@ -4,7 +4,7 @@ mod.guide.tours.Menu {
 	moduleName = core
 	iconIdentifier = module-guide-tour-core
 	steps {
-		0 {
+		10 {
 			selector = #web_layout
 			title = Page module
 			content = This is the button which opens the page module.<br />You will use it for editing you content.<br />Click on <i>Next</i> for jumping into the page module.
@@ -14,7 +14,7 @@ mod.guide.tours.Menu {
 				step = 0
 			}
 		}
-		1 {
+		20 {
 			selector = #web_ViewpageView
 			title = View module
 			content = This is the view module.
