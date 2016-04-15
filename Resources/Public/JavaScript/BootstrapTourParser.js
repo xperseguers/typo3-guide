@@ -87,8 +87,6 @@ console.log(unprocessedSteps);
                  */
                 storage: false,
 
-                orphan: true,
-
                 /**
                  * Function to execute when the tour starts.
                  *
