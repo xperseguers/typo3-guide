@@ -10,27 +10,11 @@ mod.guide.tours.PageModule {
 			content = The view module can be used for... Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 			placement = bottom
 			showArrow = false
-		}
-		20 {
-			selector = #web_ViewpageView
-			title = View module
-			content = This is the view module.
 			next {
-				guide = ViewModule
+				tour = Tree
 				step = 0
 			}
 		}
-		30 {
-			selector =.t3-js-jumpMenuBox
-			title= 1 PageModule title
-			content= 1 PageModule content - select the view
-			placement= bottom
-		}
-		40 {
-			selector= #my-other-element
-			title= 3 PageModule title
-			content= 3 PageModule content
-			placement= bottom
-		}
+
 	}
 }

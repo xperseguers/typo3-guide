@@ -155,7 +155,6 @@ define(['jquery', 'TYPO3/CMS/Guide/Logger'], function (jQuery, Logger) {
 
                         var step = tour.getStep(stepIndex);
 
-                        Logger.log('enable tour button', typeof step.nextStep !== "undefined" && !top.TYPO3.Guide.TourData[step.nextStep.tour].disabled);
                         if(typeof step.nextStep !== "undefined" && !top.TYPO3.Guide.TourData[step.nextStep.tour].disabled) {
                             $next.removeClass('disabled');
                         }
