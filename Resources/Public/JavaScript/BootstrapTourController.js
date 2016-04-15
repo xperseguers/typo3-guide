@@ -95,71 +95,21 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 		console.log('startTour: ', tourName);
 		if(typeof(top.TYPO3.Guide.Tours[tourName]) !== 'undefined') {
 			top.TYPO3.Guide.Tours[tourName].start();
-			
-			jQuery('.module').css('color', 'red');
 		}
 		else {
 			console.log('startTour: ', tourName, ' tour not found');
 		}
-		
-		/*
-		jQuery.ajax({
-			dataType: 'json',
-			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
-			data:  {
-				cmd: 'getTour',
-				tour: tourName
-			},
-			success: function (result) {
-
-				if(typeof result.tour !== "undefined" && typeof top.TYPO3.Guide.Tours[tourName] === "undefined") {
-
-					if(result.tour.moduleName == 'core' && window.top === window.self) {
-						top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
-						top.TYPO3.Guide.Tours[tourName].init();
-						top.TYPO3.Guide.Tours[tourName].start();
-					} else if(result.tour.moduleName != 'core' && window.top !== window.self) {
-						top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
-						top.TYPO3.Guide.Tours[tourName].init();
-						top.TYPO3.Guide.Tours[tourName].start();
-					}
-
-
-				}
-			},
-			error: function (result) {
-
-			}
-		});*/
 	};
 
 	top.TYPO3.Guide.startTourWithStep = function(tourName, stepId) {
-		jQuery.ajax({
-			dataType: 'json',
-			url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
-			data:  {
-				cmd: 'getTour',
-				tour: tourName
-			},
-			success: function (result) {
-
-				if(typeof result.tour !== "undefined" && typeof top.TYPO3.Guide.Tours[tourName] === "undefined") {
-
-					if(result.tour.moduleName == 'core' && window.top === window.self) {
-						top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
-						top.TYPO3.Guide.Tours[tourName].init();
-						top.TYPO3.Guide.Tours[tourName].start();
-					} else if(result.tour.moduleName != 'core' && window.top !== window.self) {
-						top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
-						top.TYPO3.Guide.Tours[tourName].init();
-						top.TYPO3.Guide.Tours[tourName].start();
-					}
-				}
-			},
-			error: function (result) {
-
-			}
-		});
+		console.log('startTour: ', tourName, ' at step ', stepId);
+		if(typeof(top.TYPO3.Guide.Tours[tourName]) !== 'undefined') {
+			top.TYPO3.Guide.Tours[tourName].start();
+			top.TYPO3.Guide.Tours[tourName].goTo(stepId);
+		}
+		else {
+			console.log('startTour: ', tourName, ' tour not found');
+		}
 	};
 
 
@@ -194,18 +144,11 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 					top.TYPO3.Guide.Tours[result.tour.name].init();
 					
 					console.log('loadTour success: ', result);
+					// Start tour after loading
 					if(result.cmd.getTour.startTourAfterLoading === 'true') {
 						console.log('loadTour success: start -> ', result.tour.name);
 						top.TYPO3.Guide.startTour(result.tour.name);
 					}
-					
-					/*
-					if(result.tour.moduleName == 'core' && window.top === window.self) {
-						top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
-					} else if(result.tour.moduleName != 'core' && window.top !== window.self) {
-						parent.top.TYPO3.Guide.Tours[tourName] = new BootstrapTourParser().parseTour(result.tour);
-					}
-					*/
 				}
 			},
 			error: function (result) {
@@ -314,175 +257,9 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 			else {
 				console.error('frame: tourdata is not available');
 			}
-
-			
-			
 		}
 
 
 	}();
 
-	/**
-	 * initialize function
-	 *
-	return function () {
-
-		console.log(TYPO3.lang['tx_guide_tour.previous']);
-
-		// Instance the tour
-		if(typeof(Tour) != 'undefined') {
-			// Init tours container
-			top.TYPO3.Guide.Tours = top.TYPO3.Guide.Tours || {};
-
-
-			if(window.top !== window.self) {
-				console.log('frame');
-
-				if(typeof(top.TYPO3.Guide.Tours.Main) == 'undefined') {
-
-					console.log('defining top.TYPO3.Guide.Tours.Main');
-
-					top.TYPO3.Guide.Tours.Main = new Tour({
-						// This option is used to build the name of the storage item where the tour state is stored.
-						// // The name should contain only alphanumerics, underscores and hyphens.
-						// // You can initialize several tours with different names in the same page and application.
-						name: 'main',
-						storage: top.TYPO3.Guide.storage,
-						debug: top.TYPO3.Guide.debug,
-						template: top.TYPO3.Guide.getTemplate(),
-						steps: [
-							{
-								element: '.typo3-aboutmodules-inner-docbody',
-								title: 'Welcome to TYPO3 backend',
-								content: 'This tour will show you how the guided tour could work.<br />'
-								+'This text of a step can also contain html markup, for <i>highlighting</i> <b>important</b> things.'
-								//+' ' + top.TYPO3.Guide.getAvailableTour()
-								,
-								placement: 'top',
-								// Function to execute right after the step is shown. It overrides the global onShown option.
-
-								onShow: function() {
-
-									//top.TYPO3.Guide.getAvailableTour();
-								},
-
-								onShown: function() {
-									jQuery('.tour-main.tour-main-0').animate({ 'marginTop': '20px'}, 1000);
-								},
-								onNext: function() {
-									console.log('top.TYPO3.Guide.Tours.Main; step 0, onNext');
-									// End this tour
-									top.TYPO3.Guide.Tours.Main.end();
-									// Start menu tour
-									//top.TYPO3.Guide.Tours.Menu.start();
-									top.TYPO3.Guide.startTour('Menu', 0);
-								}
-							},
-							{
-								element: '.typo3-aboutmodules-inner-docbody',
-								title: '2 main title',
-								content: '2 main content'
-							},
-							{
-								element: "#my-other-element",
-								title: '3 main title',
-								content: '3 main content'
-							}
-						]
-
-					});
-
-					// Initialize the tour
-					top.TYPO3.Guide.Tours.Main.init();
-					// Start the tour
-					top.TYPO3.Guide.Tours.Main.start();
-				}
-				else {
-					console.log('Tour main already defined');
-				}
-
-
-			}
-			else {
-				console.log('no frame');
-
-				if(typeof(top.TYPO3.Guide.Tours.Menu) == 'undefined') {
-					console.log('defining top.TYPO3.Guide.Tours.Menu');
-
-					top.TYPO3.Guide.Tours.Menu = new Tour({
-						name: 'menu',
-						storage: top.TYPO3.Guide.storage,
-						debug: top.TYPO3.Guide.debug,
-						template: top.TYPO3.Guide.getTemplate(),
-						steps: [
-							{
-								element: '#web_layout',
-								title: 'Page module',
-								content: 'This is the button which opens the page module.<br />You will use it for editing you content.<br />Click on <i>Next</i> for jumping into the page module.',
-								placement: 'right',
-								// Function to execute right after the step is shown. It overrides the global onShown option.
-								onShown: function() {
-									//jQuery('.tour-menu.tour-menu-0').animate({ 'marginRight': '20px'}, 1000);
-								},
-								onNext: function() {
-									console.log('top.TYPO3.Guide.Tours.Menu; step 0, onNext');
-									// End this tour
-									top.TYPO3.Guide.Tours.Menu.end();
-
-									// Jump into the Page module
-									top.TYPO3.Guide.startTour('PageModule', 0);
-
-									// Start menu tour
-									//
-									//top.TYPO3.Guide.Tours.Main.next();
-								//	top.TYPO3.Guide.Tours.Main.restart();
-								//	top.TYPO3.Guide.Tours.Main.goTo(1);
-								}
-							},
-							{
-								element: '#web_ViewpageView',
-								title: 'View module',
-								content: 'This is the view module.',
-								onNext: function() {
-									// End this tour
-									top.TYPO3.Guide.Tours.Menu.end();
-									// Jump into the Page module
-									top.TYPO3.Guide.startTour('ViewModule', 0);
-								}
-							},
-							{
-								element: '#web_ViewpageView',
-								title: 'View module',
-								content: 'This is the view module.'
-							}
-						]
-					});
-
-					// Initialize the tour
-					top.TYPO3.Guide.Tours.Menu.init();
-
-					// Set the module key
-					top.TYPO3.Guide.Tours.Menu.moduleId = 'core';
-					// Frame where the guide should be run
-					top.TYPO3.Guide.Tours.Menu.frame = 'top';
-
-					// Start the tour
-					// Don't start immediately
-					//top.TYPO3.Guide.Tours.Menu.start();
-				}
-				else {
-					console.log('Tour menu already defined');
-				}
-
-
-			}
-
-		}
-		else {
-			console.log('Tour is undefined');
-		}
-
-
-	}();
-	 */
 });
