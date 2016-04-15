@@ -263,6 +263,7 @@ define(['jquery', 'TYPO3/CMS/Guide/Logger'], function (jQuery, Logger) {
 
                 handleEvents: function(events, eventType, tour, step) {
                     Logger.log("Handle Events for " + eventType);
+
                     if(typeof events !== "undefined" ) {
                         jQuery.each(events, function(key, data) {
                             switch(key) {
@@ -285,6 +286,11 @@ define(['jquery', 'TYPO3/CMS/Guide/Logger'], function (jQuery, Logger) {
                                     } else if (element.fireEvent) {
                                         selectBox[0].fireEvent("onmousedown");
                                     }
+                                    break;
+                                case 'renameNextButton':
+                                    var $popover = jQuery('.tour-' + tour._options.name + '.tour-' + tour._options.name + '-' + tour.getCurrentStep());
+                                    var $next = $popover.find('[data-role="next"]');
+                                    $next.html(data);
                                     break;
                             }
                         });
