@@ -11,7 +11,13 @@
 			<f:for each="{tours}" as="tour">
 				<f:if condition="{tour.enabled}">
 					<f:if condition="{tour.moduleName} == 'core'">
-						<f:render partial="Guide/Item" arguments="{_all}" />
+						<f:if condition="{tour.name} == 'Tree'">
+							<f:then>
+							</f:then>
+							<f:else>
+								<f:render partial="Guide/Item" arguments="{_all}" />
+							</f:else>
+						</f:if>
 					</f:if>
 				</f:if>
 			</f:for>

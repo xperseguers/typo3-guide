@@ -223,8 +223,12 @@ define(['jquery', 'TYPO3/CMS/Guide/Logger'], function (jQuery, Logger) {
                     var step = tour.getStep(stepIndex);
                     Logger.log('onNext: ', typeof step.nextStep !== "undefined", tour);
                     if(typeof step.nextStep !== "undefined") {
+	                    
 	                    var newTourName = step.nextStep.tour;
 	                    var newTour = top.TYPO3.Guide.TourData[step.nextStep.tour];
+
+	                    tour.end();
+	                    
                         if(typeof newTour !== "undefined") {
                             if (newTour.moduleName !== 'core') {
                                 if(top.TYPO3.ModuleMenu.App.loadedModule != newTour.moduleName) {
