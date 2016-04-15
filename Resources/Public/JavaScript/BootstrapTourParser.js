@@ -127,9 +127,8 @@ console.log(unprocessedSteps);
                     var stepIndex = tour.getCurrentStep();
                     if(stepIndex != null) {
                         var step = tour.getStep(stepIndex + 1);
-                        console.log(jQuery(step.element));
 
-                        if(typeof step.shown !== "undefined") {
+                        if(typeof step !== "undefined" && typeof step.show !== "undefined") {
                             tour._options.handleEvents(step.show, 'onShow', tour, step);
                         }
 
@@ -222,14 +221,16 @@ console.log(unprocessedSteps);
 	                    var newTourName = step.nextStep.tour;
 	                    var newTour = top.TYPO3.Guide.TourData[step.nextStep.tour];
 
-	                    if (newTour.moduleName !== 'core') {
-		                    if(top.TYPO3.ModuleMenu.App.loadedModule != newTour.moduleName) {
-			                    console.log('jump to: ', newTour.moduleName);
-			                    tour.end();
-			                    top.jump('', newTour.moduleName, '', 0);
-			                    return;
-		                    }
-	                    }
+                        if(typeof newTour !== "undefined") {
+                            if (newTour.moduleName !== 'core') {
+                                if(top.TYPO3.ModuleMenu.App.loadedModule != newTour.moduleName) {
+                                    console.log('jump to: ', newTour.moduleName);
+                                    tour.end();
+                                    top.jump('', newTour.moduleName, '', 0);
+                                    return;
+                                }
+                            }
+                        }
 	                    
                         var stepId = parseInt(step.nextStep.step, 10);
                         console.log('switch to tour: ', newTourName);
