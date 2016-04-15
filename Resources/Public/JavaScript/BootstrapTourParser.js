@@ -1,7 +1,7 @@
 /**
  * this module provide the functionality to parse a json string from the TYPO3 Backend to a valid tour configuration
  */
-define(['jquery'], function (jQuery) {
+define(['jquery', 'TYPO3/CMS/Guide/Logger'], function (jQuery, Logger) {
 
 
         var TourParser = function() {

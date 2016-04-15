@@ -1,7 +1,7 @@
 /**
  * TYPO3 Guided tour controller
  */
-define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/ExtendedBootstrapTour',  'TYPO3/CMS/Lang/Lang'], function (jQuery, BootstrapTourParser) {
+define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Logger', 'TYPO3/CMS/Guide/ExtendedBootstrapTour',  'TYPO3/CMS/Lang/Lang'], function (jQuery, BootstrapTourParser, Logger) {
 
 	// Init the Guide Container
 	top.TYPO3.Guide = top.TYPO3.Guide || {};
@@ -171,6 +171,7 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 	};
 	
 	return function() {
+		Logger.log("Start tours loadning");
 		// Bind button events
 		var onclickEnableTour = jQuery('a[data-onclick=\'enableTour\']');
 		if(onclickEnableTour.length>0) {
