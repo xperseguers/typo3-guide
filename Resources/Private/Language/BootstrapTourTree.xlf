@@ -10,29 +10,35 @@
 				<source>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</source>
 			</trans-unit>
 
+			<trans-unit id="tx_guide_tour.10.title">
+				<source>Page tree</source>
+			</trans-unit>
+			<trans-unit id="tx_guide_tour.10.content">
+				<source>This is the page tree.</source>
+			</trans-unit>
 			
-			<trans-unit id="tx_guide_tour_tree_new_node.title">
+			<trans-unit id="tx_guide_tour.20.title">
 				<source>Add page tree nodes</source>
 			</trans-unit>
-			<trans-unit id="tx_guide_tour_tree_new_node.description">
-				<source>Add....</source>
+			<trans-unit id="tx_guide_tour.20.content">
+				<source>Do something to add new nodes.</source>
 			</trans-unit>
 
-			<trans-unit id="tx_guide_tour_tree_filter.title">
-				<source>Filter the page tree</source>
+			<trans-unit id="tx_guide_tour.30.title">
+				<source>Filter tree nodes</source>
 			</trans-unit>
-			<trans-unit id="tx_guide_tour_tree_filter.description">
+			<trans-unit id="tx_guide_tour.30.content">
 				<source><![CDATA[Here you're able to active a filter field, which allows you to filter the tree.<br />
-It's also be useful for searching pages be his unique identifiers (also known as <i>uid</i>).]]></source>
+					It's also be useful for searching pages be his unique identifiers (also known as <i>uid</i>).]]></source>
 			</trans-unit>
 
-			<trans-unit id="tx_guide_tour_tree_refresh.title">
-				<source>Refresh page tree</source>
+			<trans-unit id="tx_guide_tour.40.title">
+				<source>Refresh tree nodes</source>
 			</trans-unit>
-			<trans-unit id="tx_guide_tour_tree_refresh.description">
-				<source><![CDATA[Reload the whole page tree.<br />
-Click on..]]></source>
+			<trans-unit id="tx_guide_tour.40.content">
+				<source>Reload the whole page tree.</source>
 			</trans-unit>
+
 		</body>
 	</file>
 </xliff>
