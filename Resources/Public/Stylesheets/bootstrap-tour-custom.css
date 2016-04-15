@@ -1,17 +1,18 @@
 /* Custom styles for the guided tour
  */
 
-/* A custom style for tour 'main', step 0 */
-.tour-main.tour-main-0 {
+/* A custom style for tour 'menu', step 0 */
+.tour-main.tour-menu-0 {
 	/*margin-top: 20px;*/
 }
-.tour-main.tour-main-0 .arrow {
-	display:none;
+.tour-main.tour-menu-0 .arrow {
+	/*display:none;*/
 }
 
 body > .popover {
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-	min-width: 350px;
+	min-width: 300px;
+	z-index: 9999 !important;
 }
 body > .popover .separator {
 	display: inline-block;
@@ -19,6 +20,9 @@ body > .popover .separator {
 	height: 10px;
 }
 body > .popover .dont-show-again {
+	margin-top: 8px;
+}
+body > .popover > .popover-navigation > .btn {
 	margin-top: 8px;
 }
 body > .popover button#popover-button-tour-overview {

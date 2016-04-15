@@ -71,6 +71,8 @@ mod.guide.tours.ConfigurationExample {
 					# jQuery selector for identifying elements, which should get the class 
 					selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem
 					# Class to be added
+					# Attention: Because of an focus issue, opening a dropdown by adding the class open is only working
+					# with event shown
 					class = open
 				}
 				# Removes a class from an element

@@ -56,8 +56,8 @@ mod.guide.tours.Topbar {
 			selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem
 			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.50.title
 			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.50.content
-			placement = bottom
-			hide {
+			placement = right
+			shown {
 				addClass {
 					selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem
 					class = open
@@ -65,21 +65,9 @@ mod.guide.tours.Topbar {
 			}
 		}
 		60 {
-			selector = #user_setup
-			title = User settings
-			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
-			placement = right
-		}
-		70 {
-			selector = .icon-actions-logout:first
-			title = Logout
-			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
-			placement = left
-		}
-		80 {
 			selector = #typo3-cms-backend-backend-toolbaritems-livesearchtoolbaritem
-			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.70.title
-			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
+			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.60.title
+			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.60.description
 			placement = bottom
 			next {
 				tour = Menu

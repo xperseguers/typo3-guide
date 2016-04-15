@@ -42,17 +42,14 @@
 				<source>User menu</source>
 			</trans-unit>
 			<trans-unit id="tx_guide_tour.50.content">
-				<source><![CDATA[The user menu contains all user related functions.]]></source>
+				<source><![CDATA[The user menu contains all user related functions.<br />
+				You can edit your user settings or logout from the system.]]></source>
 			</trans-unit>
 
-
-
-
-
-			<trans-unit id="tx_guide_tour.70.title">
+			<trans-unit id="tx_guide_tour.60.title">
 				<source>Live search</source>
 			</trans-unit>
-			<trans-unit id="tx_guide_tour.50.content">
+			<trans-unit id="tx_guide_tour.60.content">
 				<source><![CDATA[The live search enables you to search for records in the whole system.<br />
 				You're also able to search for a specific record uid.]]></source>
 			</trans-unit>

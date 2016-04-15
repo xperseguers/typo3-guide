@@ -287,7 +287,7 @@ console.log(unprocessedSteps);
                             stepNo: tour.getCurrentStep()
                         },
                         success: function (result) {
-                           // console.log(result);
+                            console.log('SET STEP: ', result);
                         },
                         error: function (result) {
                             console.error('Upps, an error occured. Message was: ', result);
