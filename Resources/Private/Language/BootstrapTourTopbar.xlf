@@ -45,6 +45,18 @@
 				<source><![CDATA[The user menu contains all user related functions.]]></source>
 			</trans-unit>
 
+
+
+
+
+			<trans-unit id="tx_guide_tour.70.title">
+				<source>Live search</source>
+			</trans-unit>
+			<trans-unit id="tx_guide_tour.50.content">
+				<source><![CDATA[The live search enables you to search for records in the whole system.<br />
+				You're also able to search for a specific record uid.]]></source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

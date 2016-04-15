@@ -78,7 +78,7 @@ mod.guide.tours.Topbar {
 		}
 		80 {
 			selector = #typo3-cms-backend-backend-toolbaritems-livesearchtoolbaritem
-			title = Live search
+			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.70.title
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
 			placement = bottom
 			next {

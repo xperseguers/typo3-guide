@@ -90,6 +90,10 @@ mod.guide.tours.ConfigurationExample {
 				# Opens a select box by jQuery selector
 				openSelectBox = select[name=\'WebFuncJumpMenu\']:first
 			}
+			#
+			hide {
+				
+			}
 			# Actions triggered by finish to show this step
 			show {
 
