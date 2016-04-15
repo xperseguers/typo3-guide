@@ -33,7 +33,7 @@ mod.guide.tours.Tree {
 			title = View webpage
 			content = Click this button for displaying the webpage in a new tab.<br /><br /><span class="text-inf">Click on <i>End tour</i> in order to get back to the guides startpage.</span>
 			placement = bottom
-			show {
+			shown {
 				renameNextButton = Start next tour
 			}
 			next {

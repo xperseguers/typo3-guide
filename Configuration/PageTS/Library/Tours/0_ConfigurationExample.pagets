@@ -63,7 +63,7 @@ mod.guide.tours.ConfigurationExample {
 				step = 0
 			}
 			# Actions triggered by start to show this step
-			show {
+			shown {
 				# Renames the label of the next button
 				renameNextButton = Start next tour
 				# Add a class on an element
@@ -87,11 +87,12 @@ mod.guide.tours.ConfigurationExample {
 					# jQuery('#typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]').dropdown();
 				#	selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]
 				#}
-			}
-			# Actions triggered by finish to show this step
-			shown {
 				# Opens a select box by jQuery selector
 				openSelectBox = select[name=\'WebFuncJumpMenu\']:first
+			}
+			# Actions triggered by finish to show this step
+			show {
+
 			}
 		}
 	}

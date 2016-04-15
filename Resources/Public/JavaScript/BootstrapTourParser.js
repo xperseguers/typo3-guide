@@ -49,9 +49,11 @@ console.log(unprocessedSteps);
                     placement   :   current.placement,
 
                     /**
-                     * function that will be executed before the current step will be shown
+                     * function that will be executed shown the current step will be shown
                      */
-                    before      :   current.show,
+                    show      :   current.show,
+
+                    shown      :   current.shown,
 
 
                     /**
@@ -117,7 +119,7 @@ console.log(unprocessedSteps);
                 },
 
                 /**
-                 * Function to execute right before each step is shown.
+                 * Function to execute right shown each step is shown.
                  * @param tour
                  */
                 onShow:     function(tour) {
@@ -127,8 +129,8 @@ console.log(unprocessedSteps);
                         var step = tour.getStep(stepIndex + 1);
                         console.log(jQuery(step.element));
 
-                        if(typeof step.before !== "undefined") {
-                            tour._options.handleEvents(step.before, 'onShow', tour, step);
+                        if(typeof step.shown !== "undefined") {
+                            tour._options.handleEvents(step.show, 'onShow', tour, step);
                         }
 
                         tour._options.sendStatus(tour);
@@ -155,9 +157,9 @@ console.log(unprocessedSteps);
                             jQuery('.tour-' + tour.getName() + '.tour-' + tour.getName() + '-' + tour.getCurrentStep() + '> .arrow').hide();
                         }
 
-                        // Handle requirements which are executed before the step is shown
-                        if(typeof step.before !== "undefined") {
-                            tour._options.handleEvents(step.before, 'onShown', tour, step);
+                        // Handle requirements which are executed shown the step is shown
+                        if(typeof step.shown !== "undefined") {
+                            tour._options.handleEvents(step.shown, 'onShown', tour, step);
                         }
                     }
                 },
