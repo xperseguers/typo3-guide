@@ -63,7 +63,7 @@ mod.guide.tours.ConfigurationExample {
 				step = 0
 			}
 			# Actions triggered by start to show this step
-			shown {
+			show {
 				# Renames the label of the next button
 				renameNextButton = Start next tour
 				# Add a class on an element
@@ -90,12 +90,12 @@ mod.guide.tours.ConfigurationExample {
 				# Opens a select box by jQuery selector
 				openSelectBox = select[name=\'WebFuncJumpMenu\']:first
 			}
-			#
-			hide {
-				
-			}
 			# Actions triggered by finish to show this step
-			show {
+			shown {
+
+			}
+			# Actions triggered by hiding a step
+			hide {
 
 			}
 		}
