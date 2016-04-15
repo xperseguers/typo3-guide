@@ -33,14 +33,14 @@ Possible tours
 
 [x] Modul-Authorisation prüfen/in Tour schreiben
 [ ] Richtige Touren (inkl. Translations)
-[ ] PageTS -> JavaScript 
+[~] PageTS -> JavaScript 
 [ ] Aus Module raus -> restart
 [ ] JS-Aufrufe nicht in HTML/Template sondern via data-attr/id binden
 [ ] Tour nur starten wenn nicht disabled
-[ ] Tour-Registrierung aufräumen
-[ ] tsconfig.showArrow muss implentiert werden
-[ ] Storage für browser deaktivieren
-[ ] Wenn Schritt nicht vorhanden, dann überspringen
+[x] Tour-Registrierung aufräumen
+[x] tsconfig.showArrow muss implentiert werden
+[x] Storage für browser deaktivieren
+[x] Wenn Schritt nicht vorhanden, dann überspringen
 
 
 Extension-Configuration
