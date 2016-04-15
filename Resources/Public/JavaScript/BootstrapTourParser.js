@@ -146,10 +146,19 @@ console.log(unprocessedSteps);
                     jQuery('.tour-' + tour.getName() + '.tour-' + tour.getName() + '-' + tour.getCurrentStep() )
                         .animate({ 'opacity': '1'}, 500);
 
+                    var $popover = jQuery('.popover.tour');
+                    var $next = $popover.find('[data-role="next"]');
+
+
                     var stepIndex = tour.getCurrentStep();
                     if(stepIndex != null) {
 
                         var step = tour.getStep(stepIndex);
+
+                        console.log('enable tour button', typeof step.nextStep !== "undefined" && !top.TYPO3.Guide.TourData[step.nextStep.tour].disabled);
+                        if(typeof step.nextStep !== "undefined" && !top.TYPO3.Guide.TourData[step.nextStep.tour].disabled) {
+                            $next.removeClass('disabled');
+                        }
                         // Hide Arrow if needed
                         if(!step.showArrow) {
                             console.log("hide the arrow");
@@ -216,7 +225,11 @@ console.log(unprocessedSteps);
 
                     console.log('onNext: ', typeof step.nextStep !== "undefined", tour);
 
+
+
 	                // jQuery('#typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]').dropdown();
+
+
 
                     if(typeof step.nextStep !== "undefined") {
 
