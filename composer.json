@@ -1,7 +1,7 @@
 {
   "name": "typo3-ter/guide",
   "type": "typo3-cms-extension",
-  "description": "TYPO3 Guide",
+  "description": "Guides new users through the system. New guided tours can easily be configured by page typoscript.",
   "version": "1.0.0",
   "homepage": "https://github.com/tdeuling/typo3-guide",
   "license": ["GPL-2.0+"],
