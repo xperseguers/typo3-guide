@@ -2,7 +2,7 @@ define([], function () {
 
     function CustomLogger() {
         this._options = {
-            disabled: false
+            disabled: true
         }
     }
 
@@ -18,13 +18,16 @@ define([], function () {
     };
 
     CustomLogger.prototype.log = function() {
-        if(!this.isDisabled()) {
+        if(!this.isDisabled() && typeof console !== "undefined" ) {
             console.log.apply(console, arguments);
         }
     };
 
     CustomLogger.prototype.error = function() {
-        console.error.apply(console, arguments);
+        if(typeof console !== "undefined") {
+            console.error.apply(console, arguments);
+        }
+
     };
 
     return new CustomLogger();
