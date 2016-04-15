@@ -88,7 +88,9 @@ mod.guide.tours.ConfigurationExample {
 				#	selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]
 				#}
 				# Opens a select box by jQuery selector
-				openSelectBox = select[name=\'WebFuncJumpMenu\']:first
+				openSelectBox {
+					selector = select[name=\'WebFuncJumpMenu\']:first
+				}
 			}
 			# Actions triggered by finish to show this step
 			show {

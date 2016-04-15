@@ -259,7 +259,17 @@ console.log(unprocessedSteps);
                                     jQuery(data.selector).removeClass(data.class);
                                     break;
                                 case 'openSelectBox':
+                                    var selectBox = jQuery(data.selector);
+                                    console.log('OPEN: ', selectBox);
 
+                                    if (document.createEvent) {
+                                        var event = document.createEvent("MouseEvents");
+                                        event.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                                        selectBox[0].dispatchEvent(event);
+                                    } else if (element.fireEvent) {
+                                        selectBox[0].fireEvent("onmousedown");
+                                    }
+                                    break;
                             }
                         });
 
