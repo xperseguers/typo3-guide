@@ -1,7 +1,7 @@
 <?php
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Guide',
-	'description' => 'Guides new users through the system.',
+	'description' => 'Guides new users through the system. New guided tours can easily be configured by page typoscript.',
 	'category' => 'plugin',
 	'author' => 'Thomas Deuling, Pascal Stammer',
 	'author_email' => 'typo3@coding.ms',
