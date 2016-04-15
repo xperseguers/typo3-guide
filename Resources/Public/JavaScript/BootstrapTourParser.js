@@ -192,7 +192,7 @@ define(['jquery', 'TYPO3/CMS/Guide/Logger'], function (jQuery, Logger) {
                  */
                 onEnd:      function(tour) {
                     var $popover = jQuery('.popover.tour');
-
+	                top.TYPO3.Guide.currentTourName = '';
                     if ($popover.find('[data-role=show-again]').is(':checked')) {
 
                         jQuery.ajax({
@@ -222,20 +222,10 @@ define(['jquery', 'TYPO3/CMS/Guide/Logger'], function (jQuery, Logger) {
                 onNext:     function(tour) {
                     var stepIndex = tour.getCurrentStep();
                     var step = tour.getStep(stepIndex);
-
                     Logger.log('onNext: ', typeof step.nextStep !== "undefined", tour);
-
-
-
-	                // jQuery('#typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]').dropdown();
-
-
-
                     if(typeof step.nextStep !== "undefined") {
-
 	                    var newTourName = step.nextStep.tour;
 	                    var newTour = top.TYPO3.Guide.TourData[step.nextStep.tour];
-
                         if(typeof newTour !== "undefined") {
                             if (newTour.moduleName !== 'core') {
                                 if(top.TYPO3.ModuleMenu.App.loadedModule != newTour.moduleName) {
@@ -246,7 +236,6 @@ define(['jquery', 'TYPO3/CMS/Guide/Logger'], function (jQuery, Logger) {
                                 }
                             }
                         }
-	                    
                         var stepId = parseInt(step.nextStep.step, 10);
                         Logger.log('switch to tour: ', newTourName);
 						if(stepId>0) {
@@ -255,7 +244,6 @@ define(['jquery', 'TYPO3/CMS/Guide/Logger'], function (jQuery, Logger) {
 	                    else {
 							top.TYPO3.Guide.startTour(newTourName);
 						}
-                        
                     }
                 },
 

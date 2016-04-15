@@ -28,14 +28,6 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Logger
 			+ '</div>';
 	};
 
-/*
-	top.TYPO3.Guide.getAvailableTour = function () {
-		//return;
-		jQuery.each(top.TYPO3.Guide.Tours, function(key, value) {
-			Logger.log(key, value);
-		});
-	};
-*/
 	top.TYPO3.Guide.enableTour = function (tourName) {
 		jQuery.ajax({
 			dataType: 'json',
@@ -97,18 +89,19 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Logger
 			top.TYPO3.Guide.jumpToModuleIfRequired(top.TYPO3.Guide.TourData[tourName].moduleName);
 			Logger.log('startTour: ', tourName);
 			if(typeof(top.TYPO3.Guide.Tours[tourName]) !== 'undefined') {
-				top.TYPO3.Guide.Tours[tourName].start();
+				top.TYPO3.Guide.Tours[tourName].start(true);
+				top.TYPO3.Guide.currentTourName = tourName;
 				if(top.TYPO3.Guide.Tours[tourName].getCurrentStep()>0) {
 					top.TYPO3.Guide.Tours[tourName].goTo(0);
 				}
 			}
-			//else {
-			//	Logger.error('startTour: ', tourName, ' tour not found');
-			//}
+			else {
+				Logger.error('startTour: ', tourName, ' tour not found');
+			}
 		}
-		//else {
-		//	Logger.error('cant startTour ', tourName, ' because it may be disabled');
-		//}
+		else {
+			Logger.error('cant startTour ', tourName, ' because it may be disabled');
+		}
 	};
 
 	top.TYPO3.Guide.startTourWithStep = function(tourName, stepId) {
@@ -116,18 +109,19 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Logger
 			top.TYPO3.Guide.jumpToModuleIfRequired(top.TYPO3.Guide.TourData[tourName].moduleName);
 			Logger.log('startTourWithStep: ', tourName, 'at step ', stepId);
 			if(typeof(top.TYPO3.Guide.Tours[tourName]) !== 'undefined') {
-				top.TYPO3.Guide.Tours[tourName].start();
+				top.TYPO3.Guide.Tours[tourName].start(true);
+				top.TYPO3.Guide.currentTourName = tourName;
 				if(top.TYPO3.Guide.Tours[tourName].getCurrentStep()>0) {
 					top.TYPO3.Guide.Tours[tourName].goTo(stepId);
 				}
 			}
-			//else {
-			//	Logger.error('startTourWithStep: ', tourName, ' tour not found');
-			//}
+			else {
+				Logger.error('startTourWithStep: ', tourName, ' tour not found');
+			}
 		}
-		//else {
-		//	Logger.error('cant startTourWithStep ', tourName, ' because it may be disabled');
-		//}
+		else {
+			Logger.error('cant startTourWithStep ', tourName, ' because it may be disabled');
+		}
 	};
 
 	/**
@@ -161,7 +155,8 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Logger
 	};
 
 	top.TYPO3.Guide.openGuideModule = function () {
-		top.jump('', 'help_GuideGuide', '', 0);
+		top.TYPO3.Guide.Tours[top.TYPO3.Guide.currentTourName].end();
+		top.goToModule('help_GuideGuide');
 	};
 
 	top.TYPO3.Guide.loadTour = function(tourName, startTourAfterLoading) {
@@ -273,22 +268,22 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Logger
 			top.TYPO3.Guide.currentModule = currentModuleId;
 			top.TYPO3.Guide.currentTourName = '';
 			if(typeof(top.TYPO3.Guide.TourData) !== 'undefined') {
-	//			Logger.log('frame: tourdata is available', top.TYPO3.Guide.TourData);
+				Logger.log('frame: tourdata is available', top.TYPO3.Guide.TourData);
 				top.TYPO3.Guide.getTourNameByModuleName();
-	//			Logger.log('currentModule: ', top.TYPO3.Guide.currentModule);
-	//			Logger.log('currentTourName: ', top.TYPO3.Guide.currentTourName);
+				Logger.log('currentModule: ', top.TYPO3.Guide.currentModule);
+				Logger.log('currentTourName: ', top.TYPO3.Guide.currentTourName);
 				if(typeof(top.TYPO3.Guide.Tours[top.TYPO3.Guide.currentTourName]) === 'undefined') {
-	//				Logger.log('frame: tour ' + top.TYPO3.Guide.currentTourName + ' is not available -> load');
+					Logger.log('frame: tour ' + top.TYPO3.Guide.currentTourName + ' is not available -> load');
 					top.TYPO3.Guide.loadTour(top.TYPO3.Guide.currentTourName, true);
 				}
 				else {
-	//				Logger.log('frame: tour ' + top.TYPO3.Guide.currentTourName + ' is available -> start');
+					Logger.log('frame: tour ' + top.TYPO3.Guide.currentTourName + ' is available -> start');
 					top.TYPO3.Guide.startTour(top.TYPO3.Guide.currentTourName);
 				}
 			}
-	//		else {
-	//			Logger.error('frame: tourdata is not available');
-	//		}
+			else {
+				Logger.error('frame: tourdata is not available');
+			}
 		}
 	}();
 
