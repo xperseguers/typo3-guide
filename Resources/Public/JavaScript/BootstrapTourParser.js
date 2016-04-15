@@ -19,8 +19,6 @@ console.log(unprocessedSteps);
 
             jQuery.each( unprocessedSteps, function(key, current) {
 
-	            console.log('process: ', key, current);
-	            
                 steps.push({
 
                     /**
@@ -65,12 +63,20 @@ console.log(unprocessedSteps);
                      *
                      */
                     showArrow   :   current.showArrow != 'false',
+
+
+                    /**
+                     * Events which will be executed onHide
+                     */
+                    hide        :   current.hide
                 })
             });
+
             return steps;
         };
 
         TourParser.prototype.parseTour = function(current) {
+
             return new Tour({
                 /**
                  * the module name which is used for requirement checks
@@ -122,7 +128,7 @@ console.log(unprocessedSteps);
                         console.log(jQuery(step.element));
 
                         if(typeof step.before !== "undefined") {
-                            tour._options.handleRequirements(tour, step);
+                            tour._options.handleEvents(step.before, 'onShow', tour, step);
                         }
 
                         tour._options.sendStatus(tour);
@@ -137,7 +143,7 @@ console.log(unprocessedSteps);
                  */
                 onShown:    function(tour) {
                     jQuery('.tour-' + tour.getName() + '.tour-' + tour.getName() + '-' + tour.getCurrentStep() )
-                        .animate({ 'opacity': '1'}, 750);
+                        .animate({ 'opacity': '1'}, 500);
 
                     var stepIndex = tour.getCurrentStep();
                     if(stepIndex != null) {
@@ -151,11 +157,25 @@ console.log(unprocessedSteps);
 
                         // Handle requirements which are executed before the step is shown
                         if(typeof step.before !== "undefined") {
-                            tour._options.handleRequirements(tour, step);
+                            tour._options.handleEvents(step.before, 'onShown', tour, step);
                         }
 
                         // send the status to the backend
                         tour._options.sendStatus(tour);
+                    }
+                },
+
+                onHide:     function(tour) {
+                    var stepIndex = tour.getCurrentStep();
+                    if(stepIndex != null) {
+
+                        var step = tour.getStep(stepIndex);
+
+                        // Handle requirements which are executed before the step is shown
+                        if(typeof step.before !== "undefined") {
+                            tour._options.handleEvents(step.hide, 'onHide', tour, step);
+                        }
+
                     }
                 },
 
@@ -197,7 +217,7 @@ console.log(unprocessedSteps);
                     console.log('onNext: ', typeof step.nextStep !== "undefined", tour);
 
 	                // jQuery('#typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]').dropdown();
-	                
+
                     if(typeof step.nextStep !== "undefined") {
 
 	                    var newTourName = step.nextStep.tour;
@@ -226,10 +246,10 @@ console.log(unprocessedSteps);
 
                 steps : this.parseSteps(current.steps),
 
-                handleRequirements: function(tour, step) {
+                handleEvents: function(events, eventType, tour, step) {
                     console.log(step.before);
-                    if(typeof step.before !== "undefined" ) {
-                        jQuery.each(step.before, function(key, data) {
+                    if(typeof events !== "undefined" ) {
+                        jQuery.each(events, function(key, data) {
                             switch(key) {
                                 case 'addClass':
 
