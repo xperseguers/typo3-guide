@@ -99,6 +99,7 @@ console.log(unprocessedSteps);
                  * @param tour
                  */
                 onStart:    function(tour) {
+	                /*
                     console.log(tour);
                     if (tour._options.moduleId != 'core') {
                         if(top.TYPO3.ModuleMenu.App.loadedModule != tour._options.moduleId) {
@@ -106,6 +107,7 @@ console.log(unprocessedSteps);
                             top.jump('', tour._options.moduleId, '', 0);
                         }
                     }
+                    */
                 },
 
                 /**
@@ -196,15 +198,31 @@ console.log(unprocessedSteps);
                     var stepIndex = tour.getCurrentStep();
                     var step = tour.getStep(stepIndex);
 
-                    console.log(typeof step.nextStep !== "undefined", tour);
+                    console.log('onNext: ', typeof step.nextStep !== "undefined", tour);
 
                     if(typeof step.nextStep !== "undefined") {
-                        var tour = step.nextStep.tour;
-                        var stepId = step.nextStep.step;
 
-                        console.log(tour);
+	                    var newTourName = step.nextStep.tour;
+	                    var newTour = top.TYPO3.Guide.TourData[step.nextStep.tour];
 
-                        top.TYPO3.Guide.startTourWithStep(tour, stepId);
+	                    if (newTour.moduleName !== 'core') {
+		                    if(top.TYPO3.ModuleMenu.App.loadedModule != newTour.moduleName) {
+			                    console.log('jump to: ', newTour.moduleName);
+			                    tour.end();
+			                    top.jump('', newTour.moduleName, '', 0);
+			                    return;
+		                    }
+	                    }
+	                    
+                        var stepId = parseInt(step.nextStep.step, 10);
+                        console.log('switch to tour: ', newTourName);
+						if(stepId>0) {
+							top.TYPO3.Guide.startTourWithStep(newTourName, stepId);
+						}
+	                    else {
+							top.TYPO3.Guide.startTour(newTourName);
+						}
+                        
                     }
                 },
 

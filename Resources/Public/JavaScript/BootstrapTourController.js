@@ -95,6 +95,9 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 		console.log('startTour: ', tourName);
 		if(typeof(top.TYPO3.Guide.Tours[tourName]) !== 'undefined') {
 			top.TYPO3.Guide.Tours[tourName].start();
+			if(top.TYPO3.Guide.Tours[tourName].getCurrentStep()>0) {
+				top.TYPO3.Guide.Tours[tourName].goTo(0);
+			}
 		}
 		else {
 			console.log('startTour: ', tourName, ' tour not found');
