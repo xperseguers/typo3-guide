@@ -14,7 +14,7 @@ define(['jquery', 'TYPO3/CMS/Guide/Logger'], function (jQuery, Logger) {
          */
         TourParser.prototype.parseSteps = function(unprocessedSteps) {
             var steps = [];
-console.log(unprocessedSteps);
+            Logger.log(unprocessedSteps);
             if(typeof unprocessedSteps === "undefined") return steps;
 
             jQuery.each( unprocessedSteps, function(key, current) {
@@ -108,10 +108,10 @@ console.log(unprocessedSteps);
                  */
                 onStart:    function(tour) {
 	                /*
-                    console.log(tour);
+                    Logger.log(tour);
                     if (tour._options.moduleId != 'core') {
                         if(top.TYPO3.ModuleMenu.App.loadedModule != tour._options.moduleId) {
-                            console.log('jump to: ', tour._options.moduleId);
+                            Logger.log('jump to: ', tour._options.moduleId);
                             top.jump('', tour._options.moduleId, '', 0);
                         }
                     }
@@ -143,7 +143,7 @@ console.log(unprocessedSteps);
                  * @param tour
                  */
                 onShown:    function(tour) {
-                    jQuery('.tour-' + tour.getName() + '.tour-' + tour.getName() + '-' + tour.getCurrentStep() )
+                    jQuery('.tour-' + tour._options.name + '.tour-' + tour._options.name + '-' + tour.getCurrentStep() )
                         .animate({ 'opacity': '1'}, 500);
 
                     var $popover = jQuery('.popover.tour');
@@ -155,14 +155,14 @@ console.log(unprocessedSteps);
 
                         var step = tour.getStep(stepIndex);
 
-                        console.log('enable tour button', typeof step.nextStep !== "undefined" && !top.TYPO3.Guide.TourData[step.nextStep.tour].disabled);
+                        Logger.log('enable tour button', typeof step.nextStep !== "undefined" && !top.TYPO3.Guide.TourData[step.nextStep.tour].disabled);
                         if(typeof step.nextStep !== "undefined" && !top.TYPO3.Guide.TourData[step.nextStep.tour].disabled) {
                             $next.removeClass('disabled');
                         }
                         // Hide Arrow if needed
                         if(!step.showArrow) {
-                            console.log("hide the arrow");
-                            jQuery('.tour-' + tour.getName() + '.tour-' + tour.getName() + '-' + tour.getCurrentStep() + '> .arrow').hide();
+                            Logger.log("hide the arrow");
+                            jQuery('.tour-' + tour._options.name + '.tour-' + tour._options.name + '-' + tour.getCurrentStep() + '> .arrow').hide();
                         }
 
                         // Handle requirements which are executed shown the step is shown
@@ -200,16 +200,16 @@ console.log(unprocessedSteps);
                             url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
                             data: {
                                 cmd: 'disableTour',
-                                tour: tour.getName(),
+                                tour: tour._options.name,
                                 stepNo: tour.getCurrentStep()
                             },
                             success: function (result) {
 
-                                console.log("Disable Tour", result);
+                                Logger.log("Disable Tour", result);
                                 top.TYPO3.Guide.TourData[tour._options.name].disabled = true;
                             },
                             error: function (result) {
-                                console.error('Upps, an error occured. Message was: ', result);
+                                Logger.error('Upps, an error occured. Message was: ', result);
                             }
                         });
                     }
@@ -223,7 +223,7 @@ console.log(unprocessedSteps);
                     var stepIndex = tour.getCurrentStep();
                     var step = tour.getStep(stepIndex);
 
-                    console.log('onNext: ', typeof step.nextStep !== "undefined", tour);
+                    Logger.log('onNext: ', typeof step.nextStep !== "undefined", tour);
 
 
 
@@ -239,7 +239,7 @@ console.log(unprocessedSteps);
                         if(typeof newTour !== "undefined") {
                             if (newTour.moduleName !== 'core') {
                                 if(top.TYPO3.ModuleMenu.App.loadedModule != newTour.moduleName) {
-                                    console.log('jump to: ', newTour.moduleName);
+                                    Logger.log('jump to: ', newTour.moduleName);
                                     tour.end();
                                     top.jump('', newTour.moduleName, '', 0);
                                     return;
@@ -248,7 +248,7 @@ console.log(unprocessedSteps);
                         }
 	                    
                         var stepId = parseInt(step.nextStep.step, 10);
-                        console.log('switch to tour: ', newTourName);
+                        Logger.log('switch to tour: ', newTourName);
 						if(stepId>0) {
 							top.TYPO3.Guide.startTourWithStep(newTourName, stepId);
 						}
@@ -262,21 +262,21 @@ console.log(unprocessedSteps);
                 steps : this.parseSteps(current.steps),
 
                 handleEvents: function(events, eventType, tour, step) {
-                    console.log("Handle Events for " + eventType);
+                    Logger.log("Handle Events for " + eventType);
                     if(typeof events !== "undefined" ) {
                         jQuery.each(events, function(key, data) {
                             switch(key) {
                                 case 'addClass':
-                                    console.log("Execute add class");
+                                    Logger.log("Execute add class");
                                     jQuery(data.selector).addClass(data.class);
                                     break;
                                 case 'removeClass':
-                                    console.log("Execute remove class");
+                                    Logger.log("Execute remove class");
                                     jQuery(data.selector).removeClass(data.class);
                                     break;
                                 case 'openSelectBox':
                                     var selectBox = jQuery(data.selector);
-                                    console.log('OPEN: ', selectBox);
+                                    Logger.log('OPEN: ', selectBox);
 
                                     if (document.createEvent) {
                                         var event = document.createEvent("MouseEvents");
@@ -298,14 +298,14 @@ console.log(unprocessedSteps);
                         url: TYPO3.settings.ajaxUrls['GuideController::ajaxRequest'],
                         data: {
                             cmd: 'setStepNo',
-                            tour: tour.getName(),
+                            tour: tour._options.name,
                             stepNo: tour.getCurrentStep()
                         },
                         success: function (result) {
-                            console.log('SET STEP: ', result);
+                            Logger.log('SET STEP: ', result);
                         },
                         error: function (result) {
-                            console.error('Upps, an error occured. Message was: ', result);
+                            Logger.error('Upps, an error occured. Message was: ', result);
                         }
                     });
                 }
