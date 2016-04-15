@@ -157,7 +157,7 @@ console.log(unprocessedSteps);
 
                         // Handle requirements which are executed before the step is shown
                         if(typeof step.before !== "undefined") {
-                           // tour._options.handleEvents(step.before, 'onShown', tour, step);
+                            tour._options.handleEvents(step.before, 'onShown', tour, step);
                         }
                     }
                 },
@@ -251,12 +251,13 @@ console.log(unprocessedSteps);
                                 case 'addClass':
                                     console.log("Execute add class");
                                     jQuery(data.selector).addClass(data.class);
-                                    console.log(jQuery(data.selector));
                                     break;
                                 case 'removeClass':
                                     console.log("Execute remove class");
                                     jQuery(data.selector).removeClass(data.class);
                                     break;
+                                case 'openSelectBox':
+
                             }
                         });
 

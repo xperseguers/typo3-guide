@@ -81,6 +81,10 @@ mod.guide.tours.Topbar {
 			title = Live search
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
 			placement = bottom
+			next {
+				tour = Menu
+				step = 0
+			}
 		}
 	}
 }
