@@ -57,7 +57,12 @@ console.log(unprocessedSteps);
                     /**
                      * function parameters to jump to another tour and step
                      */
-                    nextStep    :   current.next
+                    nextStep    :   current.next,
+
+                    /**
+                     *
+                     */
+                    showArrow   :   current.showArrow != 'false'
                 })
             });
 
@@ -132,15 +137,26 @@ console.log(unprocessedSteps);
                     jQuery('.tour-' + tour.getName() + '.tour-' + tour.getName() + '-' + tour.getCurrentStep() )
                         .animate({ 'marginTop': '20px'}, 1000);
 
+
+
+
+
                     var stepIndex = tour.getCurrentStep();
                     if(stepIndex != null) {
-                        var step = tour.getStep(stepIndex);
-                        console.log(jQuery(step.element));
 
+                        var step = tour.getStep(stepIndex);
+                        // Hide Arrow if needed
+                        if(!step.showArrow) {
+                            console.log("hide the arrow");
+                            jQuery('.tour-' + tour.getName() + '.tour-' + tour.getName() + '-' + tour.getCurrentStep() + '> .arrow').hide();
+                        }
+
+                        // Handle requirements which are executed before the step is shown
                         if(typeof step.before !== "undefined") {
                             tour._options.handleRequirements(tour, step);
                         }
 
+                        // send the status to the backend
                         tour._options.sendStatus(tour);
                     }
                 },
