@@ -135,11 +135,7 @@ console.log(unprocessedSteps);
                  */
                 onShown:    function(tour) {
                     jQuery('.tour-' + tour.getName() + '.tour-' + tour.getName() + '-' + tour.getCurrentStep() )
-                        .animate({ 'marginTop': '20px'}, 1000);
-
-
-
-
+                        .animate({ 'marginTop': '0'}, 1000);
 
                     var stepIndex = tour.getCurrentStep();
                     if(stepIndex != null) {

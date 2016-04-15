@@ -51,3 +51,16 @@ body > .popover .dont-show-again label {
 	margin-bottom: 20px;
 	min-height: 250px;
 }
+
+
+.popover {
+	margin-top: -20px;
+}
+
+.popover.right > .arrow {
+	margin-top: 15px;
+}
+
+.popover.right > .left {
+	margin-top: 15px;
+}
