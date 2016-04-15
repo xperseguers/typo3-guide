@@ -1,18 +1,16 @@
-/* Custom styles for the guided tour
+/**
+ * Custom styles for the guided tour
  */
-
-/* A custom style for tour 'menu', step 0 */
-.tour-main.tour-menu-0 {
-	/*margin-top: 20px;*/
-}
-.tour-main.tour-menu-0 .arrow {
-	/*display:none;*/
-}
-
 body > .popover {
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 	min-width: 300px;
 	z-index: 9999 !important;
+}
+body > .popover.fade.in {
+	opacity: 0;
+}
+body > .popover .right-align {
+	text-align: right;
 }
 body > .popover .separator {
 	display: inline-block;
@@ -35,16 +33,6 @@ body > .popover .dont-show-again label {
 	cursor: pointer;
 	font-weight: normal;
 }
-
-
-
-/**
- * Helper classes
- */
-
-.popover .right-align {
-	text-align: right;
-}
 /**
  * Backend module
  */
@@ -55,8 +43,6 @@ body > .popover .dont-show-again label {
 	margin-bottom: 20px;
 	min-height: 250px;
 }
-
-.popover.fade.in {
-	opacity: 0;
+.typo3-guide-module hr {
+	border-top: 1px solid #7a7a7a;
 }
-

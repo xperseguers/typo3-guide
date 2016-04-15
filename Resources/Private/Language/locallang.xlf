@@ -15,8 +15,11 @@
 				<source>Dies ist eine kurze Beschreibung der vorhandenen guided tours</source>
 			</trans-unit>
 
-			<trans-unit id="tx_guide_label.available_guided_tours">
+			<trans-unit id="tx_guide_label.available_core_guided_tours">
 				<source>Available guided tours</source>
+			</trans-unit>
+			<trans-unit id="tx_guide_label.available_module_guided_tours">
+				<source>Available module guided tours</source>
 			</trans-unit>
 			<trans-unit id="tx_guide_label.enable_tour">
 				<source>Enable</source>
