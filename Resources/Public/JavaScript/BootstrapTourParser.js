@@ -124,7 +124,7 @@ console.log(unprocessedSteps);
 
                     var stepIndex = tour.getCurrentStep();
                     if(stepIndex != null) {
-                        var step = tour.getStep(stepIndex);
+                        var step = tour.getStep(stepIndex + 1);
                         console.log(jQuery(step.element));
 
                         if(typeof step.before !== "undefined") {
@@ -157,11 +157,8 @@ console.log(unprocessedSteps);
 
                         // Handle requirements which are executed before the step is shown
                         if(typeof step.before !== "undefined") {
-                            tour._options.handleEvents(step.before, 'onShown', tour, step);
+                           // tour._options.handleEvents(step.before, 'onShown', tour, step);
                         }
-
-                        // send the status to the backend
-                        tour._options.sendStatus(tour);
                     }
                 },
 
@@ -247,14 +244,18 @@ console.log(unprocessedSteps);
                 steps : this.parseSteps(current.steps),
 
                 handleEvents: function(events, eventType, tour, step) {
-                    console.log(step.before);
+                    console.log("Handle Events for " + eventType);
                     if(typeof events !== "undefined" ) {
                         jQuery.each(events, function(key, data) {
                             switch(key) {
                                 case 'addClass':
-
+                                    console.log("Execute add class");
                                     jQuery(data.selector).addClass(data.class);
                                     console.log(jQuery(data.selector));
+                                    break;
+                                case 'removeClass':
+                                    console.log("Execute remove class");
+                                    jQuery(data.selector).removeClass(data.class);
                                     break;
                             }
                         });
