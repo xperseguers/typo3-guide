@@ -21,11 +21,6 @@ console.log(unprocessedSteps);
 
 	            console.log('process: ', key, current);
 	            
-	            var openDropdown = false;
-	            if(typeof(current.openDropdown)) {
-		            openDropdown = current.openDropdown;
-	            }
-	            
                 steps.push({
 
                     /**
@@ -70,15 +65,12 @@ console.log(unprocessedSteps);
                      *
                      */
                     showArrow   :   current.showArrow != 'false',
-	                openDropdown: openDropdown
                 })
             });
-
             return steps;
         };
 
         TourParser.prototype.parseTour = function(current) {
-
             return new Tour({
                 /**
                  * the module name which is used for requirement checks

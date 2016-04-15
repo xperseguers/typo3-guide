@@ -75,12 +75,12 @@ mod.guide.tours.ConfigurationExample {
 					class = open
 				}
 				# Open a Bootstrap dropdown
-				openDropdown {
+				#openDropdown {
 					# jQuery selector of the Bootstrap dropdown
 					# Example:
 					# jQuery('#typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]').dropdown();
-					selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]
-				}
+				#	selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]
+				#}
 			}
 			# Actions triggered by finish to show this step
 			shown {

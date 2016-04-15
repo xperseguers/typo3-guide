@@ -34,8 +34,9 @@ mod.guide.tours.Topbar {
 			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.30.content
 			placement = right
 			show {
-				openDropdown {
-					selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]
+				addClass {
+					selector = #typo3-cms-backend-backend-toolbaritems-helptoolbaritem
+					class = open
 				}
 			}
 		}
@@ -56,7 +57,7 @@ mod.guide.tours.Topbar {
 			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.50.title
 			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.50.content
 			placement = bottom
-			show {
+			hide {
 				addClass {
 					selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem
 					class = open
@@ -68,18 +69,12 @@ mod.guide.tours.Topbar {
 			title = User settings
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
 			placement = right
-			show {
-				addClass {
-					selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem
-					class = open
-				}
-			}
 		}
 		70 {
 			selector = .icon-actions-logout:first
 			title = Logout
 			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
-			placement = right
+			placement = left
 		}
 		80 {
 			selector = #typo3-cms-backend-backend-toolbaritems-livesearchtoolbaritem
