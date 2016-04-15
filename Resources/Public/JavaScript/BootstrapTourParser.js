@@ -19,6 +19,13 @@ console.log(unprocessedSteps);
 
             jQuery.each( unprocessedSteps, function(key, current) {
 
+	            console.log('process: ', key, current);
+	            
+	            var openDropdown = false;
+	            if(typeof(current.openDropdown)) {
+		            openDropdown = current.openDropdown;
+	            }
+	            
                 steps.push({
 
                     /**
@@ -62,7 +69,8 @@ console.log(unprocessedSteps);
                     /**
                      *
                      */
-                    showArrow   :   current.showArrow != 'false'
+                    showArrow   :   current.showArrow != 'false',
+	                openDropdown: openDropdown
                 })
             });
 
@@ -196,6 +204,8 @@ console.log(unprocessedSteps);
 
                     console.log('onNext: ', typeof step.nextStep !== "undefined", tour);
 
+	                // jQuery('#typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]').dropdown();
+	                
                     if(typeof step.nextStep !== "undefined") {
 
 	                    var newTourName = step.nextStep.tour;

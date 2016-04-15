@@ -74,6 +74,13 @@ mod.guide.tours.ConfigurationExample {
 					# Class to be remove
 					class = open
 				}
+				# Open a Bootstrap dropdown
+				openDropdown {
+					# jQuery selector of the Bootstrap dropdown
+					# Example:
+					# jQuery('#typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]').dropdown();
+					selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]
+				}
 			}
 			# Actions triggered by finish to show this step
 			shown {

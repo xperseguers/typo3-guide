@@ -34,9 +34,8 @@ mod.guide.tours.Topbar {
 			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTopbar.xlf:tx_guide_tour.30.content
 			placement = right
 			show {
-				addClass {
-					selector = #typo3-cms-backend-backend-toolbaritems-helptoolbaritem
-					class = open
+				openDropdown {
+					selector = #typo3-cms-backend-backend-toolbaritems-usertoolbaritem .dropdown-toggle[href="#"]
 				}
 			}
 		}
