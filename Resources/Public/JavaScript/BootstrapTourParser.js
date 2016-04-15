@@ -166,7 +166,7 @@ console.log(unprocessedSteps);
                                 console.log(result);
                             },
                             error: function (result) {
-                                console.error('Upps, an error occured. Message was: ' + result);
+                                console.error('Upps, an error occured. Message was: ', result);
                             }
                         });
                     }
@@ -223,7 +223,7 @@ console.log(unprocessedSteps);
                            // console.log(result);
                         },
                         error: function (result) {
-                            console.error('Upps, an error occured. Message was: ' + result);
+                            console.error('Upps, an error occured. Message was: ', result);
                         }
                     });
                 }
