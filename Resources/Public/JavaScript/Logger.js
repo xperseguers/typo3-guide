@@ -17,14 +17,14 @@ define([], function () {
         this._options.disabled = false;
     };
 
-    CustomLogger.prototype.log = function(message) {
+    CustomLogger.prototype.log = function() {
         if(!this.isDisabled()) {
-            console.log(message);
+            console.log.apply(console, arguments);
         }
     };
 
-    CustomLogger.prototype.error = function(message) {
-        console.error(message);
+    CustomLogger.prototype.error = function() {
+        console.error.apply(console, arguments);
     };
 
     return new CustomLogger();
