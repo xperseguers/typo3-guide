@@ -94,7 +94,7 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 	 */
 	top.TYPO3.Guide.startTour = function (tourName) {
 		console.log('startTour: ', tourName);
-		if(typeof(top.TYPO3.Guide.Tours[tourName]) !== 'undefined') {
+		if(typeof(top.TYPO3.Guide.Tours[tourName]) !== 'undefined' && !top.TYPO3.Guide.TourData[tourName].disabled) {
 			top.TYPO3.Guide.Tours[tourName].start();
 			if(top.TYPO3.Guide.Tours[tourName].getCurrentStep()>0) {
 				top.TYPO3.Guide.Tours[tourName].goTo(0);
@@ -107,7 +107,7 @@ define(['jquery', 'TYPO3/CMS/Guide/BootstrapTourParser', 'TYPO3/CMS/Guide/Extend
 
 	top.TYPO3.Guide.startTourWithStep = function(tourName, stepId) {
 		console.log('startTour: ', tourName, ' at step ', stepId);
-		if(typeof(top.TYPO3.Guide.Tours[tourName]) !== 'undefined') {
+		if(typeof(top.TYPO3.Guide.Tours[tourName]) !== 'undefined' && !top.TYPO3.Guide.TourData[tourName].disabled) {
 			top.TYPO3.Guide.Tours[tourName].start();
 			top.TYPO3.Guide.Tours[tourName].goTo(stepId);
 		}

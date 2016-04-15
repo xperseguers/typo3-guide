@@ -195,7 +195,9 @@ console.log(unprocessedSteps);
                                 stepNo: tour.getCurrentStep()
                             },
                             success: function (result) {
-                                console.log(result);
+
+                                console.log("Disable Tour", result);
+                                top.TYPO3.Guide.TourData[tour._options.name].disabled = true;
                             },
                             error: function (result) {
                                 console.error('Upps, an error occured. Message was: ', result);
