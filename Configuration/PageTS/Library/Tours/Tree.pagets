@@ -6,26 +6,26 @@ mod.guide.tours.Tree {
 	steps {
 		10 {
 			selector = div.x-tree-root-node:first
-			title = TYPO3.lang['tx_guide_tour_tree_general.title']
-			content = TYPO3.lang['tx_guide_tour_tree_general.description']
+			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf:tx_guide_tour.10.title
+			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf:tx_guide_tour.10.content
 			placement = bottom
 		}
 		20 {
 			selector = #typo3-pagetree-topPanel-button-newNode
-			title = TYPO3.lang['tx_guide_tour_tree_new_node.title']
-			content = TYPO3.lang['tx_guide_tour_tree_new_node.description']
+			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf:tx_guide_tour.20.title
+			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf:tx_guide_tour.20.content
 			placement = bottom
 		}
 		30 {
 			selector = #typo3-pagetree-topPanel-button-filter
-			title = TYPO3.lang['tx_guide_tour_tree_filter.title']
-			content = TYPO3.lang['tx_guide_tour_tree_filter.description']
+			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf:tx_guide_tour.30.title
+			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf:tx_guide_tour.30.content
 			placement = bottom
 		}
 		40 {
 			selector = #typo3-pagetree-topPanel-button-refresh
-			title = TYPO3.lang['tx_guide_tour_tree_refresh.title']
-			content = TYPO3.lang['tx_guide_tour_tree_refresh.description']
+			title = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf:tx_guide_tour.40.title
+			content = LLL:EXT:guide/Resources/Private/Language/BootstrapTourTree.xlf:tx_guide_tour.40.content
 			placement = bottom
 		}
 		50 {
