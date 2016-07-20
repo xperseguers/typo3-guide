@@ -1,5 +1,4 @@
 <?php
-
 namespace Tx\Guide\Tests\Unit\Domain\Model;
 
 /***************************************************************
@@ -32,65 +31,72 @@ namespace Tx\Guide\Tests\Unit\Domain\Model;
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
- * @author TYPO3 CMS Team 
+ * @author TYPO3 CMS Team
  */
-class GuideTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
-	/**
-	 * @var \Tx\Guide\Domain\Model\Guide
-	 */
-	protected $subject = NULL;
+class GuideTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+{
+    /**
+     * @var \Tx\Guide\Domain\Model\Guide
+     */
+    protected $subject = null;
 
-	protected function setUp() {
-		$this->subject = new \Tx\Guide\Domain\Model\Guide();
-	}
+    protected function setUp()
+    {
+        $this->subject = new \Tx\Guide\Domain\Model\Guide();
+    }
 
-	protected function tearDown() {
-		unset($this->subject);
-	}
+    protected function tearDown()
+    {
+        unset($this->subject);
+    }
 
-	/**
-	 * @test
-	 */
-	public function getTitleReturnsInitialValueForString() {
-		$this->assertSame(
-			'',
-			$this->subject->getTitle()
-		);
-	}
+    /**
+     * @test
+     */
+    public function getTitleReturnsInitialValueForString()
+    {
+        $this->assertSame(
+            '',
+            $this->subject->getTitle()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function setTitleForStringSetsTitle() {
-		$this->subject->setTitle('Conceived at T3CON10');
+    /**
+     * @test
+     */
+    public function setTitleForStringSetsTitle()
+    {
+        $this->subject->setTitle('Conceived at T3CON10');
 
-		$this->assertAttributeEquals(
-			'Conceived at T3CON10',
-			'title',
-			$this->subject
-		);
-	}
+        $this->assertAttributeEquals(
+            'Conceived at T3CON10',
+            'title',
+            $this->subject
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function getTextReturnsInitialValueForString() {
-		$this->assertSame(
-			'',
-			$this->subject->getText()
-		);
-	}
+    /**
+     * @test
+     */
+    public function getTextReturnsInitialValueForString()
+    {
+        $this->assertSame(
+            '',
+            $this->subject->getText()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function setTextForStringSetsText() {
-		$this->subject->setText('Conceived at T3CON10');
+    /**
+     * @test
+     */
+    public function setTextForStringSetsText()
+    {
+        $this->subject->setText('Conceived at T3CON10');
 
-		$this->assertAttributeEquals(
-			'Conceived at T3CON10',
-			'text',
-			$this->subject
-		);
-	}
+        $this->assertAttributeEquals(
+            'Conceived at T3CON10',
+            'text',
+            $this->subject
+        );
+    }
 }

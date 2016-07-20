@@ -1,10 +1,11 @@
 <?php
 namespace Tx\Guide\Tests\Unit\Controller;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 TYPO3 CMS Team 
- *  			
+ *  (c) 2014 TYPO3 CMS Team
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -27,38 +28,42 @@ namespace Tx\Guide\Tests\Unit\Controller;
 /**
  * Test case for class Tx\Guide\Controller\GuideController.
  *
- * @author TYPO3 CMS Team 
+ * @author TYPO3 CMS Team
  */
-class GuideControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
+class GuideControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+{
 
-	/**
-	 * @var \Tx\Guide\Controller\GuideController
-	 */
-	protected $subject = NULL;
+    /**
+     * @var \Tx\Guide\Controller\GuideController
+     */
+    protected $subject = null;
 
-	protected function setUp() {
-		$this->subject = $this->getMock('Tx\\Guide\\Controller\\GuideController', array('redirect', 'forward', 'addFlashMessage'), array(), '', FALSE);
-	}
+    protected function setUp()
+    {
+        $this->subject = $this->getMock('Tx\\Guide\\Controller\\GuideController', array('redirect', 'forward', 'addFlashMessage'), array(), '', false);
+    }
 
-	protected function tearDown() {
-		unset($this->subject);
-	}
+    protected function tearDown()
+    {
+        unset($this->subject);
+    }
 
-	/**
-	 * @test
-	 */
-	public function listActionFetchesAllGuidesFromRepositoryAndAssignsThemToView() {
+    /**
+     * @test
+     */
+    public function listActionFetchesAllGuidesFromRepositoryAndAssignsThemToView()
+    {
 
-		$allGuides = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array(), array(), '', FALSE);
+        $allGuides = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array(), array(), '', false);
 
-		$guideRepository = $this->getMock('Tx\\Guide\\Domain\\Repository\\GuideRepository', array('findAll'), array(), '', FALSE);
-		$guideRepository->expects($this->once())->method('findAll')->will($this->returnValue($allGuides));
-		$this->inject($this->subject, 'guideRepository', $guideRepository);
+        $guideRepository = $this->getMock('Tx\\Guide\\Domain\\Repository\\GuideRepository', array('findAll'), array(), '', false);
+        $guideRepository->expects($this->once())->method('findAll')->will($this->returnValue($allGuides));
+        $this->inject($this->subject, 'guideRepository', $guideRepository);
 
-		$view = $this->getMock('TYPO3\\CMS\\Extbase\\Mvc\\View\\ViewInterface');
-		$view->expects($this->once())->method('assign')->with('guides', $allGuides);
-		$this->inject($this->subject, 'view', $view);
+        $view = $this->getMock('TYPO3\\CMS\\Extbase\\Mvc\\View\\ViewInterface');
+        $view->expects($this->once())->method('assign')->with('guides', $allGuides);
+        $this->inject($this->subject, 'view', $view);
 
-		$this->subject->listAction();
-	}
+        $this->subject->listAction();
+    }
 }
